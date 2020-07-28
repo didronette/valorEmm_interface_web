@@ -1,0 +1,41 @@
+à penser :
+- faire en sorte que les erreurs s'afichent en PHP
+	-> Chemin du fichier de configuration de PHP chargé par le serveur web : Loaded configuration file
+	-> Il faut s'assurer que les clés de configuration  error_reporting  et  display_errors  ont respectivement les valeurs  E_ALL  &  on.
+	-> relancer le serveur
+
+htmlspecialchars
+strip_tags
+
+adresse mac : 
+
+<?php 
+  
+// PHP code to get the MAC address of Client 
+$MAC = exec('getmac'); 
+  
+// Storing 'getmac' value in $MAC 
+$MAC = strtok($MAC, ' '); 
+  
+// Updating $MAC value using strtok function,  
+// strtok is used to split the string into tokens 
+// split character of strtok is defined as a space 
+// because getmac returns transport name after 
+// MAC address    
+echo "MAC address of client is: $MAC"; 
+?> 
+
+
+securité des sessions en PHP ?
+-> Comment les paramétrer (pour le temps notamment?)
+
+sécuriser les cookies :
+<?php setcookie('pseudo', 'M@teo21', time() + 365*24*3600, null, null, false, true); ?>
+
+email pour les mdp :
+
+https://stackoverflow.com/questions/387483/how-to-send-email-from-mysql-5-1
+
+https://github.com/mysqludf/lib_mysqludf_sys#readme : pour le sys_exec?
+
+en pl/sql : sys_exec()

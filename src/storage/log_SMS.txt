@@ -1,0 +1,348 @@
+
+NULL
+NULL
+object(App\Contacts\BuzzExpert)#1280 (7) {
+  ["_action":"App\Contacts\BuzzExpert":private]=>
+  array(14) {
+    ["push"]=>
+    string(5) "/push"
+    ["getToken"]=>
+    string(6) "/token"
+    ["getList"]=>
+    string(11) "/phone-list"
+    ["getDetailList"]=>
+    string(18) "/phone-list/detail"
+    ["addPhoneToList"]=>
+    string(21) "/phone-list/add-phone"
+    ["updatePhoneFromList"]=>
+    string(24) "/phone-list/update-phone"
+    ["deletePhoneFromList"]=>
+    string(24) "/phone-list/delete-phone"
+    ["addPhoneToBlackList"]=>
+    string(31) "/phone-list/add-phone-blacklist"
+    ["deletePhoneFromBlackList"]=>
+    string(34) "/phone-list/delete-phone-blacklist"
+    ["getPhoneFromCampaign"]=>
+    string(10) "/phone/get"
+    ["getResponseFromCampaign"]=>
+    string(13) "/response/get"
+    ["remainCredit"]=>
+    string(14) "/credit/remain"
+    ["getCampaign"]=>
+    string(9) "/campaign"
+    ["addOadc"]=>
+    string(12) "/oadc/create"
+  }
+  ["_lastError":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_token":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_tokenLastUsed":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_curl":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_login":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_password":"App\Contacts\BuzzExpert":private]=>
+  NULL
+}
+array(2) {
+  ["error"]=>
+  string(25) "authentification refusée"
+  ["errno"]=>
+  string(3) "403"
+}
+bool(false)
+NULL
+NULL
+object(App\Contacts\BuzzExpert)#1284 (7) {
+  ["_action":"App\Contacts\BuzzExpert":private]=>
+  array(14) {
+    ["push"]=>
+    string(5) "/push"
+    ["getToken"]=>
+    string(6) "/token"
+    ["getList"]=>
+    string(11) "/phone-list"
+    ["getDetailList"]=>
+    string(18) "/phone-list/detail"
+    ["addPhoneToList"]=>
+    string(21) "/phone-list/add-phone"
+    ["updatePhoneFromList"]=>
+    string(24) "/phone-list/update-phone"
+    ["deletePhoneFromList"]=>
+    string(24) "/phone-list/delete-phone"
+    ["addPhoneToBlackList"]=>
+    string(31) "/phone-list/add-phone-blacklist"
+    ["deletePhoneFromBlackList"]=>
+    string(34) "/phone-list/delete-phone-blacklist"
+    ["getPhoneFromCampaign"]=>
+    string(10) "/phone/get"
+    ["getResponseFromCampaign"]=>
+    string(13) "/response/get"
+    ["remainCredit"]=>
+    string(14) "/credit/remain"
+    ["getCampaign"]=>
+    string(9) "/campaign"
+    ["addOadc"]=>
+    string(12) "/oadc/create"
+  }
+  ["_lastError":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_token":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_tokenLastUsed":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_curl":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_login":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_password":"App\Contacts\BuzzExpert":private]=>
+  NULL
+}
+array(2) {
+  ["error"]=>
+  string(25) "authentification refusée"
+  ["errno"]=>
+  string(3) "403"
+}
+bool(false)
+NULL
+NULL
+object(App\Contacts\BuzzExpert)#1288 (7) {
+  ["_action":"App\Contacts\BuzzExpert":private]=>
+  array(14) {
+    ["push"]=>
+    string(5) "/push"
+    ["getToken"]=>
+    string(6) "/token"
+    ["getList"]=>
+    string(11) "/phone-list"
+    ["getDetailList"]=>
+    string(18) "/phone-list/detail"
+    ["addPhoneToList"]=>
+    string(21) "/phone-list/add-phone"
+    ["updatePhoneFromList"]=>
+    string(24) "/phone-list/update-phone"
+    ["deletePhoneFromList"]=>
+    string(24) "/phone-list/delete-phone"
+    ["addPhoneToBlackList"]=>
+    string(31) "/phone-list/add-phone-blacklist"
+    ["deletePhoneFromBlackList"]=>
+    string(34) "/phone-list/delete-phone-blacklist"
+    ["getPhoneFromCampaign"]=>
+    string(10) "/phone/get"
+    ["getResponseFromCampaign"]=>
+    string(13) "/response/get"
+    ["remainCredit"]=>
+    string(14) "/credit/remain"
+    ["getCampaign"]=>
+    string(9) "/campaign"
+    ["addOadc"]=>
+    string(12) "/oadc/create"
+  }
+  ["_lastError":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_token":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_tokenLastUsed":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_curl":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_login":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_password":"App\Contacts\BuzzExpert":private]=>
+  NULL
+}
+array(2) {
+  ["error"]=>
+  string(25) "authentification refusée"
+  ["errno"]=>
+  string(3) "403"
+}
+bool(false)
+NULL
+NULL
+object(App\Contacts\BuzzExpert)#1292 (7) {
+  ["_action":"App\Contacts\BuzzExpert":private]=>
+  array(14) {
+    ["push"]=>
+    string(5) "/push"
+    ["getToken"]=>
+    string(6) "/token"
+    ["getList"]=>
+    string(11) "/phone-list"
+    ["getDetailList"]=>
+    string(18) "/phone-list/detail"
+    ["addPhoneToList"]=>
+    string(21) "/phone-list/add-phone"
+    ["updatePhoneFromList"]=>
+    string(24) "/phone-list/update-phone"
+    ["deletePhoneFromList"]=>
+    string(24) "/phone-list/delete-phone"
+    ["addPhoneToBlackList"]=>
+    string(31) "/phone-list/add-phone-blacklist"
+    ["deletePhoneFromBlackList"]=>
+    string(34) "/phone-list/delete-phone-blacklist"
+    ["getPhoneFromCampaign"]=>
+    string(10) "/phone/get"
+    ["getResponseFromCampaign"]=>
+    string(13) "/response/get"
+    ["remainCredit"]=>
+    string(14) "/credit/remain"
+    ["getCampaign"]=>
+    string(9) "/campaign"
+    ["addOadc"]=>
+    string(12) "/oadc/create"
+  }
+  ["_lastError":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_token":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_tokenLastUsed":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_curl":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_login":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_password":"App\Contacts\BuzzExpert":private]=>
+  NULL
+}
+array(2) {
+  ["error"]=>
+  string(25) "authentification refusée"
+  ["errno"]=>
+  string(3) "403"
+}
+bool(false)
+string(10) "0651292806"
+string(9) "zemato577"
+object(App\Contacts\BuzzExpert)#1296 (7) {
+  ["_action":"App\Contacts\BuzzExpert":private]=>
+  array(14) {
+    ["push"]=>
+    string(5) "/push"
+    ["getToken"]=>
+    string(6) "/token"
+    ["getList"]=>
+    string(11) "/phone-list"
+    ["getDetailList"]=>
+    string(18) "/phone-list/detail"
+    ["addPhoneToList"]=>
+    string(21) "/phone-list/add-phone"
+    ["updatePhoneFromList"]=>
+    string(24) "/phone-list/update-phone"
+    ["deletePhoneFromList"]=>
+    string(24) "/phone-list/delete-phone"
+    ["addPhoneToBlackList"]=>
+    string(31) "/phone-list/add-phone-blacklist"
+    ["deletePhoneFromBlackList"]=>
+    string(34) "/phone-list/delete-phone-blacklist"
+    ["getPhoneFromCampaign"]=>
+    string(10) "/phone/get"
+    ["getResponseFromCampaign"]=>
+    string(13) "/response/get"
+    ["remainCredit"]=>
+    string(14) "/credit/remain"
+    ["getCampaign"]=>
+    string(9) "/campaign"
+    ["addOadc"]=>
+    string(12) "/oadc/create"
+  }
+  ["_lastError":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_token":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_tokenLastUsed":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_curl":"App\Contacts\BuzzExpert":private]=>
+  NULL
+  ["_login":"App\Contacts\BuzzExpert":private]=>
+  string(10) "0651292806"
+  ["_password":"App\Contacts\BuzzExpert":private]=>
+  string(9) "zemato577"
+}
+array(2) {
+  ["error"]=>
+  string(42) "le paramètre "options/type" est incorrect"
+  ["errno"]=>
+  string(3) "409"
+}
+bool(false)
+string(5) "10.00"
+array(2) {
+  ["error"]=>
+  string(42) "le paramètre "options/type" est incorrect"
+  ["errno"]=>
+  string(3) "409"
+}
+bool(false)
+array(4) {
+  ["status"]=>
+  string(2) "ok"
+  ["tx_id"]=>
+  string(11) "10039922973"
+  ["credit"]=>
+  string(1) "1"
+  ["credit_rest"]=>
+  string(1) "9"
+}
+Array
+(
+    [error] => Votre message est trop long
+    [errno] => 409
+)
+bool(false)
+1bool(false)
+1bool(false)
+1bool(false)
+array(4) {
+  ["status"]=>
+  string(2) "ok"
+  ["tx_id"]=>
+  string(11) "10039929460"
+  ["credit"]=>
+  string(1) "2"
+  ["credit_rest"]=>
+  string(3) "495"
+}
+array(4) {
+  ["status"]=>
+  string(2) "ok"
+  ["tx_id"]=>
+  string(11) "10039929478"
+  ["credit"]=>
+  string(1) "2"
+  ["credit_rest"]=>
+  string(3) "493"
+}
+array(4) {
+  ["status"]=>
+  string(2) "ok"
+  ["tx_id"]=>
+  string(11) "10039929512"
+  ["credit"]=>
+  string(1) "2"
+  ["credit_rest"]=>
+  string(3) "491"
+}
+array(4) {
+  ["status"]=>
+  string(2) "ok"
+  ["tx_id"]=>
+  string(11) "10039929564"
+  ["credit"]=>
+  string(1) "1"
+  ["credit_rest"]=>
+  string(3) "490"
+}
+array(4) {
+  ["status"]=>
+  string(2) "ok"
+  ["tx_id"]=>
+  string(11) "10039929572"
+  ["credit"]=>
+  string(1) "1"
+  ["credit_rest"]=>
+  string(3) "489"
+}
