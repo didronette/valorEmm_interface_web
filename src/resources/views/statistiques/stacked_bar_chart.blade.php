@@ -61,7 +61,6 @@ $chartjs = app()->chartjs
             'display' => true,
             'text' => 'Statistiques des commandes',
             'fontSize' => 40,
-   
         ],
         'scales' => [
             'xAxes' => [[
@@ -69,6 +68,10 @@ $chartjs = app()->chartjs
             ]],
             'yAxes' => [[
                 'stacked'=> true,
+                'ticks' => [
+                    'beginAtZero' => true,
+                    'stepSize' => 1
+                ]
             ]]
         ]
 ]);

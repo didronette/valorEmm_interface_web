@@ -36,7 +36,8 @@ class Commandes
             $fp = fopen('../storage/log_MAC.txt', 'a');//opens file in append mode
         
             fwrite($fp, 'MAC : ');
-            fwrite($fp, $MAC);   
+            fwrite($fp, $MAC);  
+            fwrite($fp, '\n'); 
             fclose($fp);
 
             $MAC = strtok($MAC, ' '); 
