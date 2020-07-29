@@ -5,9 +5,8 @@
 @endsection
 
 @section('contenu')
-    <div class="col-sm-offset-4 col-sm-4">
-    	<br>
-		<div class="panel panel-primary">	
+    <div class="col-sm-offset-5 col-sm-4">
+		<div class="panel panel-primary" id="yellow">	
 			<div class="panel-body"> 
 				<p>Catégorie : {{ $fluxx->categorie }}</p>
                 <p>Société : {{ $fluxx->societe }}</p>
@@ -17,11 +16,10 @@
                 <p>Délai d'enlèvement (en heure) : {{ $fluxx->delai_enlevement }} </p>
                 <p>Horraire de commande : {{ $fluxx->horaires_commande_matin }} {{ $fluxx->horaires_commande_aprem }} </p>
                 <p>Jour de commande : {{ $fluxx->jour_commande }} </p>
-
 			</div>
 		</div>				
-		<a href="javascript:history.back()" class="btn btn-primary">
-			<span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
+		<a href="javascript:history.back()" class="btn btn-success">
+			<span class="glyphicon" style='font-size:25px;'>&#8634;</span>  Retour
 		</a>
 	</div>
 @endsection

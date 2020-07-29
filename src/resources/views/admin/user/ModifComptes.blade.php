@@ -5,12 +5,12 @@
 @endsection
 
 @section('contenu')
-    <div class="col-sm-offset-4 col-sm-4">
+    <div class="col-sm-offset-5 col-sm-4">
     	<br>
-		<div class="panel panel-primary">	
+		<div class="panel panel-primary" id="yellow">	
 			<div class="panel-body"> 
 				<div class="col-sm-12">
-					{!! Form::model($user, ['route' => ['comptes.update', $user->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+					{!! Form::model($user, ['route' => ['comptes.update', $user->id], 'method' => 'put', 'class' => 'form-horizontal panel','id' =>'yellow']) !!}
 					<div class="form-group {!! $errors->has('name') ? 'has-error' : '' !!}">
 					  	{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nom']) !!}
 					  	{!! $errors->first('name', '<small class="help-block">:message</small>') !!}
@@ -27,13 +27,13 @@
                             {!! Form::select('type',['Administrateur' => 'Administrateur','Agglomération' => 'Agglomération','Gérant' => 'Gérant','Agent' => 'Agent'], $user->type,['class' => 'form-control', 'placeholder' => 'Type de compte']) !!}
                             {!! $errors->first('type', '<small class="help-block">:message</small>') !!}
                     </div>
-						{!! Form::submit('Envoyer', ['class' => 'btn btn-primary pull-right']) !!}
+						{!! Form::submit('Modifier', ['class' => 'btn btn-success pull-right pull-right']) !!}
 					{!! Form::close() !!}
 				</div>
 			</div>
 		</div>
-		<a href="javascript:history.back()" class="btn btn-primary">
-			<span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
+		<a href="javascript:history.back()" class="btn btn-success">
+			<span class="glyphicon" style='font-size:25px;'>&#8634;</span>  Retour
 		</a>
 	</div>
 @endsection

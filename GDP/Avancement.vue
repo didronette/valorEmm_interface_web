@@ -1,14 +1,14 @@
-<!-- Tufts VUE 3.1.2 concept-map (Avancement.vue) 2020-07-25 -->
+<!-- Tufts VUE 3.1.2 concept-map (Avancement.vue) 2020-07-28 -->
 <!-- Tufts VUE: http://vue.tufts.edu/ -->
 <!-- Do Not Remove: VUE mapping @version(1.1) jar:file:/home/zoe/Logiciel/VUE_3_1.2/VUE.jar!/tufts/vue/resources/lw_mapping_1_1.xml -->
-<!-- Do Not Remove: Saved date Sat Jul 25 11:53:14 CEST 2020 by zoe on platform Linux 4.15.0-112-generic in JVM 11.0.8+10-post-Ubuntu-0ubuntu118.04.1 -->
+<!-- Do Not Remove: Saved date Tue Jul 28 17:44:38 CEST 2020 by zoe on platform Linux 4.15.0-112-generic in JVM 11.0.8+10-post-Ubuntu-0ubuntu118.04.1 -->
 <!-- Do Not Remove: Saving version @(#)VUE: built March 8 2012 at 1310 by vue on Linux 2.4.21-63.EL i386 JVM 1.5.0_06-b05(bits=32) -->
 <?xml version="1.0" encoding="US-ASCII"?>
 <LW-MAP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="none" ID="0" label="Avancement.vue"
     created="1595066144972" x="0.0" y="0.0" width="1.4E-45"
     height="1.4E-45" strokeWidth="0.0" autoSized="false">
-    <resource referenceCreated="1595670794660" size="116123"
+    <resource referenceCreated="1595951078736" size="114091"
         spec="/home/zoe/Bureau/valorEmm_interface_web/GDP/Avancement.vue"
         type="1" xsi:type="URLResource">
         <title>Avancement.vue</title>
@@ -18,8 +18,8 @@
     <strokeColor>#404040</strokeColor>
     <textColor>#000000</textColor>
     <font>SansSerif-plain-14</font>
-    <metadata-list category-list-size="1" other-list-size="0"
-        ontology-list-size="0" RCategoryListSize="0">
+    <metadata-list category-list-size="1" RCategoryListSize="0"
+        ontology-list-size="0" other-list-size="0">
         <ontology-list-string></ontology-list-string>
         <metadata xsi:type="vue-metadata-element">
             <value></value>
@@ -28,15 +28,15 @@
         </metadata>
     </metadata-list>
     <URIString>http://vue.tufts.edu/rdf/resource/616dec1f7f0001010fddb6989e2ea1a5</URIString>
-    <child ID="6" label="Impl&#xe9;mentaton (30h)" layerID="1"
+    <child ID="6" label="Impl&#xe9;mentaton (25h)" layerID="1"
         created="1595066213555" x="530.0" y="165.0" width="203.49432"
         height="50.0" strokeWidth="1.0" autoSized="false" xsi:type="node">
         <fillColor>#F2AE45</fillColor>
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -54,8 +54,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -73,8 +73,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -92,8 +92,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -111,8 +111,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -130,8 +130,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -149,8 +149,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -168,8 +168,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -187,8 +187,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -206,8 +206,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -225,8 +225,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -245,8 +245,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -264,8 +264,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -283,8 +283,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -302,8 +302,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -324,8 +324,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -346,8 +346,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -368,8 +368,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -390,8 +390,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -409,8 +409,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -428,8 +428,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -447,8 +447,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -466,8 +466,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -488,8 +488,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -510,8 +510,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -532,8 +532,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -554,8 +554,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -575,8 +575,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -597,8 +597,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -619,8 +619,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -638,8 +638,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -657,8 +657,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -676,8 +676,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -695,8 +695,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -714,8 +714,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -736,8 +736,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -757,8 +757,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -778,8 +778,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -799,8 +799,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -821,8 +821,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -840,8 +840,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -852,15 +852,15 @@
         <URIString>http://vue.tufts.edu/rdf/resource/616dec997f0001010fddb698209e0b1f</URIString>
         <shape arcwidth="20.0" archeight="20.0" xsi:type="roundRect"/>
     </child>
-    <child ID="54" label="2h" layerID="1" created="1595067109646"
+    <child ID="54" label="1h" layerID="1" created="1595067109646"
         x="226.9201" y="58.137745" width="341.61145" height="111.66161"
         strokeWidth="1.0" autoSized="false" controlCount="0"
         arrowState="2" xsi:type="link">
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -881,8 +881,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -903,8 +903,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -918,15 +918,15 @@
         <ID1 xsi:type="node">9</ID1>
         <ID2 xsi:type="node">8</ID2>
     </child>
-    <child ID="57" label="2h" layerID="1" created="1595067112482"
+    <child ID="57" label="1h" layerID="1" created="1595067112482"
         x="213.72171" y="-14.891144" width="64.27867" height="45.38678"
         strokeWidth="1.0" autoSized="false" controlCount="0"
         arrowState="2" xsi:type="link">
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -947,8 +947,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -968,8 +968,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -990,8 +990,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1005,15 +1005,15 @@
         <ID1 xsi:type="node">6</ID1>
         <ID2 xsi:type="node">19</ID2>
     </child>
-    <child ID="61" label="9h" layerID="1" created="1595067149496"
+    <child ID="61" label="5h" layerID="1" created="1595067149496"
         x="681.8065" y="89.63675" width="152.40125" height="75.86325"
         strokeWidth="1.0" autoSized="false" controlCount="0"
         arrowState="2" xsi:type="link">
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1034,8 +1034,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1053,8 +1053,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1072,8 +1072,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1091,8 +1091,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1110,8 +1110,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1129,8 +1129,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1148,8 +1148,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1167,8 +1167,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1186,8 +1186,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1208,8 +1208,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1227,8 +1227,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1246,8 +1246,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1268,8 +1268,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1290,8 +1290,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1309,8 +1309,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1328,8 +1328,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1347,8 +1347,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1369,8 +1369,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1391,8 +1391,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1413,8 +1413,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1435,8 +1435,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1457,8 +1457,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1479,8 +1479,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1501,8 +1501,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1523,8 +1523,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1545,8 +1545,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1567,8 +1567,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1586,8 +1586,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1605,8 +1605,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1627,8 +1627,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1649,8 +1649,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1668,8 +1668,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1687,8 +1687,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1702,15 +1702,15 @@
         <ID1 xsi:type="node">18</ID1>
         <ID2 xsi:type="node">94</ID2>
     </child>
-    <child ID="97" label="9h" layerID="1" created="1595068158721"
+    <child ID="97" label="5h" layerID="1" created="1595068158721"
         x="925.8174" y="17.87207" width="96.89258" height="34.239258"
         strokeWidth="1.0" autoSized="false" controlCount="0"
         arrowState="2" xsi:type="link">
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1731,8 +1731,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1750,8 +1750,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1769,8 +1769,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1788,8 +1788,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1808,8 +1808,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1827,8 +1827,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1849,8 +1849,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1871,8 +1871,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1893,8 +1893,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1915,8 +1915,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1937,8 +1937,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1956,8 +1956,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1974,12 +1974,12 @@
     <child ID="110" label="Statistiques" layerID="1"
         created="1595068779712" x="1167.7906" y="-34.081234"
         width="87.0" height="23.0" strokeWidth="1.0" autoSized="true" xsi:type="node">
-        <fillColor>#FC938D</fillColor>
+        <fillColor>#C1F780</fillColor>
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -1997,8 +1997,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -2016,8 +2016,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -2031,15 +2031,15 @@
         <ID1 xsi:type="node">95</ID1>
         <ID2 xsi:type="node">111</ID2>
     </child>
-    <child ID="113" label="4h" layerID="1" created="1595068890066"
-        x="1087.4181" y="-15.168503" width="83.357666"
-        height="16.888718" strokeWidth="1.0" autoSized="false"
-        controlCount="0" arrowState="2" xsi:type="link">
+    <child ID="113" layerID="1" created="1595068890066" x="1087.4181"
+        y="-15.168503" width="83.357666" height="16.888718"
+        strokeWidth="1.0" autoSized="false" controlCount="0"
+        arrowState="2" xsi:type="link">
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -2060,8 +2060,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -2079,8 +2079,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -2101,8 +2101,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -2113,25 +2113,6 @@
         <URIString>http://vue.tufts.edu/rdf/resource/61c1eb957f0001012f6dbe3ec611804a</URIString>
         <shape xsi:type="diamond"/>
     </child>
-    <child ID="120" label="Requ&#xea;tes SQL" layerID="1"
-        created="1595072184775" x="1262.9183" y="37.3765" width="134.4"
-        height="53.4" strokeWidth="1.0" autoSized="true" xsi:type="node">
-        <fillColor>#D0D0D0</fillColor>
-        <strokeColor>#000000</strokeColor>
-        <textColor>#000000</textColor>
-        <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
-            <ontology-list-string></ontology-list-string>
-            <metadata xsi:type="vue-metadata-element">
-                <value></value>
-                <key>http://vue.tufts.edu/vue.rdfs#none</key>
-                <type>1</type>
-            </metadata>
-        </metadata-list>
-        <URIString>http://vue.tufts.edu/rdf/resource/61c1eb967f0001012f6dbe3eb2e036da</URIString>
-        <shape xsi:type="diamond"/>
-    </child>
     <child ID="122" label="1h" layerID="1" created="1595072851952"
         x="1145.0557" y="75.99341" width="20.485107" height="42.25293"
         strokeWidth="1.0" autoSized="false" controlCount="0"
@@ -2139,8 +2120,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -2154,28 +2135,6 @@
         <ID1 xsi:type="node">111</ID1>
         <ID2 xsi:type="node">119</ID2>
     </child>
-    <child ID="123" label="2h" layerID="1" created="1595072854018"
-        x="1226.5598" y="-11.581238" width="80.35864" height="58.874084"
-        strokeWidth="1.0" autoSized="false" controlCount="0"
-        arrowState="2" xsi:type="link">
-        <strokeColor>#404040</strokeColor>
-        <textColor>#404040</textColor>
-        <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
-            <ontology-list-string></ontology-list-string>
-            <metadata xsi:type="vue-metadata-element">
-                <value></value>
-                <key>http://vue.tufts.edu/vue.rdfs#none</key>
-                <type>1</type>
-            </metadata>
-        </metadata-list>
-        <URIString>http://vue.tufts.edu/rdf/resource/61c1eb9b7f0001012f6dbe3ea1142505</URIString>
-        <point1 x="1227.0598" y="-11.081238"/>
-        <point2 x="1306.4185" y="46.792847"/>
-        <ID1 xsi:type="node">110</ID1>
-        <ID2 xsi:type="node">120</ID2>
-    </child>
     <child ID="129" label="Base de donn&#xe9;es" layerID="1"
         created="1595073120984" x="125.060074" y="89.54672"
         width="161.6" height="57.600002" strokeWidth="1.0"
@@ -2184,8 +2143,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -2203,8 +2162,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -2225,8 +2184,8 @@
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Arial-plain-12</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -2244,8 +2203,8 @@
         <strokeColor>#404040</strokeColor>
         <textColor>#404040</textColor>
         <font>Arial-plain-11</font>
-        <metadata-list category-list-size="1" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="1" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
             <metadata xsi:type="vue-metadata-element">
                 <value></value>
@@ -2261,8 +2220,8 @@
     </child>
     <layer ID="1" label="Layer 1" created="1595066144975" x="0.0"
         y="0.0" width="1.4E-45" height="1.4E-45" strokeWidth="0.0" autoSized="false">
-        <metadata-list category-list-size="0" other-list-size="0"
-            ontology-list-size="0" RCategoryListSize="0">
+        <metadata-list category-list-size="0" RCategoryListSize="0"
+            ontology-list-size="0" other-list-size="0">
             <ontology-list-string></ontology-list-string>
         </metadata-list>
         <URIString>http://vue.tufts.edu/rdf/resource/616decb77f0001010fddb698d3c0faf6</URIString>
@@ -2277,8 +2236,8 @@
             <strokeColor>#B3CC33CC</strokeColor>
             <textColor>#000000</textColor>
             <font>SansSerif-plain-14</font>
-            <metadata-list category-list-size="0" other-list-size="0"
-                ontology-list-size="0" RCategoryListSize="0">
+            <metadata-list category-list-size="0" RCategoryListSize="0"
+                ontology-list-size="0" other-list-size="0">
                 <ontology-list-string></ontology-list-string>
             </metadata-list>
             <URIString>http://vue.tufts.edu/rdf/resource/616decb97f0001010fddb698516e2873</URIString>
@@ -2290,7 +2249,7 @@
                 <textColor>#000000</textColor>
                 <font>SansSerif-plain-14</font>
                 <metadata-list category-list-size="0"
-                    other-list-size="0" ontology-list-size="0" RCategoryListSize="0">
+                    RCategoryListSize="0" ontology-list-size="0" other-list-size="0">
                     <ontology-list-string></ontology-list-string>
                 </metadata-list>
                 <URIString>http://vue.tufts.edu/rdf/resource/616decba7f0001010fddb69875507ab5</URIString>
@@ -2302,7 +2261,7 @@
                     <textColor>#FFFFFF</textColor>
                     <font>Gill Sans-plain-36</font>
                     <metadata-list category-list-size="0"
-                        other-list-size="0" ontology-list-size="0" RCategoryListSize="0">
+                        RCategoryListSize="0" ontology-list-size="0" other-list-size="0">
                         <ontology-list-string></ontology-list-string>
                     </metadata-list>
                     <URIString>http://vue.tufts.edu/rdf/resource/616decbb7f0001010fddb6984445b98b</URIString>
@@ -2316,7 +2275,7 @@
                     <textColor>#FFFFFF</textColor>
                     <font>Gill Sans-plain-22</font>
                     <metadata-list category-list-size="0"
-                        other-list-size="0" ontology-list-size="0" RCategoryListSize="0">
+                        RCategoryListSize="0" ontology-list-size="0" other-list-size="0">
                         <ontology-list-string></ontology-list-string>
                     </metadata-list>
                     <URIString>http://vue.tufts.edu/rdf/resource/616decbc7f0001010fddb698705d80c2</URIString>
@@ -2329,7 +2288,7 @@
                     <textColor>#B3BFE3</textColor>
                     <font>Gill Sans-plain-18</font>
                     <metadata-list category-list-size="0"
-                        other-list-size="0" ontology-list-size="0" RCategoryListSize="0">
+                        RCategoryListSize="0" ontology-list-size="0" other-list-size="0">
                         <ontology-list-string></ontology-list-string>
                     </metadata-list>
                     <URIString>http://vue.tufts.edu/rdf/resource/616decbd7f0001010fddb698a9fe4021</URIString>

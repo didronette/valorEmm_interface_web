@@ -8,6 +8,23 @@
            x.style.display = "none";
        }
    } 
+
+    function Cocher(classe) {
+        
+        var elementsACocher = document.getElementsByClassName(classe);
+        for(elem of elementsACocher) {
+            elem.checked = true;
+        } 
+    }
+
+    function Decocher(classe) {
+        console.log(classe);
+        var elementsACocher = document.getElementsByClassName(classe);
+        for(elem of elementsACocher) {
+            elem.checked = false;
+        }  
+    }
+
 </script>
 
 

@@ -6,10 +6,14 @@
 
 
 @section('contenu')
-				<div class="row">
-                {!! Form::open(['route' => 'flux.store','method' => 'post']) !!}	
 
-                <div class="column">
+<div class="col-sm-offset-5 col-sm-4">
+
+<div class="panel panel-primary" id="yellow">	
+			<div class="panel-body">
+
+                {!! Form::open(['route' => 'flux.store','method' => 'post','id' => 'yellow']) !!}	
+
                 <div class="form-group {!! $errors->has('categorie') ? 'has-error' : '' !!}">
 						{!! Form::select('categorie', ['Bennes' => 'Bennes','DDS' => 'DDS','Autres déchets' => 'Autres déchets'], null,['class' => 'form-control', 'placeholder' => 'Catégorie']) !!}
 						{!! $errors->first('categorie', '<small class="help-block">:message</small>') !!}
@@ -43,8 +47,6 @@
 						{!! Form::text('delai_enlevement', null, ['class' => 'form-control', 'placeholder' => 'Délai d\'enlèvement (en heure)']) !!}
 						{!! $errors->first('delai_enlevement', '<small class="help-block">:message</small>') !!}
 					</div>
-                    </div>
-                    <div class="column">
 
                     <div class="form-group {!! $errors->has('horaires_commande_matin') ? 'has-error' : '' !!}">
 						{!! Form::time('horaires_commande_matin', null, ['class' => 'form-control', 'placeholder' => 'Horaires de commande pour le matin']) !!}
@@ -60,18 +62,19 @@
 						{!! Form::text('jour_commande', null, ['class' => 'form-control', 'placeholder' => 'Jour où la commande est possible']) !!}
 						{!! $errors->first('jour_commande', '<small class="help-block">:message</small>') !!}
 					</div>  
-                    </div>
 
 
-					{!! Form::submit('Ajouter') !!}
+					{!! Form::submit('Ajouter',['class' => 'btn btn-success pull-right']) !!}
 					{!! Form::close() !!}
-
-					<a href="javascript:history.back()" class="btn btn-primary">
-			<span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
+		
+					</div>
+		</div>
+					<a href="javascript:history.back()" class="btn btn-success">
+			<span class="glyphicon" style='font-size:25px;'>&#8634;</span>  Retour
 		</a>
-				</div>
 
-
+		
+		</div>
 
 
 @endsection

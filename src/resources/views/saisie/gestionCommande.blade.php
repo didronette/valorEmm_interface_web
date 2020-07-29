@@ -47,7 +47,7 @@
 				@endforeach
 		
 		@else
-			Il n'y a pas de nouvelles commande.
+						Il n'y a pas de commande en cours.
 		@endif
 		</div>
 		</div>
@@ -60,7 +60,9 @@
 		 
 		
 
-		{!! $links !!}
+		<div style="margin-top:59px;">
+			{!! $links !!}
+		</div>
 	<div>
 		
 	</div>

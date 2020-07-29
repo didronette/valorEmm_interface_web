@@ -24,7 +24,7 @@
                 float: left;
                 width: 200px;
                 background-color: #fffd9e;
-                height: 189%;
+                height: 230%;
                 position: absolute;
                 
             }

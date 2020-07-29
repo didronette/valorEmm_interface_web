@@ -6,11 +6,11 @@
 
 @section('contenu')
     <br>
-    <div class="col-sm-offset-4 col-sm-4">
+    <div class="col-sm-offset-4 col-sm-6">
     	@if(session()->has('ok'))
 			<div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
 		@endif
-		<div class="panel panel-primary">
+		<div class="panel panel-primary" id="yellow">
 			<table class="table">
 				<thead>
 					<tr>
@@ -29,7 +29,7 @@
 						
 							<td>{!! $dechetterie_entity->nom !!}</td>
 							<td>{!! $dechetterie_entity->adresse_mac !!}</td>
-							<td>{!! link_to_route('dechetteries.edit', 'Modifier', [$dechetterie_entity->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
+							<td>{!! link_to_route('dechetteries.edit', 'Modifier', [$dechetterie_entity->id], ['class' => 'btn btn-success btn-block']) !!}</td>
 							<td>
 								{!! Form::open(['method' => 'DELETE', 'route' => ['dechetteries.destroy', $dechetterie_entity->id]]) !!}
 									{!! Form::submit('Supprimer', ['class' => 'btn btn-danger btn-block', 'onclick' => 'return confirm(\'Vraiment supprimer cette déchetterie ?\')']) !!}
@@ -40,8 +40,12 @@
 	  			</tbody>
 			</table>
 		</div>
-		{!! link_to_route('admin', 'Retour', [], ['class' => 'btn btn-info pull-left']) !!}
-		{!! link_to_route('dechetteries.create', 'Ajouter une déchetterie', [], ['class' => 'btn btn-info pull-right']) !!}
-		{!! $links !!}
+		
+		{!! link_to_route('admin', '&#8634; Retour', [], ['class' => 'btn btn-success pull-left']) !!}
+		{!! link_to_route('dechetteries.create', 'Ajouter une déchetterie', [], ['class' => 'btn btn-success pull-right']) !!}
+		
+		<div style="margin-top:59px;">
+			{!! $links !!}
+		</div>
 	</div>
 @endsection

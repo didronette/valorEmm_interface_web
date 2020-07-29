@@ -42,7 +42,9 @@ class ControllerDonneesStatistiques extends Controller
                 $defaults++;
             }
         }
-
+        if($commandes->count() == 0) {
+            return 0;
+        }
 
         return $defaults*100/$commandes->count();
     }
@@ -112,8 +114,11 @@ class ControllerDonneesStatistiques extends Controller
             }
         }
 
-
-        return $defaults*100/$commandes->count();    }
+        if($commandes->count() == 0) {
+            return 0;
+        }
+        return $defaults*100/$commandes->count();    
+    }
 
 
     public static function donneesGraphe($date_debut,$date_fin,$fluxx,$dechetteries) {
@@ -126,8 +131,29 @@ class ControllerDonneesStatistiques extends Controller
             ->whereRaw(self::whereDechetteries($dechetteries))
             ->get();
 
-        return Commande::hydrate($retour);
     }
+
+    public static function donneesGrapheNonEnlevee($date_debut,$date_fin,$fluxx,$dechetteries) {
+        $date_fin = Carbon::createFromFormat('Y-m-d', $date_fin)->addDay()->format('Y-m-d');
+        $commandes =  Commande::select(DB::raw('t.*'))
+            ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero, MAX(id) AS maxDate FROM Commande GROUP BY numero ) groupeC ON c.numero = groupeC.numero AND c.id = groupeC.maxDate) t'))
+            ->where('statut', '!=', 'Enlevée')
+            ->whereBetween('contact_at', [$date_debut, $date_fin])
+            ->whereRaw(self::whereFlux($fluxx))
+            ->whereRaw(self::whereDechetteries($dechetteries))
+            ->get();
+            
+        $retour = [];
+        foreach ($commandes as $key => $commande) {
+            $date_enlevement_max = Carbon::createFromFormat('Y-m-d H:i:s',self::calculerDateEnlevementMax($commande));
+            if (Carbon::now()->gt($date_enlevement_max)) {
+                array_push( $retour,$commande);
+            }
+        }
+
+        return $retour;
+    }
+
 
     public static function donneesCompletesGraphes() {
         $date_fin = Carbon::now()->addDay()->format('Y-m-d');
@@ -136,6 +162,24 @@ class ControllerDonneesStatistiques extends Controller
             ->where('statut', '=', 'Enlevée')
             ->whereBetween('date_enlevement', [\Illuminate\Support\Facades\Config::get('stats.date_debut_analyse'), $date_fin])
             ->get();        
+    }
+
+    public static function donneesCompletesGraphesNonEnlevee() {
+        $date_fin = Carbon::now()->addDay()->format('Y-m-d');
+        $commandes = Commande::select(DB::raw('t.*'))
+            ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero, MAX(id) AS maxDate FROM Commande GROUP BY numero ) groupeC ON c.numero = groupeC.numero AND c.id = groupeC.maxDate) t'))
+            ->where('statut', '!=', 'Enlevée')
+            ->whereBetween('contact_at', [\Illuminate\Support\Facades\Config::get('stats.date_debut_analyse'), $date_fin])
+            ->get(); 
+        $retour = [];
+        foreach ($commandes as $key => $commande) {
+            $date_enlevement_max = Carbon::createFromFormat('Y-m-d H:i:s',self::calculerDateEnlevementMax($commande));
+            if ($date_enlevement_max->isPast()) {
+                array_push( $retour,$commande);
+            }
+        }
+    
+        return $retour;
     }
 
     public static function whereFlux($fluxx) {

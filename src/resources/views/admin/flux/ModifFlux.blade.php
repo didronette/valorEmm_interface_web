@@ -5,15 +5,12 @@
 @endsection
 
 @section('contenu')
-    <div class="col-sm-offset-4 col-sm-4">
-    	<br>
-		<div class="panel panel-primary">	
-			<div class="panel-body"> 
-				<div class="col-sm-12">
-                    <div class="row">
+<div class="col-sm-offset-5 col-sm-4">
+
+<div class="panel panel-primary" id="yellow">	
+			<div class="panel-body">
                             
-                        {!! Form::model($fluxx, ['route' => ['flux.update', $fluxx->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
-                        <div class="column">
+                        {!! Form::model($fluxx, ['route' => ['flux.update', $fluxx->id], 'method' => 'put','id'=>'yellow']) !!}
                 <div class="form-group {!! $errors->has('categorie') ? 'has-error' : '' !!}">
 						{!! Form::select('categorie', ['Benne' => 'Benne','DDS' => 'DDS','Autres déchets' => 'Autres déchets'], $fluxx->categorie,['class' => 'form-control', 'placeholder' => 'Catégorie']) !!}
 						{!! $errors->first('categorie', '<small class="help-block">:message</small>') !!}
@@ -47,8 +44,7 @@
 						{!! Form::text('delai_enlevement', null, ['class' => 'form-control', 'placeholder' => 'Délai d\'enlèvement (en heure)']) !!}
 						{!! $errors->first('delai_enlevement', '<small class="help-block">:message</small>') !!}
 					</div>
-                    </div>
-                    <div class="column">
+            
 
                     <div class="form-group {!! $errors->has('horaires_commande_matin') ? 'has-error' : '' !!}">
 						{!! Form::time('horaires_commande_matin', $fluxx->horaires_commande_matin, ['class' => 'form-control', 'placeholder' => 'Horaires de commande pour le matin']) !!}
@@ -64,17 +60,14 @@
 						{!! Form::text('jour_commande', null, ['class' => 'form-control', 'placeholder' => 'Jour où la commande est possible']) !!}
 						{!! $errors->first('jour_commande', '<small class="help-block">:message</small>') !!}
 					</div>  
-                    {!! Form::submit('Envoyer', ['class' => 'btn btn-primary pull-right']) !!}
-                    </div>
+                    {!! Form::submit('Modifier', ['class' => 'btn btn-success pull-right']) !!}
                             
                         {!! Form::close() !!}
-                        </div>
-                    </div>
+     
 				</div>
 			</div>
-		</div>
-		<a href="javascript:history.back()" class="btn btn-primary">
-			<span class="glyphicon glyphicon-circle-arrow-left"></span> Retour
+		<a href="javascript:history.back()" class="btn btn-success">
+			<span class="glyphicon" style='font-size:25px;'>&#8634;</span>  Retour
 		</a>
 	</div>
 @endsection

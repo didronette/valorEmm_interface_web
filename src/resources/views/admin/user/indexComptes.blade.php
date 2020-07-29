@@ -48,6 +48,8 @@
 	
 		{!! link_to_route('admin', '&#8634; Retour', [], ['class' => 'btn btn-success pull-left']) !!}
 		{!! link_to_route('comptes.create', 'Ajouter un utilisateur', [], ['class' => 'btn btn-success pull-right']) !!}
-		{!! $links !!}
+		<div style="margin-top:59px;">
+			{!! $links !!}
+		</div>
 	</div>
 @endsection
