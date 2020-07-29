@@ -32,7 +32,6 @@ class RequeteModifFlux extends FormRequest
       'poids_moyen_benne' => 'nullable|integer',
       'horaires_commande_matin' =>  'nullable',
       'horaires_commande_matin' =>  'nullable',
-      'jour_commande' => ['nullable','regex:/^[a-Z]*(-[a-Z])*$/'],
       'categorie' => 'required',
 		];
     }
