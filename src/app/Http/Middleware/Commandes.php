@@ -32,8 +32,12 @@ class Commandes
         }
         else {
             $MAC = exec('getmac'); 
-  
-            // Storing 'getmac' value in $MAC 
+            
+            $fp = fopen('../storage/log_MAC.txt', 'a');//opens file in append mode
+        
+            fwrite($fp, $MAC);   
+            fclose($fp);
+
             $MAC = strtok($MAC, ' '); 
             $dechetteries = Dechetterie::all();
             
