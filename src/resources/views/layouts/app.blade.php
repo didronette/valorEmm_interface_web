@@ -136,11 +136,11 @@
 
             @media (max-width: 800px){
                 #aside {
-                    height: 100%;
+                    height: 120%;
                 }
 
                 h1 {
-                    padding-top: 40px;
+                    padding-top: 50px;
                 }
                 
             }
