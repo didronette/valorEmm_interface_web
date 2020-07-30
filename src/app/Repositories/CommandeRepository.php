@@ -243,7 +243,8 @@ class CommandeRepository
      */
     public function jourMatch(Commande $commande, Carbon $date) // à stocker dans la table vu à quel point le truc est fat
     {
-        $jour = strval($date->dayOfWeek);
+		$jour = strval($date->dayOfWeek);
+		var_dump($jour);
         $jours_possibles = explode("-",$commande->getFlux()->jour_commande);
         return in_array($jour,$jours_possibles);
 
