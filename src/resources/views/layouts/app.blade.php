@@ -134,9 +134,9 @@
                 background-color: #fffd9e;
             }
 
-            @media (max-width: 700px){
+            @media (max-width: 800px){
                 #aside {
-                    height: 110%;
+                    height: 80%;
                 }
                 
             }
