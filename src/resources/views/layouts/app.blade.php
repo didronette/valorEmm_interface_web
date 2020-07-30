@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=5.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7, maximum-scale=5.0">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -29,24 +29,7 @@
             }
 
 
-            @media (max-width: 700px){
-                #aside {
-                top: 100%;
-                background-color: #fffd9e;
-                height: 30%;
-                position: absolute;
-                
-            }
-                
-                article
-                {
-                    margin-right: 0;
-                    margin-bottom: 463px; 
-                    /* Pour laisser la place au bloc, sinon il se positionne SUR le pied de page
-                    Sachant que 463px est la hauteur du <aside>.
-                    Si vous voulez mettre des marges en plus, augmentez cette valeur */
-                }
-            }
+            
             
 
             table {
@@ -57,6 +40,7 @@
                 color : #1212CD;
                 margin-top:0;
                 padding-top: 20px;
+                text-align: center;
                 }
 
             .grid-aspect {
@@ -148,6 +132,13 @@
 
             #yellow {
                 background-color: #fffd9e;
+            }
+
+            @media (max-width: 700px){
+                #aside {
+                    height: 140%;
+                }
+                
             }
         </style>
 
