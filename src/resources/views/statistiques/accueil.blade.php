@@ -79,9 +79,15 @@
         <div class="panel panel-primary" id="yellow">
         <div class="panel-body">
         <div class="col-sm-12" style="border-spacing: 30px;"> 
-            <div style="padding: 25% 0;"> <strong>Tonnage estimé : {{$tonnes}} tonnes</strong></div>
-            <div style="padding: 25% 0;"> <strong>Commandes avec des non-conformités : {{$pourcentage_nc}} %</strong></div>
-            <div style="padding: 25% 0;"> <strong>Commandes enlevées en retard : {{ $pourcentage_enlevement_dans_les_delais }} %</strong></div>
+            @if($tonnage)
+                <div style="padding: 25% 0;"> <strong>Tonnage estimé : {{$tonnes}} tonnes</strong></div>
+            @endif
+            @if(($nc) || ($ncagglo))
+                <div style="padding: 25% 0;"> <strong>Commandes avec des non-conformités : {{$pourcentage_nc}} %</strong></div>
+            @endif
+            @if ($enlevement)
+                <div style="padding: 25% 0;"> <strong>Commandes enlevées en retard : {{ $pourcentage_enlevement_dans_les_delais }} %</strong></div>
+            @endif
         </div>
         </div>
         </div>
