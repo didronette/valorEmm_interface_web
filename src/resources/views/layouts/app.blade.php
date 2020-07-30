@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.5, maximum-scale=5.0">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -19,7 +19,6 @@
 
         <!-- Styles : TODO mais garder aside -->
         <style> 
-
             #aside {
                 float: left;
                 width: 200px;
@@ -27,6 +26,31 @@
                 height: 230%;
                 position: absolute;
                 
+            }
+
+
+            @media (max-width: 700px){
+                #aside {
+                top: 100%;
+                background-color: #fffd9e;
+                height: 30%;
+                position: absolute;
+                
+            }
+                
+                article
+                {
+                    margin-right: 0;
+                    margin-bottom: 463px; 
+                    /* Pour laisser la place au bloc, sinon il se positionne SUR le pied de page
+                    Sachant que 463px est la hauteur du <aside>.
+                    Si vous voulez mettre des marges en plus, augmentez cette valeur */
+                }
+            }
+            
+
+            table {
+                max-width: 100%;
             }
 
             h1 {
