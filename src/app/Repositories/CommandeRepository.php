@@ -187,7 +187,8 @@ class CommandeRepository
         }
         $date = Carbon::now();
         if (isset($flux->jour_commande)) {
-            while(!(jourMatch($commande, $date))) {
+			
+            while(!(self::jourMatch($commande, $date))) {
                 $date->addDay();
                 $date->hour(0);
             }
