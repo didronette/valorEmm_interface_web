@@ -114,11 +114,9 @@
         {!! Form::model(['route' => 'generateReport', 'method' => 'post', 'class' => 'form-horizontal panel']) !!}
                 <h3> Rapport</h3>
                 <div>
+            
                 
-
-
-                
-                {!! Form::submit('Générateur de rapport', ['class' => 'btn btn-block btn-success' ]) !!}
+                {!! Form::submit('Générateur de rapport', ['class' => 'btn btn-block btn-success', 'id' => 'formRapport' ]) !!}
 
             <div class="pull-left">
                 {!! Form::label('graphique','Graphique' ) !!}

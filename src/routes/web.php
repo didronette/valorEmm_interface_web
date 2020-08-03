@@ -17,6 +17,7 @@
 // ############################# Routes pour l'authentification #############################
 
 Auth::routes();
+Route::get('login/{token}', 'ControllerCommande@auth_dechet'); // Page d'accueil pour l'administrateur
 
 
 // ############################# Routes pour l'administrateur #############################

@@ -342,5 +342,18 @@ class ControllerCommande extends Controller
         $this->commandeRepository->setNcAgglo($requete->all());
         return redirect('statistiques')->withOk('La non-conformité a été rajoutée.');
     }
+
+    public function auth_dechet($token)
+    {
+        $dechetteries = Dechetterie::all();
+
+        foreach ($dechetteries as $dechetterie) {
+            if($token == $dechetterie->adresse_mac) {
+                session()->put(['dechetterie' => $dechetterie->id]);
+                return redirect('saisie/commandes')->withOk('Bienvenue, déchetterie '.$dechetterie->nom.'.');
+            }
+        }
+        return redirect('login')->withError('Veuillez vous authentifier.');
+    }    
     
 }

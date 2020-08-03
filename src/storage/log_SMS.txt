@@ -346,3 +346,13 @@ array(4) {
   ["credit_rest"]=>
   string(3) "489"
 }
+array(4) {
+  ["status"]=>
+  string(2) "ok"
+  ["tx_id"]=>
+  string(11) "10039951820"
+  ["credit"]=>
+  string(1) "2"
+  ["credit_rest"]=>
+  string(3) "485"
+}

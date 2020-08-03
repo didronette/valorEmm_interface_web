@@ -16,7 +16,7 @@
 
                 <div class="form-group {!! $errors->has('categorie') ? 'has-error' : '' !!}">
 						{!! Form::label('categorie', 'Catégorie :') !!}
-						{!! Form::select('categorie', ['Bennes' => 'Bennes','DDS' => 'DDS','Autres déchets' => 'Autres déchets'], null,['class' => 'form-control', 'placeholder' => 'Catégorie']) !!}
+						{!! Form::select('categorie', ['Benne' => 'Benne','DDS' => 'DDS','Autres déchets' => 'Autres déchets'], null,['class' => 'form-control', 'placeholder' => 'Catégorie']) !!}
 						{!! $errors->first('categorie', '<small class="help-block">:message</small>') !!}
 					</div> 
 

@@ -25,6 +25,19 @@
         }  
     }
 
+    $("#formRapport").submit( function(eventObj) {
+
+    //Aller chercher les flux
+    //Aller chercher les dechets
+    //Aller chercher les dates
+    //Aller chercher les donnees
+      $("<input />").attr("type", "hidden")
+          .attr("name", "something")
+          .attr("value", "something")
+          .appendTo("#formRapport");
+      return true;
+  });
+
 </script>
 
 

@@ -27,7 +27,7 @@ class ControllerDonneesSaisie extends Controller
 	{
         
         if (session()->has('dechetterie')) {
-            $dechetteries = DB::table('Dechetterie')->whereId(session()->get('dechetterie'));
+            $dechetteries = array(Dechetterie::find(session()->get('dechetterie')));
         }
         else {
             $dechetteries = Dechetterie::all();

@@ -27,6 +27,10 @@
                 
             }
 
+            .pannel {
+                border-radius: 4px;
+            }
+
 
             
             
@@ -133,7 +137,7 @@
                 background-color: #fffd9e;
             }
 
-            @media (max-width: 800px){
+            @media (max-width: 700px){
                 #aside {
                     height: 120%;
                 }
