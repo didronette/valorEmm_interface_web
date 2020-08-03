@@ -45,4 +45,10 @@ class Confirmation extends FormRequest
             'pin' => 'nullable|regex:/[0-9]{4}/'
         ];
     }
+
+    protected function failedAuthorization()
+    {
+        session()->put('error', 'Code Pin invalide');
+        return back();
+    }
 }
