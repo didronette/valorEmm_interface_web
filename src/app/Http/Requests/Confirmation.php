@@ -21,7 +21,6 @@ class Confirmation extends FormRequest
                 
                 if (Hash::check($this->all()['pin'], $user->password)) {
                     $this->request->add(['compte' => $user->id]);
-                    $this->request->add(['troll' => $user->mamn]);
                     return true;
                 }
             }

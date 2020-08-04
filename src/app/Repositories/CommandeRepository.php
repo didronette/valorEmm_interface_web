@@ -29,6 +29,7 @@ class CommandeRepository
 
 		$enregistrement->numero = $commande->numero;
 		$enregistrement->statut = $commande->statut;
+		$enregistrement->numero_groupe = $inputs['numero_groupe'];
 
 		if (isset($inputs['multiplicite'])) {
 			$enregistrement->multiplicite = $inputs['multiplicite'];
@@ -36,7 +37,6 @@ class CommandeRepository
 		else {
 			$enregistrement->multiplicite = $commande->multiplicite;
 		}
-		
 
 		if (isset($inputs['nc'])) {
 			$enregistrement->nc = $inputs['nc'];
@@ -125,6 +125,7 @@ class CommandeRepository
 		$commande->statut = 'En attente d\'envoie';
 
 		$commande->numero = Commande::all()->max('numero')+1;
+		$commande->numero_groupe = $inputs['numero_groupe'];
 		
 		$commande->contact_at = $this->calculerDateContact($commande);
 

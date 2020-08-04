@@ -30,26 +30,6 @@ class Commandes
             }
             return $next($request);
         }
-        else {
-            $MAC = exec('getmac'); 
-            
-            $fp = fopen('../storage/log_MAC.txt', 'a');//opens file in append mode
-        
-            fwrite($fp, 'MAC : ');
-            fwrite($fp, $MAC);  
-            fwrite($fp, '\n'); 
-            fclose($fp);
-
-            $MAC = strtok($MAC, ' '); 
-            $dechetteries = Dechetterie::all();
-            
-            foreach ($dechetteries as $dechetterie) {
-                if ($dechetterie->adresse_mac == $MAC) {
-                    session()->put(['dechetterie' => $dechetterie->id]);
-                    return $next($request);
-                }
-            }
-        }
             
         return redirect('login')->with('error','Vous n\'avez pas les droits pour gérer les commandes. Veuillez vous authentifier.');
     }

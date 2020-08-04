@@ -34,6 +34,8 @@ Route::resource('saisie/commandes', 'ControllerCommande')->middleware('commandes
 Route::get('saisie/commandes/create/benne', 'ControllerCommande@createBenne')->middleware('commandes')->name('benne');
 Route::get('saisie/commandes/create/dds', 'ControllerCommande@createDDS')->middleware('commandes')->name('dds');
 Route::get('saisie/commandes/create/autres', 'ControllerCommande@createAutre')->middleware('commandes')->name('autres');
+Route::post('saisie/commandes/ajouter', 'ControllerCommande@stack')->middleware('commandes')->name('ajouterPlusieursCommandes');
+
 
 Route::post('saisie/commandes/create/confirmation', 'ControllerCommande@confirmStore')->middleware('commandes')->name('confirmerNouvelleCommande');
 Route::post('saisie/commandes/update/confirmation', 'ControllerCommande@confirmUpdate')->middleware('commandes')->name('confirmerModifCommande');

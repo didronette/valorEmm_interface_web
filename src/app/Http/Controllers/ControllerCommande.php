@@ -9,6 +9,7 @@ use App\Http\Requests\RequeteEnlevement;
 use App\Http\Requests\Confirmation;
 use App\Dechetterie;
 use App\Flux;
+use App\Commande;
 
 use App\Http\Controllers\ControllerDonneesSaisie;
 use App\Repositories\CommandeRepository;
@@ -46,6 +47,7 @@ class ControllerCommande extends Controller
 
     public function create()
     {
+        session()->forget('commandes');
         return view('saisie/nouvelleCommande/choixCategorie');
     }
 
@@ -103,6 +105,32 @@ class ControllerCommande extends Controller
      * @param  App\Http\Requests\RequeteNouvelleCommande  $request
      * @return \Illuminate\Http\Response
      */
+    public function stack()
+    {
+        $inputs = session()->get('inputs');
+        //var_dump($inputs);
+        if (!(session()->has('commandes'))) {
+            session()->put(['commandes' => []]);
+        }
+        $commandes = session()->get('commandes'); 
+        array_push($commandes,$inputs);
+        session()->put(['commandes' => $commandes]);
+        $flux = Flux::find($inputs['flux']);
+        if ($flux->categorie == 'Benne') {
+            return $this->createBenne();
+        } else if ($flux->categorie == 'DDS') {
+            return $this->createDDS();
+        } else {
+            return $this->createAutre();
+        }
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  App\Http\Requests\RequeteNouvelleCommande  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(RequeteNouvelleCommande $request)
     {
         $inputs = $request->all();
@@ -123,9 +151,24 @@ class ControllerCommande extends Controller
      */
     public function confirmStore(Confirmation $requestConfirm)
     {
+        $numero_groupe = Commande::all()->max('numero_groupe')+1;
+        var_dump($numero_groupe );
         $inputs = session()->get('inputs');
         $inputs['compte'] = $requestConfirm->all()['compte'];
+        $inputs['numero_groupe'] = $numero_groupe;
         $commande = $this->commandeRepository->store($inputs);
+
+        if (session()->has('commandes')) {
+            foreach (session()->get('commandes') as $inputs) {
+                $inputs['compte'] = $requestConfirm->all()['compte'];
+                $inputs['numero_groupe'] = $numero_groupe;
+                $commande = $this->commandeRepository->store($inputs);
+            }
+
+            return redirect('saisie/commandes')->withOk('Les commandes ont bien été passées.');
+        }
+
+        
         return redirect('saisie/commandes')->withOk('La commande a bien été passée.');
     }
 
