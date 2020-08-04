@@ -15,6 +15,7 @@ class CreationTableCommande extends Migration
     {
         $table->increments('id');
         $table->integer('numero');
+        $table->integer('numero_groupe');
         $table->integer('multiplicite');
         $table->datetime('date_commande');
         $table->datetime('date_enlevement');

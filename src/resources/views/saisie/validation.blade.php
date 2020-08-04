@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="form-group {!! $errors->has('heure_date_enlevement') ? 'has-error' : '' !!}">
-                            {{ Form::time('heure_date_enlevement',date('H:i:s'), ['class' => 'form-control', 'placeholder' => 'Heure de l\'enlèvement']) }} 
+                            {{ Form::time('heure_date_enlevement',date('H:i'), ['class' => 'form-control', 'placeholder' => 'Heure de l\'enlèvement']) }} 
                             {!! $errors->first('heure_date_enlevement', '<small class="help-block">:message</small>') !!}
                         </div>
 

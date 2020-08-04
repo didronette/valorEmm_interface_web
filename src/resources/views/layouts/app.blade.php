@@ -27,10 +27,6 @@
                 
             }
 
-            .pannel {
-                border-radius: 4px;
-            }
-
 
             
             
@@ -129,12 +125,16 @@
                 border-color: #259d6d;
             } 
 
+            
+
             #blue {
                 color : #1212CD;
             }
 
             #yellow {
                 background-color: #fffd9e;
+                border: 4px solid;
+                border-color: #3097d1;
             }
 
             @media (max-width: 700px){

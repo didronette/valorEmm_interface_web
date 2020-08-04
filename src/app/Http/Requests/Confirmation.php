@@ -17,8 +17,6 @@ class Confirmation extends FormRequest
     {
         if (session()->has('dechetterie')) {
             $users = User::where('type','=','Agent')->get();
-            var_dump($users);
-            var_dump($this->all()['pin']);
             foreach ($users as $user) {
                 
                 if (Hash::check($this->all()['pin'], $user->password)) {
@@ -48,7 +46,6 @@ class Confirmation extends FormRequest
 
     protected function failedAuthorization()
     {
-        session()->put('error', 'Code Pin invalide');
-        return back();
+        throw new AuthorizationException('Mauvais code PIN.');
     }
 }
