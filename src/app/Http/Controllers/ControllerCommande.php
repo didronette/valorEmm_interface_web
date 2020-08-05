@@ -16,6 +16,8 @@ use App\Repositories\CommandeRepository;
 use Carbon;
 
 use App\Http\Requests\RequeteNcAgglo;
+use App\Http\Requests\RequeteRappelGroupe;
+use App\Http\Requests\RequeteEnlevementGroupe;
 
 
 
@@ -43,7 +45,18 @@ class ControllerCommande extends Controller
         return view('saisie/gestionCommande',compact('commandes', 'links'));
     }
     
-
+/**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexGroupe()
+    {
+        $commandes = $this->commandeRepository->getPaginateGr($this->nbrPerPage);
+        $links = $commandes->render();
+        //return compact('commandes', 'links');
+        return view('saisie/gr/gestionCommande',compact('commandes', 'links'));
+    }
 
     public function create()
     {
@@ -185,6 +198,19 @@ class ControllerCommande extends Controller
 		return view('saisie/vueCommande',  compact('commande'));
     }
 
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showGroupe($idGr)
+    {
+        $commandes = $this->commandeRepository->getByGroupe($idGr);
+
+		return view('saisie/gr/vueCommande',  compact('commandes'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -308,6 +334,31 @@ class ControllerCommande extends Controller
         
     }   
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function rappelGroupe($idGr)
+    {
+        $commandes = $this->commandeRepository->getByGroupe($idGr);
+
+        $date_enlevement_max = \App\Http\Controllers\ControllerDonneesStats::calculerDateEnlevementMax($commandes->first());
+        $date_enlevement_max = Carbon::createFromFormat('Y-m-d H:i:s', $date_enlevement_max);
+        $maintenant = Carbon::now();
+        if($maintenant->gt($date_enlevement_max)) {
+            session()->put(['numero_groupe' => $idGr]);
+            return view('saisie/gr/confirmRappel')->with('commandes', $commandes);
+        }
+        else {
+			session()->put(['error' => 'La date d\'enlèvement prévue n\'est pas dépassée. Vous ne pouvez pas envoyer de rappel.']);
+            return redirect('saisie/commandes');       
+        }
+
+        
+    }
+
 /**
      * Remove the specified resource from storage.
      *
@@ -317,11 +368,31 @@ class ControllerCommande extends Controller
      */
     public function confirmRappel(Confirmation $request)
     {
-        $id = session()->get('numero');
+        $id = session()->get('numero_groupe');
         $compte = $request->all()['compte'];
         $this->commandeRepository->update(['compte' => $compte, 'numero' => $id], "Relancée");
 
 		return redirect('saisie/commandes')->withOk("Un rappel vient d'être envoyé.");
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @param  App\Http\Requests\Confirmation
+     * @return \Illuminate\Http\Response
+     */
+    public function confirmRappelGroupe(RequeteRappelGroupe $request)
+    {
+
+        $idGr = session()->get('numero');
+        $compte = $request->all()['compte'];
+        $commandes = $request->all()['commandes_rappelees'];
+        foreach ($commandes as $id) {
+            $this->commandeRepository->update(['compte' => $compte, 'numero' => $id], "Relancée");
+        }
+
+		return redirect('saisie/commandes')->withOk("Un rappel vient d'être envoyé pour les commandes concernées.");
     }
 
     /**
@@ -344,6 +415,28 @@ class ControllerCommande extends Controller
         
     }
 
+        /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function formulaireValidationGroupe($idGr)
+    {
+        
+        $commandes = $this->commandeRepository->getByGroupe($idGr);
+
+        if($commandes->first->statut != 'En attente d\'envoie') {
+            session()->put(['numero_groupe' => $idGr]);
+            return view('saisie/gr/validation')->with('commandes', $commandes);
+        }
+        else {
+			session()->put(['error' => 'La date d\'enlèvement prévue n\'est pas dépassée. Vous ne pouvez pas envoyer de rappel.']);
+            return redirect('saisie/commandes');       
+        }
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -358,6 +451,20 @@ class ControllerCommande extends Controller
         ->with('date_enlevement', $inputs['date_enlevement']);
     }  
 
+        /**
+     * Remove the specified resource from storage.
+     *
+     * @param  App\Http\Requests\RequeteEnlevement request
+     * @return \Illuminate\Http\Response
+     */
+    public function validationGroupe(RequeteEnlevementGroupe $request)
+    {
+        $inputs = $request->all();
+        session()->put(['inputs' => $inputs]);
+        return view('saisie/gr/confirmValidation')
+        ->with('date_enlevement', $inputs['date_enlevement']);
+    } 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -371,6 +478,29 @@ class ControllerCommande extends Controller
         $inputs['compte'] = $requestConfirm->all()['compte'];
         $commande = $this->commandeRepository->update($inputs,"Enlevée");
         return redirect('saisie/commandes')->withOk('L\'enlèvement de la commande a été validé.');
+    } 
+
+        /**
+     * Remove the specified resource from storage.
+     *
+     * @param  App\Http\Requests\Confirmation
+     * @return \Illuminate\Http\Response
+     */
+    public function confirmValidationGroupe(Confirmation $requestConfirm)
+    {
+        $inputs = session()->get('inputs');
+        
+        $inputs['compte'] = $requestConfirm->all()['compte'];
+
+        foreach ($inputs['commandes_rappelees'] as $num) {
+            $inputs['numero'] = $num;
+            $commande = $this->commandeRepository->update($inputs,"Enlevée");
+        }
+
+        
+        
+        return redirect('saisie/commandes')->withOk('Les elèvements ont été validés.');
+ 
     } 
 
         /**

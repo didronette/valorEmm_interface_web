@@ -137,6 +137,10 @@
                 border-color: #3097d1;
             }
 
+            #yellow-borderless {
+                background-color: #fffd9e;
+            }
+
             @media (max-width: 700px){
                 #aside {
                     height: 120%;

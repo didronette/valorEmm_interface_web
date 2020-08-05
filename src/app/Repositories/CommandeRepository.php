@@ -29,7 +29,7 @@ class CommandeRepository
 
 		$enregistrement->numero = $commande->numero;
 		$enregistrement->statut = $commande->statut;
-		$enregistrement->numero_groupe = $inputs['numero_groupe'];
+		$enregistrement->numero_groupe = $commande->numero_groupe;
 
 		if (isset($inputs['multiplicite'])) {
 			$enregistrement->multiplicite = $inputs['multiplicite'];
@@ -117,6 +117,40 @@ class CommandeRepository
 					
 	}
 
+	public function getPaginateGr($n)
+	{
+		if (session()->has('dechetterie')) {
+			return $requete = Commande::select(DB::raw('t.*'))
+            ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero_groupe, MAX(id) AS maxDate FROM Commande GROUP BY numero_groupe ) groupeC ON c.numero_groupe = groupeC.numero_groupe AND c.id = groupeC.maxDate) t'))
+
+            ->where(function ($query) {
+				$query->where('statut', '=', 'Passée')
+					  ->orWhere('statut', '=', 'Modifiée')
+					  ->orWhere('statut', '=', 'En attente d\'envoie')
+					  ->orWhere('statut', '=', 'NC (agglo)')
+					  ->orWhere('statut', '=', 'Relancée');
+			})
+					->where('dechetterie', '=', Session::get('dechetterie'))
+					->paginate($n);
+		}
+		else {
+
+			return $requete = Commande::select(DB::raw('t.*'))
+            ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero_groupe, MAX(id) AS maxDate FROM Commande WHERE statut != \'Enlevée\' AND statut != \'Supprimée\' GROUP BY numero_groupe ) groupeC ON c.numero_groupe = groupeC.numero_groupe AND c.id = groupeC.maxDate) t'))
+            ->where(function ($query) {
+				$query->where('statut', '=', 'Passée')
+					  ->orWhere('statut', '=', 'Modifiée')
+					  ->orWhere('statut', '=', 'En attente d\'envoie')
+					  ->orWhere('statut', '=', 'NC (agglo)')
+					  ->orWhere('statut', '=', 'Relancée');
+			})
+			->paginate($n);
+			
+			
+		}
+					
+	}
+
 	public function store(Array $inputs) {
 
 		$commande = new $this->commande;		
@@ -142,6 +176,42 @@ class CommandeRepository
 		->orderByDesc('id')->first()->compte;
 		$commande->compte = $respo;
 		return $commande;
+	}
+
+	public function getByGroupe($idGr)
+	{
+		if (session()->has('dechetterie')) {
+			return $requete = Commande::select(DB::raw('t.*'))
+            ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero, MAX(id) AS maxDate FROM Commande GROUP BY numero ) groupeC ON c.numero = groupeC.numero AND c.id = groupeC.maxDate) t'))
+
+            ->where(function ($query) {
+				$query->where('statut', '=', 'Passée')
+					  ->orWhere('statut', '=', 'Modifiée')
+					  ->orWhere('statut', '=', 'En attente d\'envoie')
+					  ->orWhere('statut', '=', 'NC (agglo)')
+					  ->orWhere('statut', '=', 'Relancée');
+			})
+					->where('dechetterie', '=', Session::get('dechetterie'))
+					->where('numero_groupe','=',$idGr)
+					->get();
+		}
+		else {
+
+			return $requete = Commande::select(DB::raw('t.*'))
+            ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero, MAX(id) AS maxDate FROM Commande GROUP BY numero ) groupeC ON c.numero = groupeC.numero AND c.id = groupeC.maxDate) t'))
+
+            ->where(function ($query) {
+				$query->where('statut', '=', 'Passée')
+					  ->orWhere('statut', '=', 'Modifiée')
+					  ->orWhere('statut', '=', 'En attente d\'envoie')
+					  ->orWhere('statut', '=', 'NC (agglo)')
+					  ->orWhere('statut', '=', 'Relancée');
+			})
+			->where('numero_groupe','=',$idGr)
+			->get();
+			
+			
+		}
 	}
 
 	public function update(Array $inputs, $nouveauStatut)
@@ -212,7 +282,14 @@ class CommandeRepository
                 return $h_aprem;
             }
             else {
-                return $h_matin->addDay();
+				$h_matin->addDay();
+				if (isset($flux->jour_commande)) {
+					while(!(self::jourMatch($commande, $h_matin))) {
+						$h_matin->addDay();
+					}
+				}
+				
+                return $h_matin;
             }
         }
 
@@ -223,7 +300,13 @@ class CommandeRepository
                 return $h_aprem;
             }
             else {
-                return $h_aprem->addDay();
+				$h_aprem->addDay();
+                if (isset($flux->jour_commande)) {
+					while(!(self::jourMatch($commande, $h_aprem))) {
+						$h_aprem->addDay();
+					}
+				}
+                return $h_aprem;
             }
         }
 
@@ -234,7 +317,14 @@ class CommandeRepository
                 return $h_matin;
             }
             else {
-                return $h_matin->addDay();
+				$h_matin->addDay();
+                if (isset($flux->jour_commande)) {
+					while(!(self::jourMatch($commande, $h_matin))) {
+						$h_matin->addDay();
+					}
+				}
+				
+                return $h_matin;
             }
         }
         

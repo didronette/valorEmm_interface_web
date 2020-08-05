@@ -5,7 +5,7 @@
 <?php $enlevement = true; $nc=true; $ncagglo=true; $tonnage=true; ?>
 
 @foreach ($fluxx as $flux)
-            {!! Form::label('flux:'.strval($flux->id),$flux->type ) !!}
+            {!! Form::label('flux:'.strval($flux->id),$flux->type.' ('.$flux->societe.')' ) !!}
             {!! Form::checkbox('flux:'.strval($flux->id), 'flux:'.strval($flux->id),true,['class' => 'flux']) !!} 
         @endforeach 
 @endsection

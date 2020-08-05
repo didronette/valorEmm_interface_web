@@ -10,7 +10,7 @@
 		<div class="panel panel-primary" id="yellow">	
 			<div class="panel-body"> 
 				<div class="col-sm-12">
-					{!! Form::model($dechetterie, ['route' => ['dechetteries.update', $dechetterie->id], 'method' => 'put', 'class' => 'form-horizontal panel', 'id' => 'yellow']) !!}
+					{!! Form::model($dechetterie, ['route' => ['dechetteries.update', $dechetterie->id], 'method' => 'put', 'class' => 'form-horizontal panel', 'id' => 'yellow-borderless']) !!}
 					<div class="form-group {!! $errors->has('nom') ? 'has-error' : '' !!}">
 					  	{!! Form::text('nom', null, ['class' => 'form-control', 'placeholder' => 'Nom']) !!}
 					  	{!! $errors->first('nom', '<small class="help-block">:message</small>') !!}

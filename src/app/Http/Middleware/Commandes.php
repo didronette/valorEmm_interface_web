@@ -21,6 +21,9 @@ class Commandes
     public function handle($request, Closure $next)
     {
         if((Auth::check()) && ((auth()->user()->type == 'Administrateur') || (auth()->user()->type == 'Gérant'))){ // Inclure l'authentification par addrese mac
+            if (session()->has('dechetterie')) {
+                session()->forget('dechetterie');
+            }
             return $next($request);
             
         }

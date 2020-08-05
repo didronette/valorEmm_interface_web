@@ -3,7 +3,7 @@
 @section('flux')
 
 @foreach ($fluxx as $flux)
-            {!! Form::label('flux:'.strval($flux->id),$flux->type ) !!}
+            {!! Form::label('flux:'.strval($flux->id),$flux->type.' ('.$flux->societe.')' ) !!}
             {!! Form::checkbox('flux:'.strval($flux->id), 'flux:'.strval($flux->id),null,['class' => 'flux']) !!} 
         @endforeach 
 @endsection

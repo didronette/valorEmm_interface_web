@@ -10,7 +10,7 @@
         <div class="panel panel-primary">	
 			<div class="panel-body" id="yellow"> 
 				<div class="col-sm-12">
-                {!! Form::open(['route' => 'comptes.store','id' =>'yellow']) !!}	
+                {!! Form::open(['route' => 'comptes.store','id' =>'yellow-borderless']) !!}	
 
             
                 <div class="form-group {!! $errors->has('name') ? 'has-error' : '' !!}">

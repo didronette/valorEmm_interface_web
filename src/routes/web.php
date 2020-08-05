@@ -31,6 +31,15 @@ Route::resource('admin/comptes', 'ControllerUser')->middleware('gestion');
 
 Route::resource('saisie/commandes', 'ControllerCommande')->middleware('commandes');
 
+Route::get('saisie/gr/commandes', 'ControllerCommande@indexGroupe')->middleware('commandes')->name('indexGr');
+Route::get('saisie/gr/rappel/{id}', 'ControllerCommande@rappelGroupe')->middleware('commandes')->name('rappelGr')->where('id', '[0-9]+');
+Route::post('saisie/gr/commandes/rappel/confirmation', 'ControllerCommande@confirmRappelGroupe')->middleware('commandes')->name('confirmerRappelGr');
+Route::get('saisie/gr/view/{id}', 'ControllerCommande@showGroupe')->middleware('commandes')->name('vueGr')->where('id', '[0-9]+');
+Route::get('saisie/gr/validation/{id}', 'ControllerCommande@formulaireValidationGroupe')->middleware('commandes')->name('formulaireValidationGr')->where('id', '[0-9]+');
+Route::post('saisie/gr/validation', 'ControllerCommande@validationGroupe')->middleware('commandes')->name('validationGr');
+Route::post('saisie/gr/commandes/validation/confirmation', 'ControllerCommande@confirmValidationGroupe')->middleware('commandes')->name('confirmerValidationGr');
+
+
 Route::get('saisie/commandes/create/benne', 'ControllerCommande@createBenne')->middleware('commandes')->name('benne');
 Route::get('saisie/commandes/create/dds', 'ControllerCommande@createDDS')->middleware('commandes')->name('dds');
 Route::get('saisie/commandes/create/autres', 'ControllerCommande@createAutre')->middleware('commandes')->name('autres');

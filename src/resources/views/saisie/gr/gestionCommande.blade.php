@@ -24,25 +24,24 @@
 					<table class="table">
 						<tbody>
 							<tr>
-								<td> {!!  $commande->getFlux()->type !!} ({!! $commande->multiplicite !!}) </td>
+								<td> {!!  $commande->getFlux()->categorie !!} </td>
 								<td>{!! $commande->created_at !!}</td>
-								<td></td>
 								@if(!(session()->has('dechetterie'))) 
 									<td> Déchetterie : {!! $commande->getDechetterie()->nom !!} </td>
 								@endif
 							</tr>
 							<tr>
-								<td>{!! link_to_route('commandes.show', 'Voir', [$commande->numero], ['class' => 'btn btn-success btn-block']) !!}</td>
-								<td>{!! link_to_route('commandes.edit', 'Modifier', [$commande->numero], ['class' => 'btn btn-success btn-block']) !!}</td>
-								<td>		{!! link_to_route('rappel', 'Rappel', [$commande->numero], ['class' => 'btn btn-success']) !!}</td>
+								<td>{!! link_to_route('vueGr', 'Voir', [$commande->numero_groupe], ['class' => 'btn btn-success btn-block']) !!}</td>
+								<td>		{!! link_to_route('rappelGr', 'Rappel', [$commande->numero_groupe], ['class' => 'btn btn-success']) !!}</td>
 								
-								<td btn btn-success btn-block> {!! Form::open(['method' => 'GET', 'route' => ['formulaireValidation', $commande->numero]]) !!}
+								<td btn btn-success btn-block> {!! Form::open(['method' => 'GET', 'route' => ['formulaireValidationGr', $commande->numero_groupe]]) !!}
 									{!! Form::submit('Valider l\'enlèvement', ['class' => 'btn btn-success btn-block']) !!}
 								{!! Form::close() !!} </td>
 							</tr>
 						
 					</tbody>
 				</table>
+
 				</div>
 				@endforeach
 		
@@ -50,7 +49,7 @@
 						Il n'y a pas de commande en cours.
 		@endif
 		</div>
-		{!! link_to_route('indexGr', 'Affichage groupé', ['class' => 'btn btn-warning']) !!}
+        {!! link_to_route('commandes.index', 'Affichage individuel', ['class' => 'btn btn-warning']) !!}
 
 		</div>
 		<table class="table">
