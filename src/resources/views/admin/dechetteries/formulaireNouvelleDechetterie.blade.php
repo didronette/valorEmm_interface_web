@@ -11,7 +11,7 @@
 	<div class="panel panel-primary">	
 			<div class="panel-body" id="yellow"> 
 				<div class="col-sm-12">
-					{!! Form::open(['route' => 'dechetteries.store','id' => "yellow"]) !!}	
+					{!! Form::open(['route' => 'dechetteries.store','id' => "yellow-borderless"]) !!}	
 					<div class="form-group {!! $errors->has('nom') ? 'has-error' : '' !!}">
 						{!! Form::text('nom', null, ['class' => 'form-control', 'placeholder' => 'Nom']) !!}
 						{!! $errors->first('nom', '<small class="help-block">:message</small>') !!}

@@ -12,7 +12,7 @@
 <div class="panel panel-primary" id="yellow">	
 			<div class="panel-body">
 
-                {!! Form::open(['route' => 'flux.store','method' => 'post','id' => 'yellow']) !!}	
+                {!! Form::open(['route' => 'flux.store','method' => 'post','id' => 'yellow-borderless']) !!}	
 
                 <div class="form-group {!! $errors->has('categorie') ? 'has-error' : '' !!}">
 						{!! Form::label('categorie', 'Catégorie :') !!}

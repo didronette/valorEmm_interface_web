@@ -10,7 +10,7 @@
 <div class="panel panel-primary" id="yellow">	
 			<div class="panel-body" > 
 				<div class="col-sm-12" >
-                {!! Form::open(['route' => ['commandes.update', $commande->numero],'method' => 'put', 'class' => 'form-horizontal panel', 'id' => 'yellow']) !!}
+                {!! Form::open(['route' => ['commandes.update', $commande->numero],'method' => 'put', 'class' => 'form-horizontal panel', 'id' => 'yellow-borderless']) !!}
 
                     @if(count($dechetteries) != 1)
                         <div class="form-group {!! $errors->has('dechetterie') ? 'has-error' : '' !!}">

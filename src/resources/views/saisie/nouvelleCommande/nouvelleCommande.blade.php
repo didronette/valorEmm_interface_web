@@ -8,7 +8,7 @@
 @section('contenu')
 <div class="col-sm-offset-5 col-sm-4 ">
 <div class="panel panel-primary">	
-			<div class="panel-body" id="yellow"> 
+			<div class="panel-body" id="yellow-borderless"> 
 				<div class="col-sm-12">
                 {!! Form::open(['route' => 'commandes.store']) !!}
 

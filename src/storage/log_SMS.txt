@@ -356,3 +356,43 @@ array(4) {
   ["credit_rest"]=>
   string(3) "485"
 }
+array(4) {
+  ["status"]=>
+  string(2) "ok"
+  ["tx_id"]=>
+  string(11) "10039967839"
+  ["credit"]=>
+  string(1) "1"
+  ["credit_rest"]=>
+  string(3) "482"
+}
+array(4) {
+  ["status"]=>
+  string(2) "ok"
+  ["tx_id"]=>
+  string(11) "10039967840"
+  ["credit"]=>
+  string(1) "1"
+  ["credit_rest"]=>
+  string(3) "481"
+}
+array(4) {
+  ["status"]=>
+  string(2) "ok"
+  ["tx_id"]=>
+  string(11) "10039968006"
+  ["credit"]=>
+  string(1) "3"
+  ["credit_rest"]=>
+  string(3) "478"
+}
+array(4) {
+  ["status"]=>
+  string(2) "ok"
+  ["tx_id"]=>
+  string(11) "10039968007"
+  ["credit"]=>
+  string(1) "2"
+  ["credit_rest"]=>
+  string(3) "476"
+}

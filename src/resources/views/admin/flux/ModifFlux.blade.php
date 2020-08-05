@@ -10,7 +10,7 @@
 <div class="panel panel-primary" id="yellow">	
 			<div class="panel-body">
                             
-                        {!! Form::model($fluxx, ['route' => ['flux.update', $fluxx->id], 'method' => 'put','id'=>'yellow']) !!}
+                        {!! Form::model($fluxx, ['route' => ['flux.update', $fluxx->id], 'method' => 'put','id'=>'yellow-borderless']) !!}
                 <div class="form-group {!! $errors->has('categorie') ? 'has-error' : '' !!}">
 						{!! Form::label('categorie', 'Catégorie :') !!}
 						{!! Form::select('categorie', ['Benne' => 'Benne','DDS' => 'DDS','Autres déchets' => 'Autres déchets'], $fluxx->categorie,['class' => 'form-control', 'placeholder' => 'Catégorie']) !!}

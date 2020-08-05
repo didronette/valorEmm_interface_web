@@ -10,7 +10,7 @@
 		<div class="panel panel-primary" id="yellow">	
 			<div class="panel-body"> 
 				<div class="col-sm-12">
-					{!! Form::model($user, ['route' => ['comptes.update', $user->id], 'method' => 'put', 'class' => 'form-horizontal panel','id' =>'yellow']) !!}
+					{!! Form::model($user, ['route' => ['comptes.update', $user->id], 'method' => 'put', 'class' => 'form-horizontal panel','id' =>'yellow-borderless']) !!}
 					<div class="form-group {!! $errors->has('name') ? 'has-error' : '' !!}">
 					  	{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nom']) !!}
 					  	{!! $errors->first('name', '<small class="help-block">:message</small>') !!}

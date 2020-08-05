@@ -111,12 +111,12 @@
 
     <div class="panel-body" >
         <div class="col-sm-12" >
-        {!! Form::model(['route' => 'generateReport', 'method' => 'post', 'class' => 'form-horizontal panel']) !!}
+        {!! Form::open(['route' => 'generateReport', 'class' => 'form-horizontal panel','name' => 'formRapport','id' => "yellow-borderless",'onsubmit' => 'submitFormRapport(this)']) !!}
                 <h3> Rapport</h3>
                 <div>
             
                 
-                {!! Form::submit('Générateur de rapport', ['class' => 'btn btn-block btn-success', 'id' => 'formRapport' ]) !!}
+                {!! Form::submit('Générateur de rapport', ['class' => 'btn btn-block btn-success']) !!}
 
             <div class="pull-left">
                 {!! Form::label('graphique','Graphique' ) !!}
