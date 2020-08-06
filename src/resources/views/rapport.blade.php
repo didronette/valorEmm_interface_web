@@ -229,10 +229,10 @@ $chartjs = app()->chartjs
             <aside id="aside">
                 <div >
                     <div class="logo_val" style="float:right; position: absolute;">
-                        <img src="images/logoValorEmm.jpg" alt="Logo de Valor'Emm" width="180" height="180" style="padding:10px;">
+                        <img src="/images/logoValorEmm.jpg" alt="Logo de Valor'Emm" width="180" height="180" style="padding:10px;">
                     </div>
                     <div class="logo_afnor" style=" position: absolute; bottom:0%; right:0">
-                        <img src="images/niv2.png" alt="Niveau deux de certification AFNOR" width="80" height="80">
+                        <img src="/images/niv2.png" alt="Niveau deux de certification AFNOR" width="80" height="80">
                     </div>
                 </div>
             </aside>
