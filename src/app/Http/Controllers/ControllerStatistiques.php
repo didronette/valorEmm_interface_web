@@ -191,6 +191,7 @@ class ControllerStatistiques extends Controller
 
       $render  = view('rapport', ['pourcentage_enlevement_dans_les_delais' => $pourcentage_enlevement_dans_les_delais,'tonnes' => $tonnes,'pourcentage_nc' => $pourcentage_nc,'fluxx' => $fluxx, 'dechetteries' => $dechetteries, 'donnees_nc' => $donnees_nc, 'donnees_nc_agglo' => $donnees_nc_agglo, 'donnees_retard_enlevement' => $donnees_retard_enlevement, 'donnees_ok' => $donnees_ok, 'dates' => $dates,'enlevement' => isset($inputs['enlevement']),'tonnage' => isset($inputs['tonnage']),'nc' => isset($inputs['nc']),'ncagglo' => isset($inputs['ncagglo']),'donnees_pas_enlevee' => $donnees_pas_enlevee])->render();
         
+    return $render;
 
       $pdf = new Pdf;
 
