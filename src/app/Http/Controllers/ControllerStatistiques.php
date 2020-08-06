@@ -11,7 +11,7 @@ use App\Flux;
 use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\ControllerDonneesStatistiques;
 
-use mikehaertl\wkhtmlto\Pdf;
+use PDF;
 
 class ControllerStatistiques extends Controller
 {
@@ -143,6 +143,7 @@ class ControllerStatistiques extends Controller
       $dechetteries = Dechetterie::all();
 
       $inputs = $requete->all();
+
       $donnees = ControllerDonneesStatistiques::donneesGraphe($inputs['date_debut'],$inputs['date_fin'],$inputs['fluxx'],$inputs['dechetteries']);
       $donnees_nonEnlevee = ControllerDonneesStatistiques::donneesGrapheNonEnlevee($inputs['date_debut'],$inputs['date_fin'],$inputs['fluxx'],$inputs['dechetteries']);
       $dates = ControllerDonneesStatistiques::getDates($inputs['date_debut'],$inputs['date_fin']);
@@ -189,8 +190,12 @@ class ControllerStatistiques extends Controller
       $tonnes = ControllerDonneesStatistiques::TonnageEstime(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
       $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
 
-      $render  = view('rapport', ['pourcentage_enlevement_dans_les_delais' => $pourcentage_enlevement_dans_les_delais,'tonnes' => $tonnes,'pourcentage_nc' => $pourcentage_nc,'fluxx' => $fluxx, 'dechetteries' => $dechetteries, 'donnees_nc' => $donnees_nc, 'donnees_nc_agglo' => $donnees_nc_agglo, 'donnees_retard_enlevement' => $donnees_retard_enlevement, 'donnees_ok' => $donnees_ok, 'dates' => $dates,'enlevement' => isset($inputs['enlevement']),'tonnage' => isset($inputs['tonnage']),'nc' => isset($inputs['nc']),'ncagglo' => isset($inputs['ncagglo']),'donnees_pas_enlevee' => $donnees_pas_enlevee])->render();
+      $pdf  = PDF::loadView('rapport', ['pourcentage_enlevement_dans_les_delais' => $pourcentage_enlevement_dans_les_delais,'tonnes' => $tonnes,'pourcentage_nc' => $pourcentage_nc,'fluxx' => $fluxx, 'dechetteries' => $dechetteries, 'donnees_nc' => $donnees_nc, 'donnees_nc_agglo' => $donnees_nc_agglo, 'donnees_retard_enlevement' => $donnees_retard_enlevement, 'donnees_ok' => $donnees_ok, 'dates' => $dates,'enlevement' => isset($inputs['enlevement']),'tonnage' => isset($inputs['tonnage']),'nc' => isset($inputs['nc']),'ncagglo' => isset($inputs['ncagglo']),'donnees_pas_enlevee' => $donnees_pas_enlevee,'graphe' => $inputs['graphe']]);
         
+
+
+		return $pdf->download('invoice.pdf');
+
       $pdf = new Pdf;
 
       $pdf->addPage($render);

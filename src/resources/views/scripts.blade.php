@@ -69,6 +69,11 @@
             form.innerHTML = form.innerHTML+'<input type=\'hidden\' name="ncagglo" value="'+ncagglo.checked+'">';
             }
 
+        var url_base64jp = document.getElementById("StatistiquesCommande").toDataURL();
+        form.innerHTML = form.innerHTML+'<input type=\'hidden\' name="graphe" value="'+url_base64jp+'">';
+
+        
+
       return true;
   };
 
