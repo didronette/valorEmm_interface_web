@@ -195,7 +195,7 @@ array_push($datasets,[
 $chartjs = app()->chartjs
 ->name('StatistiquesCommande')
 ->type('bar')
-->size(['width' => 400, 'height' => 200])
+->size(['width' => 200, 'height' => 100])
 ->labels($dates)
 ->datasets($datasets)
 ->options([ 'title' => [
@@ -248,7 +248,7 @@ $chartjs = app()->chartjs
 
 
     
-                    <div >{!! $chartjs->render() !!}</div>
+                    <div style="height:150px;width:250px;">{!! $chartjs->render() !!}</div>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.0/Chart.js"></script>
                     </div>
                 </div>
