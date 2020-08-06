@@ -203,6 +203,9 @@ $chartjs = app()->chartjs
             'text' => 'Statistiques des commandes',
             'fontSize' => 40,
         ],
+        'animation' => [
+            'duration' => 0
+        ],
         'scales' => [
             'xAxes' => [[
                 'stacked' => true,
