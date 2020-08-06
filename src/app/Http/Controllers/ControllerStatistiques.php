@@ -196,8 +196,8 @@ class ControllerStatistiques extends Controller
       $pdf->addPage($render);
 
       //$pdf->setOptions(['javascript-delay' => 3000]);
-      $pdf->setOptions(['enable-javascript' => true]);
-      //',
+      $pdf->setOptions(['images' => true]);
+      //'enable-javascript' => true,
       //'images' => true,
       //'enable-smart-shrinking' => true,
       //'no-stop-slow-scripts' => true
