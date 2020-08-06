@@ -200,10 +200,10 @@ class ControllerStatistiques extends Controller
       
 
       if (!$pdf->saveAs(public_path('report.pdf'))) {
-        var_dump($pdf->getError());
+        return $pdf->getError();
     }
 
-      //return response()->download(public_path('report.pdf'));
+      return response()->download(public_path('report.pdf'));
     }    
 
 }

@@ -1,5 +1,8 @@
 <script type="text/javascript">
    
+   
+
+
    function HideorShow() {
        var x = document.getElementById("insertinputs");
        if (x.style.display === "none") {
@@ -64,8 +67,15 @@
         if (ncagglo.checked == true) {
             form.innerHTML = form.innerHTML+'<input type=\'hidden\' name="ncagglo" value="'+ncagglo.checked+'">';
             }
+
       return true;
   };
+
+
+
+
+
+
 
 </script>
 

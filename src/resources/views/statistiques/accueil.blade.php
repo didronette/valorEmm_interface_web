@@ -68,7 +68,7 @@
     </div>
 
     <div>
-    <div class="panel panel-primary">
+    <div class="panel panel-primary" id="capture">
         <div class="panel-body">
         <div class="col-sm-12">
 
