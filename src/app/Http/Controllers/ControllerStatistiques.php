@@ -195,12 +195,13 @@ class ControllerStatistiques extends Controller
 
       $pdf->addPage($render);
 
-      //$pdf->setOptions(['javascript-delay' => 3000]);
-      $pdf->setOptions(['enable-smart-shrinking']);
-      //'enable-javascript' => true,
-      //'images' => true,
-      //'enable-smart-shrinking' => true,
-      //'no-stop-slow-scripts' => true
+      $pdf->setOptions(['javascript-delay' => 3000,
+      'enable-smart-shrinking',
+      'enable-javascript',
+      'images',
+      'no-stop-slow-scripts'
+      ]);
+      
       
  
       if (!$pdf->saveAs(public_path('report.pdf'))) {
