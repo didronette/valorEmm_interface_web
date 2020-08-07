@@ -39,3 +39,14 @@
                 {!! Form::label('ncagglo','NC Agglo' ) !!}
                 {!! Form::checkbox('ncagglo', 'ncagglo', true) !!}
 @endsection
+
+@section('caseRapport')
+<div class="pull-left">
+                {!! Form::label('graphique','Graphique' ) !!}
+                {!! Form::checkbox('graphique', 'graphique', true) !!}
+            </div>
+            <div class="pull-right">
+                {!! Form::label('logs','Logs' ) !!}
+                {!! Form::checkbox('logs', 'logs', true) !!}
+            </div>
+@endsection

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>La souris, le cochon, le rat-porc</title>
+    <title>Rapport</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -17,14 +17,16 @@
         <style> 
             #aside {
                 float: left;
-                width: 200px;
+                width: 100px;
                 height: 100%;
                 position: absolute;
                 
             }
 
 
-            
+            body {
+                color : #000000;
+            }
             
 
             table {
@@ -32,17 +34,11 @@
             }
 
             h1 {
-                color : #1212CD;
                 margin-top:0;
                 padding-top: 20px;
                 text-align: center;
                 }
 
-            .grid-aspect {
-                display: grid;
-                grid-auto-flow: line;
-                grid-row-gap: 20px;
-            }
 
             .acceptable-width {
                 width: 50%;
@@ -90,32 +86,6 @@
                 
             }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            
-
-            .column {
-                 float: left;
-                width: 50%;
-                padding-right: 50px;
-                padding-left: 50px;
-            }
-
-            /* Clear floats after the columns */
-            .row:after {
-            content: "";
-            display: table;
-            clear: both;
-            }
-
             
 
             
@@ -130,6 +100,7 @@
                 border-color: #3097d1;
             }
 
+
         </style>
 
 
@@ -138,7 +109,7 @@
 
 
 
-<body>
+<body style="background-color: #ffffff;">
 
 
 
@@ -147,25 +118,58 @@
             <aside id="aside">
                 <div >
                     <div class="logo_val" style="float:right; position: absolute;">
-                        <img src="/images/logoValorEmm.jpg" alt="Logo de Valor'Emm" width="180" height="180" style="padding:10px;">
+                        <img src="images/logoValorEmm.jpg" alt="Logo de Valor'Emm" width="80" height="80" style="padding:10px;">
                     </div>
                     <div class="logo_afnor" style=" position: absolute; bottom:0%; right:0">
-                        <img src="/images/niv2.png" alt="Niveau deux de certification AFNOR" width="80" height="80">
+                        <img src="images/niv2.png" alt="Niveau deux de certification AFNOR" width="40" height="40">
                     </div>
                 </div>
             </aside>
             <div style=" position:relative;">
-                <h1 class="flex-center title">@yield('titre') </h1>
-                <div class="flex-center position-ref"  id="blue">
+                <div class="flex-center position-ref" >
                     <div>
                     
-                    <p>My first paragraph.</p>
+                    <div>
+                        <h3>Flux pris en compte</h3>
+                        @foreach($fluxx as $flux)
+                            {{ \App\Flux::find($flux)->first()->type.' ('.\App\Flux::find($flux)->first()->societe.') ' }}
+                        @endforeach
+                    </div>
+
+                    <div>
+                        <h3>Déchetterie prise en compte</h3>
+                        @foreach($dechetteries as $dechetterie)
+                            {{ \App\Dechetterie::find($dechetterie)->first()->nom }}
+                        @endforeach
+                    </div>
 
 
-    
-                    <div ><img src="{{$graphe }}" style="background-color:white;" /></div>
+                    @if($graphique)
+                    <div ><img src="{{$graphe }}" width="600" height="300" style="background-color:white;" /></div>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
                     </div>
+
+                    @if($tonnage)
+                        <div > <strong>Tonnage estimé : {{$tonnes}} tonnes</strong></div>
+                    @endif
+                    @if(($nc) || ($ncagglo))
+                        <div > <strong>Commandes avec des non-conformités : {{$pourcentage_nc}} %</strong></div>
+                    @endif
+                    @if ($enlevement)
+                        <div "> <strong>Commandes enlevées en retard : {{ $pourcentage_enlevement_dans_les_delais }} %</strong></div>
+                    @endif
+                    @endif
+
+                    @if($logs)
+                    <div >
+                        <h1> Logs</h1>
+                        <ul>
+                        @foreach($enregistrements as $enregistrement)
+                            <li>{{$enregistrement}}</li>
+                        @endforeach
+                        </ul>
+                    </div>
+                    @endif
                 </div>
             </div>
 </div>

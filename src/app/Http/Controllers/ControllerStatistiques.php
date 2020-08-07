@@ -7,6 +7,7 @@ use App\Http\Requests\RequeteRapport;
 
 use App\Dechetterie;
 use App\Flux;
+use App\Commande;
 
 use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\ControllerDonneesStatistiques;
@@ -139,10 +140,12 @@ class ControllerStatistiques extends Controller
  
     public function genererRapport(RequeteRapport $requete) // Fonction pour l'affichage de l'accueil
 	  {
-      $fluxx = Flux::all();
-      $dechetteries = Dechetterie::all();
+      
 
       $inputs = $requete->all();
+
+      $dechetteries = Dechetterie::all();
+      $fluxx = Flux::all();
 
       $donnees = ControllerDonneesStatistiques::donneesGraphe($inputs['date_debut'],$inputs['date_fin'],$inputs['fluxx'],$inputs['dechetteries']);
       $donnees_nonEnlevee = ControllerDonneesStatistiques::donneesGrapheNonEnlevee($inputs['date_debut'],$inputs['date_fin'],$inputs['fluxx'],$inputs['dechetteries']);
@@ -190,30 +193,38 @@ class ControllerStatistiques extends Controller
       $tonnes = ControllerDonneesStatistiques::TonnageEstime(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
       $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
 
-      $pdf  = PDF::loadView('rapport', ['pourcentage_enlevement_dans_les_delais' => $pourcentage_enlevement_dans_les_delais,'tonnes' => $tonnes,'pourcentage_nc' => $pourcentage_nc,'fluxx' => $fluxx, 'dechetteries' => $dechetteries, 'donnees_nc' => $donnees_nc, 'donnees_nc_agglo' => $donnees_nc_agglo, 'donnees_retard_enlevement' => $donnees_retard_enlevement, 'donnees_ok' => $donnees_ok, 'dates' => $dates,'enlevement' => isset($inputs['enlevement']),'tonnage' => isset($inputs['tonnage']),'nc' => isset($inputs['nc']),'ncagglo' => isset($inputs['ncagglo']),'donnees_pas_enlevee' => $donnees_pas_enlevee,'graphe' => $inputs['graphe']]);
+      $commandes = Commande::all();
+
+      $enregistrements = [];
+
+      foreach ($commandes as $commande) {
+        array_push($enregistrements,$this->formuler($commande,isset($inputs['ncagglo']),isset($inputs['nc']),isset($inputs['enlevement'])));
+      }
+
+      $pdf  = PDF::loadView('rapport', ['pourcentage_enlevement_dans_les_delais' => $pourcentage_enlevement_dans_les_delais,'tonnes' => $tonnes,'pourcentage_nc' => $pourcentage_nc,'fluxx' => $fluxx, 'dechetteries' => $dechetteries, 'donnees_nc' => $donnees_nc, 'donnees_nc_agglo' => $donnees_nc_agglo, 'donnees_retard_enlevement' => $donnees_retard_enlevement, 'donnees_ok' => $donnees_ok, 'dates' => $dates,'enlevement' => isset($inputs['enlevement']),'tonnage' => isset($inputs['tonnage']),'nc' => isset($inputs['nc']),'ncagglo' => isset($inputs['ncagglo']),'donnees_pas_enlevee' => $donnees_pas_enlevee,'graphe' => $inputs['graphe'],'enregistrements' => $enregistrements,'logs' => isset($inputs['logs']),'graphique' => isset($inputs['graphique'])]);
         
 
+		return $pdf->download('rapport.pdf');
 
-		return $pdf->download('invoice.pdf');
-
-      $pdf = new Pdf;
-
-      $pdf->addPage($render);
-
-      $pdf->setOptions(['javascript-delay' => 3000,
-      'enable-smart-shrinking',
-      'enable-javascript',
-      'images',
-      'no-stop-slow-scripts'
-      ]);
-      
-      
- 
-      if (!$pdf->saveAs(public_path('report.pdf'))) {
-        return $pdf->getError();
     }
 
-      return response()->download(public_path('report.pdf'));
-    }    
+    public function formuler(Commande $commande,$ncagglo,$nc,$enlevement) {
+      $flux = $commande->getFlux();
+      if (($commande->statut == 'En attente d\'envoie') ||($commande->statut == 'Modifiée')) {
+        return $commande->created_at.' '.'utilisateur='.$commande->getUser()->name.' '.'statut='.$commande->statut.' '.'num_g ='.$commande->numero_groupe.' '. 'num ='.$commande->numero.' '.'flux='.$flux->type. '('.$flux->societe.') x'.$commande->multiplicite.' dechetterie ='.$commande->dechetterie."\n";
+      }
+      else if (($commande->statut == 'NC (agglo)') && $ncagglo) {
+        return $commande->created_at.' '.'utilisateur='.$commande->getUser()->name.' statut='.$commande->statut.' '.'num_g ='.$commande->numero_groupe.' '. 'num ='.$commande->numero.' nc_agglo'.$commande->ncagglo."\n";
+      }
+      else if ((($commande->statut == 'Relancée') || ($commande->statut == 'Envoyée') || ($commande->statut == 'Supprimée')) && $commande) {
+        return $commande->created_at.' '.'utilisateur='.$commande->getUser()->name.' statut='.$commande->statut.' '.'num_g ='.$commande->numero_groupe.' '. 'num ='.$commande->numero."\n";
+      }
+      else if (($commande->statut == 'Enlevée') && ($enlevement || $nc)) {
+        return $commande->created_at.' '.'utilisateur='.$commande->getUser()->name.' statut='.$commande->statut.' '.'num_g ='.$commande->numero_groupe.' '. 'num ='.$commande->numero.' enlèvement à :'.$commande->date_enlevement.' nc='.$commande->nc."\n";
+      }  
+      
+      return '';
+      
+    }
 
 }

@@ -118,14 +118,7 @@
                 
                 {!! Form::submit('Générateur de rapport', ['class' => 'btn btn-block btn-success']) !!}
 
-            <div class="pull-left">
-                {!! Form::label('graphique','Graphique' ) !!}
-                {!! Form::checkbox('graphique', 'graphique', true) !!}
-            </div>
-            <div class="pull-right">
-                {!! Form::label('logs','Logs' ) !!}
-                {!! Form::checkbox('logs', 'logs', true) !!}
-            </div>
+                @yield('caseRapport')
                 </div>
         {!! Form::close() !!}
         </div>

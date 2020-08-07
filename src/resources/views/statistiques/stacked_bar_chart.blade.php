@@ -61,6 +61,7 @@ $chartjs = app()->chartjs
             'display' => true,
             'text' => 'Statistiques des commandes',
             'fontSize' => 40,
+            'fontColor' => '#000000',
         ],
         'scales' => [
             'xAxes' => [[
