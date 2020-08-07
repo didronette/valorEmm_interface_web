@@ -68,8 +68,9 @@ Route::post('statistiques/nc', 'ControllerCommande@ajouterNcAgglo')->middleware(
 Route::post('statistiques/rapport', 'ControllerStatistiques@genererRapport')->middleware('statistiques')->name('generateReport');
 
 
-Route::view('/test', 'test')->middleware('admin')->name('test');
+// ############################# Routes pour les réponses et DLR BuzzExpert #############################
 
-Route::get('testTrois','ControllerAdmin@chartjs')->name('testTrois');
 
+Route::post('be/dlr', 'ControllerBuzzExpert@storeDLR');
+Route::post('be/rep', 'ControllerBuzzExpert@storeReponse');
 
