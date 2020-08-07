@@ -25,7 +25,7 @@ class ControllerBuzzExpert extends Controller
         fwrite($fp, $log);   
         fclose($fp); 
 
-        return new Response;
+        return Response::make('Ça marche !', 200);
         
     }
 
@@ -44,7 +44,7 @@ class ControllerBuzzExpert extends Controller
         fwrite($fp, $log);   
         fclose($fp);
 
-        return new Response;
+        return Response::make('Ça marche !', 200);
         
     }
 }
