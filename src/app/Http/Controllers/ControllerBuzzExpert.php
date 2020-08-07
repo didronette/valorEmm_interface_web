@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\RequeteDLRBuzzExpert;
 use App\Http\Requests\RequeteReponseBuzzExpert;
+use \Illuminate\Http\Response;
 
 
 class ControllerBuzzExpert extends Controller
@@ -23,6 +24,8 @@ class ControllerBuzzExpert extends Controller
         $fp = fopen('../storage/log_BuzzExpert.txt', 'a');//opens file in append mode
         fwrite($fp, $log);   
         fclose($fp); 
+
+        return new Response;
         
     }
 
@@ -40,6 +43,8 @@ class ControllerBuzzExpert extends Controller
         $fp = fopen('../storage/log_BuzzExpert.txt', 'a');//opens file in append mode
         fwrite($fp, $log);   
         fclose($fp);
+
+        return new Response;
         
     }
 }
