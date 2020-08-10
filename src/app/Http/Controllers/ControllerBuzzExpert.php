@@ -7,6 +7,8 @@ use App\Http\Requests\RequeteDLRBuzzExpert;
 use App\Http\Requests\RequeteReponseBuzzExpert;
 use \Illuminate\Http\Response;
 
+use Carbon;
+
 
 class ControllerBuzzExpert extends Controller
 {
@@ -20,12 +22,13 @@ class ControllerBuzzExpert extends Controller
     {
         $heure = Carbon::now()->format("Y-m-d H:i:s");
         $inputs = $request->all();
-        $log = $heure.' DLR '.$inputs['tx_id'].' '.$inputs['cp_id'].' '.$inputs['response'].' '.$inputs['status'].' '.$inputs['phone'].' '.$inputs['tag'];
+        //$log = $heure.' DLR '.$inputs['tx_id'].' '.$inputs['cp_id'].' '.$inputs['response'].' '.$inputs['status'].' '.$inputs['phone'].' '.$inputs['tag'];
+        $log = 'test';
         $fp = fopen('../storage/log_BuzzExpert.txt', 'a');//opens file in append mode
         fwrite($fp, $log);   
         fclose($fp); 
         
-        return Response::make('Ça marche !', 200);
+        return 'Accusé reception bien arrivé !';
         
     }
 
@@ -44,7 +47,7 @@ class ControllerBuzzExpert extends Controller
         fwrite($fp, $log);   
         fclose($fp);
 
-        return Response::make('Ça marche !', 200);
+        return 'Reponse bein reçue !';
         
     }
 }
