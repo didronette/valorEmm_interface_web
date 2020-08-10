@@ -74,3 +74,6 @@ Route::post('statistiques/rapport', 'ControllerStatistiques@genererRapport')->mi
 Route::post('be/dlr', 'ControllerBuzzExpert@storeDLR');
 Route::post('be/rep', 'ControllerBuzzExpert@storeReponse');
 
+Route::get('be/dlr', 'ControllerBuzzExpert@storeDLR');
+Route::get('be/rep', 'ControllerBuzzExpert@storeReponse');
+

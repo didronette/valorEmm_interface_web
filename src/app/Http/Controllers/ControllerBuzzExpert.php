@@ -22,7 +22,7 @@ class ControllerBuzzExpert extends Controller
     {
         $heure = Carbon::now()->format("Y-m-d H:i:s");
         $inputs = $request->all();
-        //$log = $heure.' DLR '.$inputs['tx_id'].' '.$inputs['cp_id'].' '.$inputs['response'].' '.$inputs['status'].' '.$inputs['phone'].' '.$inputs['tag'];
+        //$log = $heure.' DLR '.$inputs['tx_id'].' '.$inputs['response'].' '.$inputs['status'].' '.$inputs['phone'].' '.$inputs['tag'];
         $log = implode($inputs);
         $fp = fopen('../storage/log_BuzzExpert.txt', 'a');//opens file in append mode
         fwrite($fp, $log."\n");   
@@ -41,7 +41,7 @@ class ControllerBuzzExpert extends Controller
     {
         $heure = Carbon::now()->format("Y-m-d H:i:s");
         $inputs = $request->all();
-        //$log = $heure.' Reponse '.$inputs['tx_id'].' '.$inputs['cp_id'].' '.$inputs['response'].' '.$inputs['phone'].' '.$inputs['tag'];
+        //$log = $heure.' Reponse '.$inputs['tx_id'].' '.$inputs['response'].' '.$inputs['phone'].' '.$inputs['tag'];
         $log = 'test';
         $fp = fopen('../storage/log_BuzzExpert.txt', 'a');//opens file in append mode
         fwrite($fp, $log."\n");   
