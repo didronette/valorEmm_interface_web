@@ -23,7 +23,7 @@ class ControllerBuzzExpert extends Controller
         $heure = Carbon::now()->format("Y-m-d H:i:s");
         $inputs = $request->all();
         //$log = $heure.' DLR '.$inputs['tx_id'].' '.$inputs['cp_id'].' '.$inputs['response'].' '.$inputs['status'].' '.$inputs['phone'].' '.$inputs['tag'];
-        $log = strval($inputs);
+        $log = implode($inputs);
         $fp = fopen('../storage/log_BuzzExpert.txt', 'a');//opens file in append mode
         fwrite($fp, $log."\n");   
         fclose($fp); 
