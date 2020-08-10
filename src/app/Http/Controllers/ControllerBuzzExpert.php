@@ -24,7 +24,7 @@ class ControllerBuzzExpert extends Controller
         $fp = fopen('../storage/log_BuzzExpert.txt', 'a');//opens file in append mode
         fwrite($fp, $log);   
         fclose($fp); 
-
+        return view('welcome');
         return Response::make('Ça marche !', 200);
         
     }

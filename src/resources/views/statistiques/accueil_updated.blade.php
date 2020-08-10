@@ -41,10 +41,10 @@
 @section('caseRapport')
 <div class="pull-left">
                 {!! Form::label('graphique','Graphique' ) !!}
-                {!! Form::checkbox('graphique', 'graphique',true) !!}
+                {!! Form::checkbox('graphique', 'graphique') !!}
             </div>
             <div class="pull-right">
-                {!! Form::label('logs','Logs' ) !!}
+                {!! Form::label('logs','Logs',true) !!}
                 {!! Form::checkbox('logs', 'logs',true) !!}
             </div>
 @endsection

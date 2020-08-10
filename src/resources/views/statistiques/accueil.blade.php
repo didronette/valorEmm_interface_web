@@ -99,28 +99,34 @@
         
     </div>
 
-
+    
 
     {!! Form::submit('Actualiser', ['class' => 'btn btn-block btn-success' ]) !!}
-	{!! Form::close() !!}
+    
 
     </div>
     </div>
     </div>
+
+    
     <div class="panel panel-primary col-sm-5" id="yellow" >	
 
     <div class="panel-body" >
         <div class="col-sm-12" >
+        <h3> Rapport</h3>
+        @yield('caseRapport')
+	{!! Form::close() !!}
         {!! Form::open(['route' => 'generateReport', 'class' => 'form-horizontal panel','name' => 'formRapport','id' => "yellow-borderless",'onsubmit' => 'submitFormRapport(this)']) !!}
-                <h3> Rapport</h3>
-                <div>
+                
             
                 
-                {!! Form::submit('Générateur de rapport', ['class' => 'btn btn-block btn-success']) !!}
 
-                @yield('caseRapport')
-                </div>
-        {!! Form::close() !!}
+                {!! Form::submit('Générateur de rapport', ['class' => 'btn btn-block btn-success']) !!}
+                {!! Form::close() !!}
+
+    
+                
+        
         </div>
     </div>
     </div>

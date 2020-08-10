@@ -137,7 +137,7 @@
                     </div>
 
                     <div>
-                        <h3>Déchetterie prise en compte</h3>
+                        <h3>Déchetterie prises en compte</h3>
                         @foreach($dechetteries as $dechetterie)
                             {{ \App\Dechetterie::find($dechetterie)->first()->nom }}
                         @endforeach
@@ -148,16 +148,16 @@
                     <div ><img src="{{$graphe }}" width="600" height="300" style="background-color:white;" /></div>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
                     </div>
+                    @endif
 
-                    @if($tonnage)
+                    @if($tonnage && $graphique)
                         <div > <strong>Tonnage estimé : {{$tonnes}} tonnes</strong></div>
                     @endif
-                    @if(($nc) || ($ncagglo))
+                    @if((($nc) || ($ncagglo)) && $graphique)
                         <div > <strong>Commandes avec des non-conformités : {{$pourcentage_nc}} %</strong></div>
                     @endif
-                    @if ($enlevement)
-                        <div "> <strong>Commandes enlevées en retard : {{ $pourcentage_enlevement_dans_les_delais }} %</strong></div>
-                    @endif
+                    @if ($enlevement && $graphique)
+                        <div > <strong>Commandes enlevées en retard : {{ $pourcentage_enlevement_dans_les_delais }} %</strong></div>
                     @endif
 
                     @if($logs)
@@ -165,7 +165,7 @@
                         <h1> Logs</h1>
                         <ul>
                         @foreach($enregistrements as $enregistrement)
-                            <li>{{$enregistrement}}</li>
+                            <li style="margin-left:100px;">{{$enregistrement}}</li>
                         @endforeach
                         </ul>
                     </div>

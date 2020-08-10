@@ -84,10 +84,26 @@ class ControllerStatistiques extends Controller
 
     public function updateVueStatistiques(RequeteStats $requete) // Fonction pour l'affichage de l'accueil
 	  {
-      $fluxx = Flux::all();
-      $dechetteries = Dechetterie::all();
+      
 
       $inputs = $requete->all();
+
+      $dechetteries = Dechetterie::all();
+
+      foreach ($dechetteries as $key => $dechetterie) {
+        if (!(in_array($dechetterie->id,$inputs['dechetteries']))) {
+          $dechetteries->forget($key);
+        }
+      }
+      $fluxx = Flux::all();
+
+      foreach ($fluxx as $key => $flux) {
+        if (!(in_array($flux->id,$inputs['fluxx']))) {
+          $fluxx->forget($key);
+        }
+      }
+
+
       $donnees = ControllerDonneesStatistiques::donneesGraphe($inputs['date_debut'],$inputs['date_fin'],$inputs['fluxx'],$inputs['dechetteries']);
       $donnees_nonEnlevee = ControllerDonneesStatistiques::donneesGrapheNonEnlevee($inputs['date_debut'],$inputs['date_fin'],$inputs['fluxx'],$inputs['dechetteries']);
       $dates = ControllerDonneesStatistiques::getDates($inputs['date_debut'],$inputs['date_fin']);
@@ -134,6 +150,11 @@ class ControllerStatistiques extends Controller
       $tonnes = ControllerDonneesStatistiques::TonnageEstime(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
       $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
 
+
+      $dechetteries = Dechetterie::all();
+
+      $fluxx = Flux::all();
+
       return view('statistiques/accueil_updated', ['pourcentage_enlevement_dans_les_delais' => $pourcentage_enlevement_dans_les_delais,'tonnes' => $tonnes,'pourcentage_nc' => $pourcentage_nc,'fluxx' => $fluxx, 'dechetteries' => $dechetteries, 'donnees_nc' => $donnees_nc, 'donnees_nc_agglo' => $donnees_nc_agglo, 'donnees_retard_enlevement' => $donnees_retard_enlevement, 'donnees_ok' => $donnees_ok, 'dates' => $dates,'enlevement' => isset($inputs['enlevement']),'tonnage' => isset($inputs['tonnage']),'nc' => isset($inputs['nc']),'ncagglo' => isset($inputs['ncagglo']),'donnees_pas_enlevee' => $donnees_pas_enlevee]);
 
     }
@@ -145,7 +166,19 @@ class ControllerStatistiques extends Controller
       $inputs = $requete->all();
 
       $dechetteries = Dechetterie::all();
+
+      foreach ($dechetteries as $key => $dechetterie) {
+        if (!(in_array($dechetterie->id,$inputs['dechetteries']))) {
+          $dechetteries->forget($key);
+        }
+      }
       $fluxx = Flux::all();
+
+      foreach ($fluxx as $key => $flux) {
+        if (!(in_array($flux->id,$inputs['fluxx']))) {
+          $fluxx->forget($key);
+        }
+      }
 
       $donnees = ControllerDonneesStatistiques::donneesGraphe($inputs['date_debut'],$inputs['date_fin'],$inputs['fluxx'],$inputs['dechetteries']);
       $donnees_nonEnlevee = ControllerDonneesStatistiques::donneesGrapheNonEnlevee($inputs['date_debut'],$inputs['date_fin'],$inputs['fluxx'],$inputs['dechetteries']);
@@ -198,7 +231,10 @@ class ControllerStatistiques extends Controller
       $enregistrements = [];
 
       foreach ($commandes as $commande) {
-        array_push($enregistrements,$this->formuler($commande,isset($inputs['ncagglo']),isset($inputs['nc']),isset($inputs['enlevement'])));
+        if (in_array($commande->flux,$inputs['fluxx']) && in_array($commande->dechetterie,$inputs['dechetteries'])) {
+          array_push($enregistrements,$this->formuler($commande,isset($inputs['ncagglo']),isset($inputs['nc']),isset($inputs['enlevement'])));
+
+        }
       }
 
       $pdf  = PDF::loadView('rapport', ['pourcentage_enlevement_dans_les_delais' => $pourcentage_enlevement_dans_les_delais,'tonnes' => $tonnes,'pourcentage_nc' => $pourcentage_nc,'fluxx' => $fluxx, 'dechetteries' => $dechetteries, 'donnees_nc' => $donnees_nc, 'donnees_nc_agglo' => $donnees_nc_agglo, 'donnees_retard_enlevement' => $donnees_retard_enlevement, 'donnees_ok' => $donnees_ok, 'dates' => $dates,'enlevement' => isset($inputs['enlevement']),'tonnage' => isset($inputs['tonnage']),'nc' => isset($inputs['nc']),'ncagglo' => isset($inputs['ncagglo']),'donnees_pas_enlevee' => $donnees_pas_enlevee,'graphe' => $inputs['graphe'],'enregistrements' => $enregistrements,'logs' => isset($inputs['logs']),'graphique' => isset($inputs['graphique'])]);
