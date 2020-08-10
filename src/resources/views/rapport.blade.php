@@ -114,11 +114,11 @@
 
 
 <div  style="background-color: #ffffff;">
-            <h1>La souris, le cochon, le rat-porc</h1>
+            
             <aside id="aside">
                 <div >
                     <div class="logo_val" style="float:right; position: absolute;">
-                        <img src="images/logoValorEmm.jpg" alt="Logo de Valor'Emm" width="80" height="80" style="padding:10px;">
+                        <img src="images/logoValorEmm.jpg" alt="Logo de Valor'Emm" width="120" height="120" style="padding:10px;">
                     </div>
                     <div class="logo_afnor" style=" position: absolute; bottom:0%; right:0">
                         <img src="images/niv2.png" alt="Niveau deux de certification AFNOR" width="40" height="40">
@@ -127,6 +127,7 @@
             </aside>
             <div style=" position:relative;">
                 <div class="flex-center position-ref" >
+                <h1>Rapport d'exploitation</h1>
                     <div>
                     
                     <div>
@@ -161,11 +162,13 @@
                     @endif
 
                     @if($logs)
+
+
                     <div >
                         <h1> Logs</h1>
                         <ul>
                         @foreach($enregistrements as $enregistrement)
-                            <li style="margin-left:100px;">{{$enregistrement}}</li>
+                            <li style="margin-left:100px;margin-right:0;">{{$enregistrement}}</li>
                         @endforeach
                         </ul>
                     </div>

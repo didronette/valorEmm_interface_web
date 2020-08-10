@@ -75,13 +75,11 @@
         form.innerHTML = form.innerHTML+'<input type=\'hidden\' name="graphe" value="'+url_base64jp+'">';
 
         var graphique = document.getElementsByName('graphique')[0];
-        alert(graphique.checked);
         if (graphique.checked == true) {
             form.innerHTML = form.innerHTML+'<input type=\'hidden\' name="graphique" value="'+graphique.checked+'">';
             }
 
             var logs = document.getElementsByName('logs')[0];
-            alert(logs.checked);
         if (logs.checked == true) {
             form.innerHTML = form.innerHTML+'<input type=\'hidden\' name="logs" value="'+logs.checked+'">';
             }

@@ -247,7 +247,7 @@ class ControllerStatistiques extends Controller
     public function formuler(Commande $commande,$ncagglo,$nc,$enlevement) {
       $flux = $commande->getFlux();
       if (($commande->statut == 'En attente d\'envoie') ||($commande->statut == 'Modifiée')) {
-        return $commande->created_at.' '.'utilisateur='.$commande->getUser()->name.' '.'statut='.$commande->statut.' '.'num_g ='.$commande->numero_groupe.' '. 'num ='.$commande->numero.' '.'flux='.$flux->type. '('.$flux->societe.') x'.$commande->multiplicite.' dechetterie ='.$commande->dechetterie."\n";
+        return $commande->created_at.'     '."\t".$commande->getUser()->name.'        '."\t".$commande->statut.'       '."\t".'         '."\t".$commande->numero.'('.$commande->numero_groupe.') '.$flux->type. '('.$flux->societe.') x'.$commande->multiplicite.'         '."\t".$commande->getDechetterie()->nom."\n";
       }
       else if (($commande->statut == 'NC (agglo)') && $ncagglo) {
         return $commande->created_at.' '.'utilisateur='.$commande->getUser()->name.' statut='.$commande->statut.' '.'num_g ='.$commande->numero_groupe.' '. 'num ='.$commande->numero.' nc_agglo'.$commande->ncagglo."\n";
