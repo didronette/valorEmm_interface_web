@@ -27,8 +27,7 @@ class ControllerBuzzExpert extends Controller
         $fp = fopen('../storage/log_BuzzExpert.txt', 'a');//opens file in append mode
         fwrite($fp, $log);   
         fclose($fp); 
-        
-        return 'Accusé reception bien arrivé !';
+        return response('Accusé reception bien arrivé !')->setStatusCode(200);
         
     }
 
@@ -42,12 +41,11 @@ class ControllerBuzzExpert extends Controller
     {
         $heure = Carbon::now()->format("Y-m-d H:i:s");
         $inputs = $request->all();
-        $log = $heure.' Reponse '.$inputs['tx_id'].' '.$inputs['cp_id'].' '.$inputs['response'].' '.$inputs['phone'].' '.$inputs['tag'];
+        //$log = $heure.' Reponse '.$inputs['tx_id'].' '.$inputs['cp_id'].' '.$inputs['response'].' '.$inputs['phone'].' '.$inputs['tag'];
+        $log = 'test';
         $fp = fopen('../storage/log_BuzzExpert.txt', 'a');//opens file in append mode
         fwrite($fp, $log);   
         fclose($fp);
-
-        return 'Reponse bein reçue !';
-        
+        return response('Reponse bien reçue !')->setStatusCode(200);        
     }
 }
