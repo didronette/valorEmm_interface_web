@@ -1,8 +1,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.0.0/polyfill.min.js"></script>
 
 <script type="text/javascript">
+   Chart.defaults.global.defaultFontFamily = 'Raleway,sans-serif';
    
-
 
    function HideorShow() {
        var x = document.getElementById("insertinputs");

@@ -30,7 +30,7 @@ Le fichier .env contient toutes les informations de paramétrage de l'interface 
 * Les information de connexion au serveur mail
 * L'adresse mail utilisé pour les envois
 * Le numero utilisé pour les appels
-* La date d'analyse par défaut de début d'analyse pour la partie stat
+
 
 
 ### Fichiers de logs

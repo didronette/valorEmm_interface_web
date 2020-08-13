@@ -404,3 +404,13 @@ array(4) {
   string(3) "476"
 >>>>>>> 9e532d88bf704016d8772e1dc4ec89b0e170d1cc
 }
+array(4) {
+  ["status"]=>
+  string(2) "ok"
+  ["tx_id"]=>
+  string(11) "10040000883"
+  ["credit"]=>
+  string(1) "1"
+  ["credit_rest"]=>
+  string(3) "461"
+}

@@ -2,7 +2,7 @@
 
 
 @section('titre')
-    Confirmation de commande
+    Rappel
 @endsection
 
 

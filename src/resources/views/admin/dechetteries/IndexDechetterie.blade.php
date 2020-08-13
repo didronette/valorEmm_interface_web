@@ -15,7 +15,7 @@
 				<thead>
 					<tr>
 						<th>Nom</th>
-						<th>Adresse MAC</th>
+						<th>Lien</th>
 						<th></th>
                         <th></th>
 					</tr>

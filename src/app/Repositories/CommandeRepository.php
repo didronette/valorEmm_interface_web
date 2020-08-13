@@ -136,7 +136,7 @@ class CommandeRepository
 		else {
 
 			return $requete = Commande::select(DB::raw('t.*'))
-            ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero_groupe, MAX(id) AS maxDate FROM Commande WHERE statut != \'Enlevée\' AND statut != \'Supprimée\' GROUP BY numero_groupe ) groupeC ON c.numero_groupe = groupeC.numero_groupe AND c.id = groupeC.maxDate) t'))
+            ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero_groupe, MAX(id) AS maxDate FROM Commande GROUP BY numero_groupe ) groupeC ON c.numero_groupe = groupeC.numero_groupe AND c.id = groupeC.maxDate) t'))
             ->where(function ($query) {
 				$query->where('statut', '=', 'Passée')
 					  ->orWhere('statut', '=', 'Modifiée')

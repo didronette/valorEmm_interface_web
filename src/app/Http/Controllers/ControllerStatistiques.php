@@ -25,7 +25,7 @@ class ControllerStatistiques extends Controller
 
       $donnees_nonEnlevee = ControllerDonneesStatistiques::donneesCompletesGraphesNonEnlevee();
 
-      $dates = ControllerDonneesStatistiques::getDates(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'));
+      $dates = ControllerDonneesStatistiques::getDates(\Carbon::now()->subMonth()->format('Y-m-d'),\Carbon::now()->format('Y-m-d'));
 
       $donnees_pas_enlevee = [];
       $donnees_nc = [];
@@ -68,9 +68,9 @@ class ControllerStatistiques extends Controller
           $donnees_ok[$indice]++;
         }
       }
-     $pourcentage_enlevement_dans_les_delais = ControllerDonneesStatistiques::pourcentageEnlevementATemps(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
-      $tonnes = ControllerDonneesStatistiques::TonnageEstime(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
-      $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
+     $pourcentage_enlevement_dans_les_delais = ControllerDonneesStatistiques::pourcentageEnlevementATemps(Config::get(\Carbon::now()->subMonth()->format('Y-m-d')),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
+      $tonnes = ControllerDonneesStatistiques::TonnageEstime(Config::get(\Carbon::now()->subMonth()->format('Y-m-d')),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
+      $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get(\Carbon::now()->subMonth()->format('Y-m-d')),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
 
       return view('statistiques/accueil_default', ['pourcentage_enlevement_dans_les_delais' => $pourcentage_enlevement_dans_les_delais,'tonnes' => $tonnes,'pourcentage_nc' => $pourcentage_nc,'fluxx' => $fluxx, 'dechetteries' => $dechetteries, 'donnees_nc' => $donnees_nc, 'donnees_nc_agglo' => $donnees_nc_agglo, 'donnees_retard_enlevement' => $donnees_retard_enlevement, 'donnees_ok' => $donnees_ok, 'dates' => $dates,'donnees_pas_enlevee' => $donnees_pas_enlevee]);
     }
@@ -237,14 +237,14 @@ class ControllerStatistiques extends Controller
         }
       }
 
-      $pdf  = PDF::loadView('rapport', ['pourcentage_enlevement_dans_les_delais' => $pourcentage_enlevement_dans_les_delais,'tonnes' => $tonnes,'pourcentage_nc' => $pourcentage_nc,'fluxx' => $fluxx, 'dechetteries' => $dechetteries, 'donnees_nc' => $donnees_nc, 'donnees_nc_agglo' => $donnees_nc_agglo, 'donnees_retard_enlevement' => $donnees_retard_enlevement, 'donnees_ok' => $donnees_ok, 'dates' => $dates,'enlevement' => isset($inputs['enlevement']),'tonnage' => isset($inputs['tonnage']),'nc' => isset($inputs['nc']),'ncagglo' => isset($inputs['ncagglo']),'donnees_pas_enlevee' => $donnees_pas_enlevee,'graphe' => $inputs['graphe'],'enregistrements' => $enregistrements,'logs' => isset($inputs['logs']),'graphique' => isset($inputs['graphique'])]);
+      $pdf  = PDF::loadView('statistiques/rapport', ['pourcentage_enlevement_dans_les_delais' => $pourcentage_enlevement_dans_les_delais,'tonnes' => $tonnes,'pourcentage_nc' => $pourcentage_nc,'fluxx' => $fluxx, 'dechetteries' => $dechetteries, 'donnees_nc' => $donnees_nc, 'donnees_nc_agglo' => $donnees_nc_agglo, 'donnees_retard_enlevement' => $donnees_retard_enlevement, 'donnees_ok' => $donnees_ok, 'dates' => $dates,'enlevement' => isset($inputs['enlevement']),'tonnage' => isset($inputs['tonnage']),'nc' => isset($inputs['nc']),'ncagglo' => isset($inputs['ncagglo']),'donnees_pas_enlevee' => $donnees_pas_enlevee,'graphe' => $inputs['graphe'],'enregistrements' => $enregistrements,'logs' => isset($inputs['logs']),'graphique' => isset($inputs['graphique'])]);
         
 
 		return $pdf->download('rapport.pdf');
 
     }
 
-    public function formuler(Commande $commande,$ncagglo,$nc,$enlevement) {
+    public function formuler(Commande $commande,$ncagglo,$nc,$enlevement) { // TODO : fonction à terminer
       $flux = $commande->getFlux();
       if (($commande->statut == 'En attente d\'envoie') ||($commande->statut == 'Modifiée')) {
         return $commande->created_at.'     '."\t".$commande->getUser()->name.'        '."\t".$commande->statut.'       '."\t".'         '."\t".$commande->numero.'('.$commande->numero_groupe.') '.$flux->type. '('.$flux->societe.') x'.$commande->multiplicite.'         '."\t".$commande->getDechetterie()->nom."\n";
