@@ -23,7 +23,7 @@ use App\Http\Requests\RequeteEnlevementGroupe;
 
 class ControllerCommande extends Controller
 {
-    protected $nbrPerPage = 2;
+    protected $nbrPerPage = 3000;
 
     protected $commandeRepository;
 

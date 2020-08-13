@@ -14,7 +14,23 @@
      		<div class="alert alert-danger">{{ session('error') }}</div>
 			 <?php session()->forget('error');?>
 		@endif
+
+		<div >
+			{!! $links !!}
+		</div>
+
+		<table class="table">
+						<tbody>
+							<tr>
+								<td>{!! link_to_route('commandes.create', 'Passer une commande', [], ['class' => 'btn button-val pull-left']) !!}</td>
+								<td><a href="https://docagents.valoremm.fr" class="btn button-val center">Documentation</a></td>
+								<td>{!! link_to_route('listeContacts', 'Liste des contacts', [], ['class' => 'btn button-val pull-right']) !!}</td>
+		 					</tr>
+						</tbody>
+		</table>
+		
 		<div class="panel panel-primary">
+		{!! link_to_route('indexGr', 'Affichage groupé') !!}
 		<div class="panel-body" id="yellow"> 
 		@if (!$commandes->isEmpty())
 			
@@ -50,23 +66,10 @@
 						Il n'y a pas de commande en cours.
 		@endif
 		</div>
-		{!! link_to_route('indexGr', 'Affichage groupé', ['class' => 'btn btn-warning']) !!}
-
-		</div>
-		<table class="table">
-						<tbody>
-							<tr>
-								<td>{!! link_to_route('commandes.create', 'Passer une commande', [], ['class' => 'btn button-val pull-left']) !!}</td>
-								<td><a href="https://docagents.valoremm.fr" class="btn button-val center">Documentation</a></td>
-								<td>{!! link_to_route('listeContacts', 'Liste des contacts', [], ['class' => 'btn button-val pull-right']) !!}</td>
-		 					</tr>
-						</tbody>
-		</table>
 		
 
-		<div >
-			{!! $links !!}
 		</div>
+		
 	<div>
 		
 	</div>
