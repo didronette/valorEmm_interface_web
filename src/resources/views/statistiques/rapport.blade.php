@@ -150,14 +150,14 @@
                     <div>
                         <h3>Flux pris en compte</h3>
                         @foreach($fluxx as $flux)
-                            {{ \App\Flux::find($flux)->first()->type.' ('.\App\Flux::find($flux)->first()->societe.') ' }}
+                            {{ \App\Flux::find($flux)->first()->type.' ('.\App\Flux::find($flux)->first()->societe.') ' }};
                         @endforeach
                     </div>
 
                     <div>
                         <h3>Déchetterie prises en compte</h3>
                         @foreach($dechetteries as $dechetterie)
-                            {{ \App\Dechetterie::find($dechetterie)->first()->nom }}
+                            {{ \App\Dechetterie::find($dechetterie)->first()->nom }};
                         @endforeach
                     </div>
 
@@ -199,6 +199,8 @@
                 </div>
             </div>
 </div>
+
+<div style="text-align : right; font-style: italic;"> <strong>Légende :</strong> Commande: numéro de commande (numéro de groupe).</div>
 
 <footer >
 <div style="position:relative;">
