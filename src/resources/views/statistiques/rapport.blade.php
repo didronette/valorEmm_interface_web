@@ -11,11 +11,12 @@
     <title>Rapport</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
         <!-- Styles : TODO mais garder aside -->
         <style> 
             #aside {
+                padding-left:40px;
                 float: left;
                 width: 100px;
                 height: 100%;
@@ -23,9 +24,19 @@
                 
             }
 
+            footer .pagenum:before {
+      content: counter(page);
+}
+
+@page { margin: 100px 25px; }
+    footer { position: fixed; bottom: -60px; left: 0px; right: 0px; background-color: lightblue; height: 50px; padding:0 10px;}
+    p { page-break-after: always; }
+    p:last-child { page-break-after: never; }
 
             body {
                 color : #000000;
+                
+                
             }
             
 
@@ -33,11 +44,16 @@
                 max-width: 100%;
             }
 
-            h1 {
+            #title {
                 margin-top:0;
-                padding-top: 20px;
-                text-align: center;
+                margin-left:200px;
+                font-weight: bold;
+                font-size: 40px;
                 }
+
+            h1,h3 {
+                font-weight: bold;
+            }
 
 
             .acceptable-width {
@@ -113,7 +129,7 @@
 
 
 
-<div  style="background-color: #ffffff;">
+<div  style="background-color: #ffffff; ">
             
             <aside id="aside">
                 <div >
@@ -125,9 +141,10 @@
                     </div>
                 </div>
             </aside>
+
             <div style=" position:relative;">
                 <div class="flex-center position-ref" >
-                <h1>Rapport d'exploitation</h1>
+                <h1 id=title>Rapport d'exploitation</h1>
                     <div>
                     
                     <div>
@@ -146,6 +163,7 @@
 
 
                     @if($graphique)
+                    <h1> Statistiques</h1>
                     <div ><img src="{{$graphe }}" width="600" height="300" style="background-color:white;" /></div>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
                     </div>
@@ -161,22 +179,42 @@
                         <div > <strong>Commandes enlevées en retard : {{ $pourcentage_enlevement_dans_les_delais }} %</strong></div>
                     @endif
 
-                    @if($logs)
 
+                    @if($logs)
+<p>
 
                     <div >
                         <h1> Logs</h1>
                         <ul>
                         @foreach($enregistrements as $enregistrement)
-                            <li style="margin-left:100px;margin-right:0;">{{$enregistrement}}</li>
+                        @if($enregistrement != '') 
+                            <li style="margin-left:60px;margin-right:0;">{{$enregistrement}}</li>
+                        @endif
                         @endforeach
                         </ul>
                     </div>
+                    </p>
                     @endif
+
                 </div>
             </div>
 </div>
 
+<footer >
+<div style="position:relative;">
+<div class="logo_val" style="float:left; margin-right:20px; ">
+                        <img src="images/logoValorEmm.jpg" alt="Logo de Valor'Emm" width="50" height="50">
+                    </div>
+                    <div class="logo_afnor" style="padding-left:210px; padding-top:20px;">
+                        <img src="images/niv2.png" alt="Niveau deux de certification AFNOR" width="30" height="30">
+                    </div>
+                    <div style="padding-left:300px; display: inline;">
+                        Source : Valor'Emm {{\Carbon::now()->format('Y')}}
+                    </div>
+            <div class="pagenum-container" style="float:right">Page <span class="pagenum"></span></div>
+</div>
+
+</footer>
 
 
 

@@ -58,12 +58,11 @@ $chartjs = app()->chartjs
 ->labels($dates)
 ->datasets($datasets)
 ->options([ 'title' => [
-            'display' => true,
+            'display' => false,
             'text' => 'Statistiques des commandes',
             'fontSize' => 40,
             'fontColor' => '#000000',
             'align' => 'left',
-            'fontFamily' => 'Raleway,sans-serif'
         ],
         'scales' => [
             'xAxes' => [[
@@ -81,4 +80,5 @@ $chartjs = app()->chartjs
 ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+    <h1> Statistiques des commandes </h1>
     {!! $chartjs->render() !!}

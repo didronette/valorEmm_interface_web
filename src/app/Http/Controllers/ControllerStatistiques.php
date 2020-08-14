@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\ControllerDonneesStatistiques;
 
 use PDF;
+use Dompdf\Dompdf;
 
 class ControllerStatistiques extends Controller
 {
@@ -240,6 +241,8 @@ class ControllerStatistiques extends Controller
       $pdf  = PDF::loadView('statistiques/rapport', ['pourcentage_enlevement_dans_les_delais' => $pourcentage_enlevement_dans_les_delais,'tonnes' => $tonnes,'pourcentage_nc' => $pourcentage_nc,'fluxx' => $fluxx, 'dechetteries' => $dechetteries, 'donnees_nc' => $donnees_nc, 'donnees_nc_agglo' => $donnees_nc_agglo, 'donnees_retard_enlevement' => $donnees_retard_enlevement, 'donnees_ok' => $donnees_ok, 'dates' => $dates,'enlevement' => isset($inputs['enlevement']),'tonnage' => isset($inputs['tonnage']),'nc' => isset($inputs['nc']),'ncagglo' => isset($inputs['ncagglo']),'donnees_pas_enlevee' => $donnees_pas_enlevee,'graphe' => $inputs['graphe'],'enregistrements' => $enregistrements,'logs' => isset($inputs['logs']),'graphique' => isset($inputs['graphique'])]);
         
 
+     
+
 		return $pdf->download('rapport.pdf');
 
     }
@@ -250,14 +253,15 @@ class ControllerStatistiques extends Controller
         return $commande->created_at.'     '."\t".$commande->getUser()->name.'        '."\t".$commande->statut.'       '."\t".'         '."\t".$commande->numero.'('.$commande->numero_groupe.') '.$flux->type. '('.$flux->societe.') x'.$commande->multiplicite.'         '."\t".$commande->getDechetterie()->nom."\n";
       }
       else if (($commande->statut == 'NC (agglo)') && $ncagglo) {
-        return $commande->created_at.' '.'utilisateur='.$commande->getUser()->name.' statut='.$commande->statut.' '.'num_g ='.$commande->numero_groupe.' '. 'num ='.$commande->numero.' nc_agglo'.$commande->ncagglo."\n";
+        return $commande->created_at.' '.$commande->getUser()->name.' '.$commande->statut.' '.$commande->numero.' ('.$commande->numero_groupe.') '.$commande->ncagglo."\n";
       }
-      else if ((($commande->statut == 'Relancée') || ($commande->statut == 'Envoyée') || ($commande->statut == 'Supprimée')) && $commande) {
-        return $commande->created_at.' '.'utilisateur='.$commande->getUser()->name.' statut='.$commande->statut.' '.'num_g ='.$commande->numero_groupe.' '. 'num ='.$commande->numero."\n";
+      else if ((($commande->statut == 'Relancée') || ($commande->statut == 'Envoyée') || ($commande->statut == 'Passée') || ($commande->statut == 'Supprimée')) && $commande) {
+        return $commande->created_at.' '.$commande->getUser()->name.' '.$commande->statut.' '.$commande->numero.' ('.$commande->numero_groupe.")\n";
       }
       else if (($commande->statut == 'Enlevée') && ($enlevement || $nc)) {
-        return $commande->created_at.' '.'utilisateur='.$commande->getUser()->name.' statut='.$commande->statut.' '.'num_g ='.$commande->numero_groupe.' '. 'num ='.$commande->numero.' enlèvement à :'.$commande->date_enlevement.' nc='.$commande->nc."\n";
+        return $commande->created_at.' '.$commande->getUser()->name.' '.$commande->statut.' '.$commande->numero.' ('.$commande->numero_groupe.') '.$commande->date_enlevement.' '.$commande->nc."\n";
       }  
+
       
       return '';
       
