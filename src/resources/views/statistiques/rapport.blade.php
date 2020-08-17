@@ -207,7 +207,7 @@
 <div class="logo_val" style="float:left; margin-right:20px; ">
                         <img src="images/logoValorEmm.jpg" alt="Logo de Valor'Emm" width="50" height="50">
                     </div>
-                    <div class="logo_afnor" style="padding-left:210px; padding-top:20px;">
+                    <div class="logo_afnor" style="padding-left:210px; padding-top:21px;">
                         <img src="images/niv2.png" alt="Niveau deux de certification AFNOR" width="30" height="30">
                     </div>
                     <div style="padding-left:300px; display: inline;">

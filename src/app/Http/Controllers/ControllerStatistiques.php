@@ -69,9 +69,9 @@ class ControllerStatistiques extends Controller
           $donnees_ok[$indice]++;
         }
       }
-     $pourcentage_enlevement_dans_les_delais = ControllerDonneesStatistiques::pourcentageEnlevementATemps(Config::get(\Carbon::now()->subMonth()->format('Y-m-d')),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
-      $tonnes = ControllerDonneesStatistiques::TonnageEstime(Config::get(\Carbon::now()->subMonth()->format('Y-m-d')),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
-      $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get(\Carbon::now()->subMonth()->format('Y-m-d')),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
+     $pourcentage_enlevement_dans_les_delais = ControllerDonneesStatistiques::pourcentageEnlevementATemps(\Carbon::now()->subMonth()->format('Y-m-d'),\Carbon::now()->format('Y-m-d'),null,null);
+      $tonnes = ControllerDonneesStatistiques::TonnageEstime(\Carbon::now()->subMonth()->format('Y-m-d'),\Carbon::now()->format('Y-m-d'),null,null);
+      $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(\Carbon::now()->subMonth()->format('Y-m-d'),\Carbon::now()->format('Y-m-d'),null,null);
 
       return view('statistiques/accueil_default', ['pourcentage_enlevement_dans_les_delais' => $pourcentage_enlevement_dans_les_delais,'tonnes' => $tonnes,'pourcentage_nc' => $pourcentage_nc,'fluxx' => $fluxx, 'dechetteries' => $dechetteries, 'donnees_nc' => $donnees_nc, 'donnees_nc_agglo' => $donnees_nc_agglo, 'donnees_retard_enlevement' => $donnees_retard_enlevement, 'donnees_ok' => $donnees_ok, 'dates' => $dates,'donnees_pas_enlevee' => $donnees_pas_enlevee]);
     }

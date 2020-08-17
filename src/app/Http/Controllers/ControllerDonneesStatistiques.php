@@ -17,7 +17,7 @@ class ControllerDonneesStatistiques extends Controller
         //Sur les commandes enlevées, combien sont enlevees avant la date butoire ? ramené au nb total
         $date_fin = Carbon::createFromFormat('Y-m-d', $date_fin)->addDay()->format('Y-m-d');
         
-        if ($fluxx instanceof \Illuminate\Support\Collection) {
+        if ($fluxx == null) {
             $commandes = Commande::select(DB::raw('t.*'))
             ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero, MAX(id) AS maxDate FROM Commande GROUP BY numero ) groupeC ON c.numero = groupeC.numero AND c.id = groupeC.maxDate) t'))
             ->where('statut', '=', 'Enlevée')
@@ -52,7 +52,7 @@ class ControllerDonneesStatistiques extends Controller
     public static function TonnageEstime($date_debut,$date_fin,$fluxx,$dechetteries) {
         $date_fin = Carbon::createFromFormat('Y-m-d', $date_fin)->addDay()->format('Y-m-d');
         
-        if ($fluxx instanceof \Illuminate\Support\Collection) {
+        if ($fluxx == null) {
             $commandes = Commande::select(DB::raw('t.*'))
             ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero, MAX(id) AS maxDate FROM Commande GROUP BY numero ) groupeC ON c.numero = groupeC.numero AND c.id = groupeC.maxDate) t'))
             ->where('statut', '=', 'Enlevée')
@@ -88,7 +88,8 @@ class ControllerDonneesStatistiques extends Controller
     public static function pourcentageNc($date_debut,$date_fin,$fluxx,$dechetteries) {
         $date_fin = Carbon::createFromFormat('Y-m-d', $date_fin)->addDay()->format('Y-m-d');
         
-        if ($fluxx instanceof \Illuminate\Support\Collection) {
+        if ($fluxx == null) {
+            var_dump('yep');
             $commandes = Commande::select(DB::raw('t.*'))
             ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero, MAX(id) AS maxDate FROM Commande GROUP BY numero ) groupeC ON c.numero = groupeC.numero AND c.id = groupeC.maxDate) t'))
             ->where('statut', '=', 'Enlevée')
