@@ -147,9 +147,9 @@ class ControllerStatistiques extends Controller
         }
       }
 
-      $pourcentage_enlevement_dans_les_delais = ControllerDonneesStatistiques::pourcentageEnlevementATemps(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
-      $tonnes = ControllerDonneesStatistiques::TonnageEstime(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
-      $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
+      $pourcentage_enlevement_dans_les_delais = ControllerDonneesStatistiques::pourcentageEnlevementATemps(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$inputs['fluxx'],$inputs['dechetteries']);
+      $tonnes = ControllerDonneesStatistiques::TonnageEstime(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$inputs['fluxx'],$inputs['dechetteries']);
+      $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$inputs['fluxx'],$inputs['dechetteries']);
 
 
       $dechetteries = Dechetterie::all();
@@ -223,9 +223,9 @@ class ControllerStatistiques extends Controller
         }
       }
 
-      $pourcentage_enlevement_dans_les_delais = ControllerDonneesStatistiques::pourcentageEnlevementATemps(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
-      $tonnes = ControllerDonneesStatistiques::TonnageEstime(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
-      $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$fluxx,$dechetteries);
+      $pourcentage_enlevement_dans_les_delais = ControllerDonneesStatistiques::pourcentageEnlevementATemps(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$inputs['fluxx'],$inputs['dechetteries']);
+      $tonnes = ControllerDonneesStatistiques::TonnageEstime(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$inputs['fluxx'],$inputs['dechetteries']);
+      $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$inputs['fluxx'],$inputs['dechetteries']);
 
       $commandes = Commande::all();
 
