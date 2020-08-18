@@ -89,7 +89,6 @@ class ControllerDonneesStatistiques extends Controller
         $date_fin = Carbon::createFromFormat('Y-m-d', $date_fin)->addDay()->format('Y-m-d');
         
         if ($fluxx == null) {
-            var_dump('yep');
             $commandes = Commande::select(DB::raw('t.*'))
             ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero, MAX(id) AS maxDate FROM Commande GROUP BY numero ) groupeC ON c.numero = groupeC.numero AND c.id = groupeC.maxDate) t'))
             ->where('statut', '=', 'Enlevée')
