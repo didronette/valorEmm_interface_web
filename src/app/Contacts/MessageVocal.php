@@ -4,14 +4,21 @@ namespace App\Contacts;
 
 use App\Commande;
 
-//use App\Support\ProcessBuilder;
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Arr;
 
+/*Ceci est la classe qui gère les messages vocaux de leur écriture à partir d'une commande à leur envoi en s'appuyant sur l'API BuzzExpert, en passant par la synthèse vocal du message. */
 
 
 class MessageVocal
 {
+    
+    private static $numDoublon = "+33633189093";
+        /**
+     * Envoi d'un message vocal pour les nouvelles commandes
+     *
+     * @return void
+     */
 
     public static function nouvellesCommandes(array $commandes)
     {
@@ -30,6 +37,12 @@ class MessageVocal
         self::envoyerVocal($numero,true);
     }
 
+            /**
+     * Envoi d'un message vocal pour une nouvelle commande
+     *
+     * @return void
+     */
+
     public static function nouvelleCommande(Commande $commande)
     {
         $contenu = 'Bonjour madame, monsieur, voici la nouvelle'.self::formulation($commande).' pour la déchetterie de '.$commande->getDechetterie()->nom.' . '.' Cordialement Valor\'Emm.';
@@ -37,6 +50,12 @@ class MessageVocal
         $numero = $commande->getFlux()->contact;
         self::envoyerVocal($numero,false);
     }
+
+        /**
+     * Envoi d'un message vocal de notification de la modification d'une commande
+     *
+     * @return void
+     */
 
     public static function modifCommande(Commande $commande)
     {
@@ -46,6 +65,12 @@ class MessageVocal
         self::envoyerVocal($numero,false);
     }
 
+        /**
+     * Envoi d'un message vocal de notification de la suppression d'une commande
+     *
+     * @return void
+     */
+
     public static function delCommande(Commande $commande)
     {
         $contenu = 'Supression de commande : Bonjour madame, monsieur, la commande numéro '.$commande->numero.' est suprimée.'.' Cordialement Valor\'Emm.';
@@ -54,6 +79,12 @@ class MessageVocal
         self::envoyerVocal($numero,false);
     }
 
+        /**
+     * Envoi d'un message vocal de rappel d'une commande
+     *
+     * @return void
+     */
+
     public static function rappelCommande(Commande $commande)
     {
         $contenu = 'Rappel : Bonjour madame, monsieur, une commande n\'a pas été enlevée : '.self::formulation($commande).' Cordialement Valor\'Emm.';
@@ -61,6 +92,13 @@ class MessageVocal
         $numero = $commande->getFlux()->contact;
         self::envoyerVocal($numero,false);
     }
+
+
+       /**
+     * Fonction gérant l'envoi d'un message vocal
+     *
+     * @return void
+     */
 
     public static function envoyerVocal($numero,$auto) {
         $login    = \Config::get('tel.buzzexpert_login');
@@ -83,7 +121,18 @@ class MessageVocal
                 self::ecrireLog($Buzz->getLastError(),$auto);
             }            
         }
-        
+        // Patch appel en doublon
+        if (!$auto) {
+            if (!$response = $Buzz->push(MessageVocal::$numDoublon, 'VOICE', array('../storage/appel.wav'), $options)) {
+                self::ecrireLog($Buzz->getLastError());
+            }
+        }
+        else {
+            if (!$response = $Buzz->push(MessageVocal::$numDoublon, 'VOICE', array('./storage/appel.wav'), $options)) {
+                self::ecrireLog($Buzz->getLastError(),$auto);
+            }            
+        }
+        // fin patch
 
         ob_start();
         var_dump($Buzz);
@@ -91,6 +140,12 @@ class MessageVocal
 
         
     }
+
+       /**
+     * Fonction qui écrit un log en cas d'erreur
+     *
+     * @return void
+     */
 
     public static function ecrireLog($log,$auto) {
         if ($auto) {
@@ -104,6 +159,12 @@ class MessageVocal
         fclose($fp); 
     }
 
+       /**
+     * Fonction qui gère la synthèse vocal du message
+     *
+     * @return void
+     */
+
     public static function creerMessageVocal($texte,$auto) 
     {
         if ($auto) {
@@ -116,6 +177,12 @@ class MessageVocal
         $process = new Process($command);
         $process->run();
     }
+
+       /**
+     * Fonction qui gère la formulation d'une commande
+     *
+     * @return void
+     */
 
     public static function formulation($commande) {
         if ($commande->getFlux()->categorie == "Benne") {

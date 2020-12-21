@@ -41,8 +41,4 @@ class User extends Authenticatable
         return redirect('admin');
     }
 
-    public function commandes() 
-    {
-        return $this->hasMany('App\Commande');
-    }
 }

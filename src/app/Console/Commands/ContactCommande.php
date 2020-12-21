@@ -37,6 +37,6 @@ class ContactCommande extends Command
      */
     public function handle()
     {
-        \App\Contacts::commandeContact();
+        \App\Contacts::commandeContact(); // Essaye toutes les minutes d'envoyer des commandes si nécéssaire
     }
 }

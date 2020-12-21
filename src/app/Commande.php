@@ -8,17 +8,30 @@ class Commande extends Model
 {
     protected $table = 'Commande';
 
+
+       /**
+     * Renvoie l'objet User correspondant à l'utilisateur associé à la commande
+     */
+
     public function getUser() 
 	{
 		
 		return User::find($this->compte);
     }
     
+       /**
+     * Renvoie l'objet Dechetterie correspondant à la déchetterie associée à la commande
+     */
+
     public function getDechetterie() 
 	{
 		return Dechetterie::find($this->dechetterie);
     }
     
+       /**
+     * Renvoie l'objet Flux correspondant au flux associé à la commande
+     */
+
     public function getFlux() 
 	{
 		return Flux::find($this->flux);

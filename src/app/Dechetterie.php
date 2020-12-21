@@ -10,8 +10,5 @@ class Dechetterie extends Model
     
     public $timestamps = false;
 
-    public function commandes() 
-    {
-        return $this->hasMany('App\Commande');
-    }
+
 }

@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\DB;
 
 class Contacts
 {
+    /**
+     * Retourne vrai s'il existe une commande à envoyer
+     */
+
     public static function commandeAEnvoyer()
     {
         $commandes = Commande::select(DB::raw('t.*'))
@@ -25,7 +29,11 @@ class Contacts
             ->get();
 
         return (!($commandes->isEmpty()));
-    } 
+    }
+    
+    /**
+     * Réalise l'envoi des commandes à envoyer
+     */
 
     public static function envoyerCommande()
     {
@@ -47,6 +55,10 @@ class Contacts
         }
 
     }
+
+    /**
+     * Réalise l'envoi des commandes à envoyer si il y en a (fonction appelée automatiquement toutes les minutes)
+     */
     
     public static function commandeContact()
     {
@@ -55,6 +67,10 @@ class Contacts
             self::envoyerCommande();
         }
     }
+
+/**
+     * Réalise l'envoi de plusieurs nouvelles commandes
+     */
 
     public static function nouvellesCommande(array $commandes)
     {
@@ -79,6 +95,10 @@ class Contacts
         
     }
 
+    /**
+     * Réalise l'envoi d'une nouvelle commande
+     */
+
 
     public static function nouvelleCommande(Commande $commande)
     {
@@ -96,6 +116,10 @@ class Contacts
         $enregistrement->save();
     }
 
+    /**
+     * Réalise l'envoi d'une modification de commande
+     */
+
     public static function modifCommande(Commande $commande)
     {
         if ($commande->getFlux()->type_contact == 'MAIL') {
@@ -106,6 +130,10 @@ class Contacts
             SMS::modifCommande($commande);
         }
     }
+
+    /**
+     * Réalise la notification de la suppression d'une commande
+     */
 
     public static function delCommande(Commande $commande)
     {
@@ -118,6 +146,10 @@ class Contacts
         }
     }
 
+        /**
+     * Réalise la notification du rappel d'une commande
+     */
+
     public static function rappelCommande(Commande $commande)
     {
         if ($commande->getFlux()->type_contact == 'MAIL') {
@@ -128,6 +160,10 @@ class Contacts
             SMS::rappelCommande($commande);
         }
     }
+
+       /**
+     * Renvoie le nombre de crédit Buzz Expert restants
+     */
 
     public static function creditRestant() {
         $login    = \Config::get('tel.buzzexpert_login');
