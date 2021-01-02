@@ -15,7 +15,7 @@ class ControllerDonneesSaisie extends Controller
     // Fonction qui renvoie la liste des flux
     public static function flux($categorie)
 	{
-        $fluxx =  Flux::all()->groupBy('societe') -> where('categorie', $categorie)->get();
+        $fluxx =  Flux::all() -> where('categorie', $categorie)->groupBy('societe')->get();
         $retour = array();
         foreach ($fluxx as $flux) {
             $retour[$flux->id] = $flux->type . '(' . $flux->societe . ')';
