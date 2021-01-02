@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/', function() {return redirect()->route('login');}); // Redirection sur le login si quelqu'un tente d'accéder à la racine
+
 
 // ############################# Routes pour l'authentification #############################
 

@@ -12,7 +12,7 @@ class ControllerDechetterie extends Controller
 {
     protected $dechetterieRepository;
 
-    protected $nbrPerPage = 4;
+    protected $nbrPerPage = 300;
 
     public function __construct(DechetterieRepository $dechetterieRepository)
 	{

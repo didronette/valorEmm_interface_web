@@ -12,7 +12,7 @@ use App\Http\Requests\RequeteModifFlux;
 class ControllerFlux extends Controller
 {
     protected $fluxRepository;
-    protected $nbrPerPage = 5;
+    protected $nbrPerPage = 300;
 
     public function __construct(FluxRepository $fluxRepository)
 	{

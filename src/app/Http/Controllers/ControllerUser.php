@@ -19,7 +19,7 @@ class ControllerUser extends Controller
 
     protected $userRepository;
 
-    protected $nbrPerPage = 4;
+    protected $nbrPerPage = 300;
 
     public function __construct(UserRepository $userRepository)
     {

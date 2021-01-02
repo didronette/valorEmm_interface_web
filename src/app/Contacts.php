@@ -45,9 +45,10 @@ class Contacts
             
         $commandes_groupees = [];
         foreach ($commandes as $commande) {
+            $societe = $commande->getFlux()->societe;
             $contact = $commande->getFlux()->contact;
             $dechetterie =  $commande->dechetterie;
-            $commandes_groupees[$contact.$dechetterie][$commande->numero] = $commande;
+            $commandes_groupees[$societe.$contact.$dechetterie][$commande->numero] = $commande;
         }
 
         foreach ($commandes_groupees as $groupe_commande) {

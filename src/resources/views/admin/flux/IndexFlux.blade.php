@@ -5,7 +5,7 @@
 @endsection
 
 @section('contenu')
-    <div class="col-sm-offset-4 col-sm-6">
+    <div class="col-sm-offset-4 col-sm-10">
     	@if(session()->has('ok'))
 			<div class="alert alert-success alert-dismissible">{!! session('ok') !!}</div>
 		@endif
@@ -27,6 +27,7 @@
 						<td>{!! $entite->categorie !!}</td>
 							<td>{!! $entite->type !!}</td>
 							<td>{!! $entite->societe !!}</td>
+							<td>{!! $entite->contact !!}</td>
 							<td>{!! link_to_route('flux.show', 'Afficher', [$entite->id], ['class' => 'btn btn-success btn-block']) !!}</td>
 							<td>{!! link_to_route('flux.edit', 'Modifier', [$entite->id], ['class' => 'btn btn-success btn-block']) !!}</td>
 							<td>

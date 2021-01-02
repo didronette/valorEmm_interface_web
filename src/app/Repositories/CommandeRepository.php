@@ -182,7 +182,7 @@ class CommandeRepository
 	{
 		if (session()->has('dechetterie')) {
 			return $requete = Commande::select(DB::raw('t.*'))
-            ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero, MAX(id) AS maxDate FROM Commande GROUP BY numero ) groupeC ON c.numero = groupeC.numero AND c.id = groupeC.maxDate) t'))
+            ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero, MAX(id) AS maxDate FROM Commande GROUP BY numero HAVING statut = \'Passée\' OR statut = \'Modifiée\' OR statut = \'En attente d\'envoie\' OR statut = \'NC (agglo)\' OR statut = \'Relancée\' ) groupeC ON c.numero = groupeC.numero AND c.id = groupeC.maxDate) t'))
 
             ->where(function ($query) {
 				$query->where('statut', '=', 'Passée')
@@ -198,7 +198,7 @@ class CommandeRepository
 		else {
 
 			return $requete = Commande::select(DB::raw('t.*'))
-            ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero, MAX(id) AS maxDate FROM Commande GROUP BY numero ) groupeC ON c.numero = groupeC.numero AND c.id = groupeC.maxDate) t'))
+            ->from(DB::raw('(SELECT c.* FROM Commande c INNER JOIN ( SELECT numero, MAX(id) AS maxDate FROM Commande GROUP BY numero HAVING statut = \'Passée\' OR statut = \'Modifiée\' OR statut = \'En attente d\'envoie\' OR statut = \'NC (agglo)\' OR statut = \'Relancée\' ) groupeC ON c.numero = groupeC.numero AND c.id = groupeC.maxDate) t'))
 
             ->where(function ($query) {
 				$query->where('statut', '=', 'Passée')
@@ -311,7 +311,7 @@ class CommandeRepository
         }
 
         if (isset($flux->horaires_commande_matin)) {
-            $h_aprem = $date->copy()->setTimeFromTimeString($flux->horaires_commande_matin);
+            $h_matin = $date->copy()->setTimeFromTimeString($flux->horaires_commande_matin);
             
             if ($h_matin > $date) {
                 return $h_matin;
