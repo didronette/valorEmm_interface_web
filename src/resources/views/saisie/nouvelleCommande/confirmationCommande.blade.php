@@ -9,7 +9,9 @@
 @section('text')
     @if (session()->has('commandes'))
         Vous allez passer {{ count(session()->get('commandes')) }} autres commandes : <br>
-        
+        @foreach (session()->get('commandes') as $commande)
+            {{ $commande->numero,$commande->getFlux()->type.'('.$commande->getFlux()->societe.','.$commande->multiplicite.')' }} <br>
+        @endforeach
     @endif
 
         Résumé de la commande : <br>
