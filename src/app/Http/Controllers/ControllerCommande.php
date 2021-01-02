@@ -71,7 +71,7 @@ class ControllerCommande extends Controller
      */
     public function createBenne()
     {
-        $fluxx = ControllerDonneesSaisie::flux('Benne')->groupBy('societe')->get();
+        $fluxx = ControllerDonneesSaisie::flux('Benne');
         $dechetteries = ControllerDonneesSaisie::dechetteries();
         return view('saisie/nouvelleCommande/nouvelleCommandeBenne', compact('dechetteries', 'fluxx'));
     }
@@ -83,7 +83,7 @@ class ControllerCommande extends Controller
      */
     public function createDDS()
     {
-        $fluxx = ControllerDonneesSaisie::flux('DDS')->groupBy('societe')->get();;
+        $fluxx = ControllerDonneesSaisie::flux('DDS');
         $dechetteries = ControllerDonneesSaisie::dechetteries();
         return view('saisie/nouvelleCommande/nouvelleCommandeDDS', compact('dechetteries', 'fluxx'));
     }
@@ -95,7 +95,7 @@ class ControllerCommande extends Controller
      */
     public function createAutre()
     {
-        $fluxx = ControllerDonneesSaisie::flux('Autres déchets')->groupBy('societe')->get();;
+        $fluxx = ControllerDonneesSaisie::flux('Autres déchets');
         $dechetteries = ControllerDonneesSaisie::dechetteries();
         return view('saisie/nouvelleCommande/nouvelleCommandeAutres', compact('dechetteries', 'fluxx'));
     }
