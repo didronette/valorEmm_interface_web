@@ -1,7 +1,7 @@
 @extends('mails/mail')
 
 @section('nom')
-    société {{ $commandes[0]->getFlux()->societe }}
+    société {{ $commandes->first()->getFlux()->societe }}
 @endsection
 
 @section('content')
