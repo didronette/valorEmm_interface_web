@@ -172,7 +172,7 @@ class Contacts
 
         $Buzz = new BuzzExpert($login, $password);
 
-        return $Buzz->remainCredit();
+        return intval($Buzz->remainCredit());
     }
 
 }
