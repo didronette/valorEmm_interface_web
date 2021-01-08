@@ -308,7 +308,7 @@ class ControllerCommande extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response0
      */
     public function rappel($id)
     {
@@ -368,7 +368,7 @@ class ControllerCommande extends Controller
      */
     public function confirmRappel(Confirmation $request)
     {
-        $id = session()->get('numero_groupe');
+        $id = session()->get('numero');
         $compte = $request->all()['compte'];
         $this->commandeRepository->update(['compte' => $compte, 'numero' => $id], "Relancée");
 
@@ -385,7 +385,7 @@ class ControllerCommande extends Controller
     public function confirmRappelGroupe(RequeteRappelGroupe $request)
     {
 
-        $idGr = session()->get('numero');
+        $idGr = session()->get('numero_groupe');
         $compte = $request->all()['compte'];
         $commandes = $request->all()['commandes_rappelees'];
         foreach ($commandes as $id) {
