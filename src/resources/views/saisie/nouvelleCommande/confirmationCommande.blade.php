@@ -14,7 +14,7 @@
         <ul>
             <li>Catégorie : {!! \App\Flux::find($commande['flux'])->categorie !!}</li>
             <li>Flux : {!! \App\Flux::find($commande['flux'])->type !!} (x{!! $commande['multiplicite'] !!})</li>
-            <li>À : {!! \App\Flux::find(commande['flux'])->societe !!}</li>
+            <li>À : {!! \App\Flux::find($commande['flux'])->societe !!}</li>
  
         </ul>
         @endforeach
