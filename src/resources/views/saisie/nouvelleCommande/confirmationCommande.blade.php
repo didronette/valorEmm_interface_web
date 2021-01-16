@@ -10,7 +10,6 @@
     @if (session()->has('commandes'))
         Vous allez passer {{ count(session()->get('commandes')) }} autres commandes : <br>
         @foreach (session()->get('commandes') as $commande)
-        Résumé de la commande : <br>
         <ul>
             <li>Catégorie : {!! \App\Flux::find($commande['flux'])->categorie !!}</li>
             <li>Flux : {!! \App\Flux::find($commande['flux'])->type !!} (x{!! $commande['multiplicite'] !!})</li>
