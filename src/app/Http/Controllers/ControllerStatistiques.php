@@ -227,7 +227,7 @@ class ControllerStatistiques extends Controller
       $tonnes = ControllerDonneesStatistiques::TonnageEstime(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$inputs['fluxx'],$inputs['dechetteries']);
       $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$inputs['fluxx'],$inputs['dechetteries']);
 
-      $commandes = Commande::all();
+      $commandes = Commande::orderBy('numero')->groupBy('numero')->get();
 
       $enregistrements = [];
 
@@ -250,21 +250,23 @@ class ControllerStatistiques extends Controller
     public function formuler(Commande $commande,$ncagglo,$nc,$enlevement) { // TODO : fonction à terminer
       $flux = $commande->getFlux();
       if (($commande->statut == 'En attente d\'envoie') ||($commande->statut == 'Modifiée')) {
-        return $commande->created_at.'     '."\t".$commande->getUser()->name.'        '."\t".$commande->statut.' Commande: '.$commande->numero.'('.$commande->numero_groupe.') '.$flux->type. '('.$flux->societe.') x'.$commande->multiplicite.'         '."\t".$commande->getDechetterie()->nom."\n";
+        return $commande->created_at.'     '."\t".$commande->getUser()->name.'        '."\t".$commande->statut.' Numéro: '.$commande->numero.'('.$commande->numero_groupe.') '.$flux->type. '('.$flux->societe.') x'.$commande->multiplicite.'         '."\t".$commande->getDechetterie()->nom."\n";
       }
       else if (($commande->statut == 'NC (agglo)') && $ncagglo) {
-        return $commande->created_at.' '.$commande->getUser()->name.' '.$commande->statut.' Commande: '.$commande->numero.' ('.$commande->numero_groupe.') '.$commande->ncagglo."\n";
+        return $commande->created_at.' '.$commande->getUser()->name.' '.$commande->statut.' Numéro: '.$commande->numero.' ('.$commande->numero_groupe.') '.$commande->ncagglo."\n";
       }
       else if ((($commande->statut == 'Relancée') || ($commande->statut == 'Envoyée') || ($commande->statut == 'Passée') || ($commande->statut == 'Supprimée')) && $commande) {
-        return $commande->created_at.' '.$commande->getUser()->name.' '.$commande->statut.' Commande: '.$commande->numero.' ('.$commande->numero_groupe.")\n";
+        return $commande->created_at.' '.$commande->getUser()->name.' '.$commande->statut.' Numéro: '.$commande->numero.' ('.$commande->numero_groupe.")\n";
       }
       else if (($commande->statut == 'Enlevée') && ($enlevement || $nc)) {
-        return $commande->created_at.' '.$commande->getUser()->name.' '.$commande->statut.' Commande: '.$commande->numero.' ('.$commande->numero_groupe.') '.$commande->date_enlevement.' '.$commande->nc."\n";
-      }  
+        return $commande->created_at.' '.$commande->getUser()->name.' '.$commande->statut.' Numéro: '.$commande->numero.' ('.$commande->numero_groupe.') '.$commande->date_enlevement.' '.$commande->nc."\n";
+      }  //ajout du temps d'enlevment
 
       
       return '';
       
     }
+
+
 
 }

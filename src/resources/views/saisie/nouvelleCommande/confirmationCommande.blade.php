@@ -9,6 +9,16 @@
 @section('text')
     @if (session()->has('commandes'))
         Vous allez passer {{ count(session()->get('commandes')) }} autres commandes : <br>
+        <?php vardump(session()->get('commandes')) ?>
+        @foreach ($session()->get('commandes') as $commande)
+        Résumé de la commande : <br>
+        <ul>
+            <li>Catégorie : {!! Flux::find($commande['flux'])->categorie !!}</li>
+            <li>Flux : {!! Flux::find($commande['flux'])->type !!} (x{!! $commande['multiplicite'] !!})</li>
+            <li>À : {!! $Flux::find(commande['flux'])->societe !!}</li>
+ 
+        </ul>
+        @endforeach
         
     @endif
 
