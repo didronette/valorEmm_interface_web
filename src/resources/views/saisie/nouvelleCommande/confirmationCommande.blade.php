@@ -12,9 +12,9 @@
         @foreach (session()->get('commandes') as $commande)
         Résumé de la commande : <br>
         <ul>
-            <li>Catégorie : {!! Flux::find($commande['flux'])->categorie !!}</li>
-            <li>Flux : {!! Flux::find($commande['flux'])->type !!} (x{!! $commande['multiplicite'] !!})</li>
-            <li>À : {!! $Flux::find(commande['flux'])->societe !!}</li>
+            <li>Catégorie : {!! \App\Flux::find($commande['flux'])->categorie !!}</li>
+            <li>Flux : {!! \App\Flux::find($commande['flux'])->type !!} (x{!! $commande['multiplicite'] !!})</li>
+            <li>À : {!! \App\Flux::find(commande['flux'])->societe !!}</li>
  
         </ul>
         @endforeach
