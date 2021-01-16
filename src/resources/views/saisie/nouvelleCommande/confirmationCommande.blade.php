@@ -9,7 +9,6 @@
 @section('text')
     @if (session()->has('commandes'))
         Vous allez passer {{ count(session()->get('commandes')) }} autres commandes : <br>
-        <?php vardump(session()->get('commandes')) ?>
         @foreach ($session()->get('commandes') as $commande)
         Résumé de la commande : <br>
         <ul>
