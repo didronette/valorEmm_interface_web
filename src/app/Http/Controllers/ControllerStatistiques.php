@@ -280,8 +280,9 @@ class ControllerStatistiques extends Controller
     }
 
     public static function formulerDate(String $date) {
+      \Carbon::setLocale('fr');
       $date_carboned = \Carbon::createFromFormat('Y-m-d H:i:s', $date);
-      return $date_carboned->locale('fr_FR')->dayName . ' ' . $date_carboned->format('d-m-Y'). ' à '. $date_carboned->format('H:i:s').' ';
+      return $date_carboned->dayName . ' ' . $date_carboned->format('d-m-Y'). ' à '. $date_carboned->format('H:i:s').' ';
     }
 
     public static function calculeTempsDepuisCreation($commande) {
