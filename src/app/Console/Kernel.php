@@ -25,6 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('command:contact')->everyMinute(); // Exécution de la commande artisan command:contact chaque minute
+        $schedule->command('command:contactcredits')->daily(); // Exécution de la commande artisan command:contact chaque minute
     }
 
     /**

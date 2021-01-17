@@ -249,24 +249,44 @@ class ControllerStatistiques extends Controller
 
     public function formuler(Commande $commande,$ncagglo,$nc,$enlevement) { // TODO : fonction à terminer
       $flux = $commande->getFlux();
-      if (($commande->statut == 'En attente d\'envoie') ||($commande->statut == 'Modifiée')) {
-        return $commande->created_at.'     '."\t".$commande->getUser()->name.'        '."\t".$commande->statut.' Numéro: '.$commande->numero.'('.$commande->numero_groupe.') '.$flux->type. '('.$flux->societe.') x'.$commande->multiplicite.'         '."\t".$commande->getDechetterie()->nom."\n";
+      if (($commande->statut == 'En attente d\'envoie')) {
+        return formulerDate($commande->created_at).' Enregistrement de la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.') :' .$flux->type. '('.$flux->societe.') x'.$commande->multiplicite.' pour la déchetterie '.$commande->getDechetterie()->nom.' par '.$commande->getUser()->name.', en attente d\'envoi.'."\n";
+      }
+      else if (($commande->statut == 'Modifiée')) {
+        return formulerDate($commande->created_at).' Commande modifiée '.$commande->numero.' (groupe : '.$commande->numero_groupe.') :' .$flux->type. '('.$flux->societe.') x'.$commande->multiplicite.' pour la déchetterie '.$commande->getDechetterie()->nom.' par '.$commande->getUser()->name.".\n";
       }
       else if (($commande->statut == 'NC (agglo)') && $ncagglo) {
-        return $commande->created_at.' '.$commande->getUser()->name.' '.$commande->statut.' Numéro: '.$commande->numero.' ('.$commande->numero_groupe.') '.$commande->ncagglo."\n";
+        return formulerDate($commande->created_at).' : L\'utilisateur '.$commande->getUser()->name.' a rentré la non-conformité suivante pour la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.' :' .$commande->ncagglo."\n";
       }
-      else if ((($commande->statut == 'Relancée') || ($commande->statut == 'Envoyée') || ($commande->statut == 'Passée') || ($commande->statut == 'Supprimée')) && $commande) {
-        return $commande->created_at.' '.$commande->getUser()->name.' '.$commande->statut.' Numéro: '.$commande->numero.' ('.$commande->numero_groupe.")\n";
+      else if ((($commande->statut == 'Relancée')) && $commande) {
+        return formulerDate($commande->created_at).' : la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.') a été relancée par '.$commande->getUser()->name.' '.calculeTempsDepuisCreation($commande)."après le passage de la commande. \n";
+      }
+      else if (($commande->statut == 'Envoyée') && $commande) { // inutile ?
+        return formulerDate($commande->created_at).' : le système a passé la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.")\n";
+      }
+      else if (( ($commande->statut == 'Passée')) && $commande) { // inutile ?
+        return formulerDate($commande->created_at).' : le système a passé la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.")\n";
+      }
+      else if (( ($commande->statut == 'Supprimée')) && $commande) {
+        return formulerDate($commande->created_at).' : la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.') a été suprimée par '.$commande->getUser()->name."\n";
       }
       else if (($commande->statut == 'Enlevée') && ($enlevement || $nc)) {
-        return $commande->created_at.' '.$commande->getUser()->name.' '.$commande->statut.' Numéro: '.$commande->numero.' ('.$commande->numero_groupe.') '.$commande->date_enlevement.' '.$commande->nc."\n";
-      }  //ajout du temps d'enlevment
+        return formulerDate($commande->created_at).' Validation de la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.') par '.$commande->getUser()->name.'. Enlèvement enregistré à la date : '.formulerDate($commande->date_enlevement).' en '.calculeTempsDepuisCreation($commande).$commande->nc."\n";
+      } 
 
       
       return '';
       
     }
 
+    public function formulerDate(String $date) {
+      $date_carboned = \Carbon::createFromFormat('Y-m-d H:i:s', $date);
+      return $date_carboned->locale('fr_FR')->dayName . ' ' . $date_carboned->format('d-m-Y'). ' à '. $date_carboned->format('H:i:s').' ';
+    }
 
-
+    public function calculeTempsDepuisCreation($commande) {
+      $date = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->created_at);
+      $date_debut = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->contact_at);
+      return $date_debut->locale('fr')->diffForHumans($date).' ';
+    }
 }

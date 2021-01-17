@@ -4,6 +4,8 @@ namespace App;
 
 use App\Commande;
 
+use Mail;
+
 use App\Contacts\Mails;
 use App\Contacts\MessageVocal;
 use App\Contacts\SMS;
@@ -173,6 +175,19 @@ class Contacts
         $Buzz = new BuzzExpert($login, $password);
 
         return intval($Buzz->remainCredit());
+    }
+
+    public static function mailCreditsRestants() {
+        $credits = self::creditRestant();
+        if ($credits < 100) {
+            $tab = ['credits' => $credits];
+            Mail::send('mails/mailCreditsManquants', $tab, function($message) 
+            {
+    
+                $message->to("thierry.stauder@valoremm.fr")->subject('Interface Déchetterie Valor\'Emm : Nombre de crédits restants faible');
+            });
+        
+        }
     }
 
 }
