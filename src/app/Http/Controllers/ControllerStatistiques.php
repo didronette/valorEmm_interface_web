@@ -280,9 +280,20 @@ class ControllerStatistiques extends Controller
     }
 
     public static function formulerDate(String $date) {
-      \Carbon::setLocale('fr');
+      $weekMap = [
+        0 => 'Dimanche',
+        1 => 'Lundi',
+        2 => 'Mardi',
+        3 => 'Mercredi',
+        4 => 'Jeudi',
+        5 => 'Vendredi',
+        6 => 'Samedi',
+    ];
+    
       $date_carboned = \Carbon::createFromFormat('Y-m-d H:i:s', $date);
-      return $date_carboned->dayOfYear(0)->locale('fr')->dayName . ' ' . $date_carboned->format('d-m-Y'). ' à '. $date_carboned->format('H:i:s').' ';
+      $dayOfTheWeek = $date_carboned->dayOfWeek;
+      $weekday = $weekMap[$dayOfTheWeek];
+      return $weekday. ' ' . $date_carboned->format('d-m-Y'). ' à '. $date_carboned->format('H:i:s').' ';
     }
 
     public static function calculeTempsDepuisCreation($commande) {
