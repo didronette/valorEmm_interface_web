@@ -227,7 +227,7 @@ class ControllerStatistiques extends Controller
       $tonnes = ControllerDonneesStatistiques::TonnageEstime(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$inputs['fluxx'],$inputs['dechetteries']);
       $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$inputs['fluxx'],$inputs['dechetteries']);
 
-      $commandes = Commande::orderBy('numero')->groupBy('numero')->get();
+      $commandes = Commande::orderBy('numero')->get();
 
       $enregistrements = [];
 
