@@ -285,8 +285,9 @@ class ControllerStatistiques extends Controller
     }
 
     public static function calculeTempsDepuisCreation($commande) {
+      \Carbon::setLocale('fr');
       $date = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->created_at);
       $date_debut = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->contact_at);
-      return $date_debut->locale('fr')->diffForHumans($date).' ';
+      return $date_debut->diffForHumans($date).' ';
     }
 }
