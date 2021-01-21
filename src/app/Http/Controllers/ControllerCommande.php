@@ -84,7 +84,7 @@ class ControllerCommande extends Controller
      */
     public function createDDS()
     {
-        session()->put('urlbackTwice', request()->path());
+        
         $fluxx = ControllerDonneesSaisie::flux('DDS');
         $dechetteries = ControllerDonneesSaisie::dechetteries();
         return view('saisie/nouvelleCommande/nouvelleCommandeDDS', compact('dechetteries', 'fluxx'));
@@ -149,6 +149,7 @@ class ControllerCommande extends Controller
      */
     public function store(RequeteNouvelleCommande $request)
     {
+        session()->put('urlbackTwice', request()->path());
         $inputs = $request->all();
         session()->put(['inputs' => $inputs]);
         $flux = Flux::find($inputs['flux']);
