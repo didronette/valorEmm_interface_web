@@ -56,7 +56,7 @@ class Handler extends ExceptionHandler
                 session()->forget('route');
             }
             else {
-                $route = 'accueilSaisie';
+                $route = 'commandes.index';
             }
             
             return redirect()->route($route);
