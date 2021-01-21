@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use App\Exceptions\MauvaisCodePin;
 
 class Confirmation extends FormRequest
 {
