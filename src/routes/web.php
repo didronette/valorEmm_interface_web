@@ -29,7 +29,7 @@ Route::resource('admin/comptes', 'ControllerUser')->middleware('gestion'); // Pa
 
 // ############################# Routes pour les commandes #############################
 
-Route::resource('saisie/commandes', 'ControllerCommande')->middleware('commandes')->name('accueilSaisie'); // Page de gestion des commandes (individuelles)
+Route::resource('saisie/commandes', 'ControllerCommande')->middleware('commandes'); // Page de gestion des commandes (individuelles)
 Route::get('saisie/gr/commandes', 'ControllerCommande@indexGroupe')->middleware('commandes')->name('indexGr'); // Page de gestion des commandes (groupée)
 Route::get('saisie/gr/rappel/{id}', 'ControllerCommande@rappelGroupe')->middleware('commandes')->name('rappelGr')->where('id', '[0-9]+'); // Page de confirmation de l'envoi d'un rappel (groupé)
 Route::post('saisie/gr/commandes/rappel/confirmation', 'ControllerCommande@confirmRappelGroupe')->middleware('commandes')->name('confirmerRappelGr'); // Envoi du rappel (groupé)
