@@ -71,7 +71,6 @@ class ControllerCommande extends Controller
      */
     public function createBenne()
     {
-        session()->put('urlbackTwice', request()->path());
         $fluxx = ControllerDonneesSaisie::flux('Benne');
         $dechetteries = ControllerDonneesSaisie::dechetteries();
         return view('saisie/nouvelleCommande/nouvelleCommandeBenne', compact('dechetteries', 'fluxx'));
@@ -97,7 +96,6 @@ class ControllerCommande extends Controller
      */
     public function createAutre()
     {
-        session()->put('urlbackTwice', request()->path());
         $fluxx = ControllerDonneesSaisie::flux('Autres déchets');
         $dechetteries = ControllerDonneesSaisie::dechetteries();
         return view('saisie/nouvelleCommande/nouvelleCommandeAutres', compact('dechetteries', 'fluxx'));
@@ -149,7 +147,7 @@ class ControllerCommande extends Controller
      */
     public function store(RequeteNouvelleCommande $request)
     {
-        session()->put('urlbackTwice', request()->path());
+        
         $inputs = $request->all();
         session()->put(['inputs' => $inputs]);
         $flux = Flux::find($inputs['flux']);

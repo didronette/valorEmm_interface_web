@@ -51,7 +51,8 @@ class Handler extends ExceptionHandler
         if($exception instanceof MauvaisCodePin){
             
             session()->put('error', $exception->message());
-            return redirect(session()->get('urlbackTwice'));
+            return back();
+            //return redirect(session()->get('urlbackTwice'));
         }
 
         return parent::render($request, $exception);
