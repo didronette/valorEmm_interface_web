@@ -71,6 +71,7 @@ class ControllerCommande extends Controller
      */
     public function createBenne()
     {
+        session()->put('urlbackTwice', request()->path());
         $fluxx = ControllerDonneesSaisie::flux('Benne');
         $dechetteries = ControllerDonneesSaisie::dechetteries();
         return view('saisie/nouvelleCommande/nouvelleCommandeBenne', compact('dechetteries', 'fluxx'));
@@ -83,6 +84,7 @@ class ControllerCommande extends Controller
      */
     public function createDDS()
     {
+        session()->put('urlbackTwice', request()->path());
         $fluxx = ControllerDonneesSaisie::flux('DDS');
         $dechetteries = ControllerDonneesSaisie::dechetteries();
         return view('saisie/nouvelleCommande/nouvelleCommandeDDS', compact('dechetteries', 'fluxx'));
@@ -95,6 +97,7 @@ class ControllerCommande extends Controller
      */
     public function createAutre()
     {
+        session()->put('urlbackTwice', request()->path());
         $fluxx = ControllerDonneesSaisie::flux('Autres déchets');
         $dechetteries = ControllerDonneesSaisie::dechetteries();
         return view('saisie/nouvelleCommande/nouvelleCommandeAutres', compact('dechetteries', 'fluxx'));
