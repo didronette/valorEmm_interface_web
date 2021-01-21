@@ -49,7 +49,7 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         if($exception instanceof MauvaisCodePin){
-            return back()->withErrors(['error', $exception->message()]);
+            return back()->withErrors($exception->message());
         }
 
         return parent::render($request, $exception);
