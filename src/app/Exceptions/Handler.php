@@ -51,7 +51,15 @@ class Handler extends ExceptionHandler
         if($exception instanceof MauvaisCodePin){
             
             session()->put('error', $exception->message());
-            return back();
+            if (session()->has('route')) {
+                $route = session()->get('route');
+                session()->forget('route');
+            }
+            else {
+                $route = 'accueilSaisie';
+            }
+            
+            return redirect()->route($route);
             //return redirect(session()->get('urlbackTwice'));
         }
 
