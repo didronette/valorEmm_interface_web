@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
     {
         if($exception instanceof MauvaisCodePin){
             session()->put('error', $exception->message());
-            return back()->withErrors($exception->message());
+            return request()->path();
         }
 
         return parent::render($request, $exception);
