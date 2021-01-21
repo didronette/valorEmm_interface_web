@@ -45,6 +45,9 @@ class Confirmation extends FormRequest
 
     protected function failedAuthorization()
     {
-        throw new AuthorizationException('Mauvais code PIN.');
+        $exception = new MauvaisCodePin('Mauvais code PIN.', 403);
+        
+        throw $exception->back("Mauvais code PIN.");
+        //throw new AuthorizationException('Mauvais code PIN.');
     }
 }
