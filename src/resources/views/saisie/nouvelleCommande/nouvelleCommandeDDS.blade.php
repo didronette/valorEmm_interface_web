@@ -7,7 +7,7 @@
 
 {{ Form::label('multiplicite1', '1') }}
 {{ Form::radio('multiplicite', '1', false, array('id'=>'multiplicite1')) }}
-<!--
+
 {{ Form::label('multiplicite2', '2') }}
 {{ Form::radio('multiplicite', '2', false, array('id'=>'multiplicite2')) }}
 
@@ -19,7 +19,7 @@
 
 {{ Form::label('multiplicite1', '5') }}
 {{ Form::radio('multiplicite', '5', false, array('id'=>'multiplicite5')) }}
--->
+
 </div>
 
 

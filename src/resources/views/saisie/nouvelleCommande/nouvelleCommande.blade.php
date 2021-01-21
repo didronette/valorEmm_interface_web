@@ -31,7 +31,8 @@
                             {!! $errors->first('flux', '<small class="help-block">:message</small>') !!}
                     </div>
 
-                    @yield('nombre')
+                    {!! Form::hidden('multiplicite', 1) !!}
+                    <!-- @yield('nombre') -->
 
                     {!! Form::submit('Ajouter', ['class' => 'btn btn-block btn-success']) !!}
 					{!! Form::close() !!}
