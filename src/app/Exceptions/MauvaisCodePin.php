@@ -9,7 +9,7 @@ class MauvaisCodePin extends Exception
     protected $message;
 
     public function back($message) {
-        $this->route = $route;
+        $this->message = $message;
         
         return $this;
     }
