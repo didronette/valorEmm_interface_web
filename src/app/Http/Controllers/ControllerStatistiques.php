@@ -228,7 +228,7 @@ class ControllerStatistiques extends Controller
       $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$inputs['fluxx'],$inputs['dechetteries']);
 
       $commandes = Commande::orderBy('numero')
-          ->whereBetween('contact_at', [$date_debut, $date_fin])
+          ->whereBetween('contact_at', [$inputs['date_debut'],$inputs['date_fin']])
           ->whereRaw(self::whereFlux($fluxx))
           ->whereRaw(self::whereDechetteries($dechetteries))
           ->get();
