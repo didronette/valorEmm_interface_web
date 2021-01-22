@@ -273,7 +273,7 @@ class ControllerStatistiques extends Controller
         return self::formulerDate($commande->created_at).' : la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.') a été suprimée par '.$commande->getUser()->name."\n";
       }
       else if (($commande->statut == 'Enlevée') && ($enlevement || $nc)) {
-        return self::formulerDate($commande->created_at).' Validation de la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.') par '.$commande->getUser()->name.'. Enlèvement enregistré à la date : '.self::formulerDate($commande->date_enlevement).' en '.self::calculeTempsDepuisCreation($commande).$commande->nc."\n";
+        return self::formulerDate($commande->created_at).' Validation de la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.') par '.$commande->getUser()->name.'. Enlèvement enregistré à la date : '.self::formulerDate($commande->date_enlevement).' en '.self::calculeTempsDepuisCreationEnlevement($commande).$commande->nc."\n";
       } 
       else if (($commande->statut == 'Examinée')) {
         return self::formulerDate($commande->created_at).' : L\'utilisateur '.$commande->getUser()->name.' a modifié la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.' avec le statut '.$commande->todo.".\n";
@@ -303,6 +303,14 @@ class ControllerStatistiques extends Controller
     public static function calculeTempsDepuisCreation($commande) {
       \Carbon::setLocale('fr');
       $date = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->created_at);
+      $date_debut = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->contact_at);
+      $retour = $date_debut->diffForHumans($date, 1, true, 2).' ';
+      return $retour;
+    }
+
+    public static function calculeTempsDepuisCreationEnlevement($commande) {
+      \Carbon::setLocale('fr');
+      $date = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->date_enlevement);
       $date_debut = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->contact_at);
       $retour = $date_debut->diffForHumans($date, 1, true, 2).' ';
       return $retour;
