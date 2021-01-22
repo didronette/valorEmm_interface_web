@@ -9,6 +9,8 @@ use App\Dechetterie;
 use App\Flux;
 use App\Commande;
 
+use Carbon\CarbonInterface;
+
 use Illuminate\Support\Facades\Config;
 use App\Http\Controllers\ControllerDonneesStatistiques;
 
@@ -304,7 +306,8 @@ class ControllerStatistiques extends Controller
       \Carbon::setLocale('fr');
       $date = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->created_at);
       $date_debut = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->contact_at);
-      $retour = $date_debut->longRelativeDiffForHumans($date, 3);
+      //$retour = $date_debut->longRelativeDiffForHumans($date, 3);
+      $retour = $date_debut->diffForHumans($other, CarbonInterface::DIFF_RELATIVE_AUTO, true, 3);
       return $retour;
     }
 }
