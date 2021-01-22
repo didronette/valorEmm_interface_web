@@ -66,7 +66,7 @@ class HelperDate
     }
 
     public static function getPaques($day) {
-        return Carbon(easter_date($day->year));
+        return Carbon::createFromTimestamp(easter_date($day->year));
     }
 
 
