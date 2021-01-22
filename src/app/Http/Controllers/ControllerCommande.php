@@ -532,5 +532,16 @@ class ControllerCommande extends Controller
         }
         return redirect('login')->withError('Veuillez vous authentifier.');
     }    
-    
+   
+    public function setTodoATraiter($id)
+    {
+        $this->commandeRepository->setTodo($id,"À traiter");
+        return redirect('saisie/commandes');  
+    }  
+
+    public function setTodoASupprimer($id)
+    {
+        $this->commandeRepository->setTodo($id,"À supprimer");
+        return redirect('saisie/commandes');  
+    } 
 }

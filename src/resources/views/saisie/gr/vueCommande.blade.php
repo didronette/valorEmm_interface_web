@@ -20,6 +20,7 @@
 				<p>Statut : {{ $commande->statut }}</p>
 				<p>Date d'envoi : {{ $commande->contact_at }}</p>
 				<p>Date d'enlèvement maximum : {{ \App\Http\Controllers\ControllerDonneesStats::calculerDateEnlevementMax($commande) }}</p>
+				<p>{{ $commande->todo }}</p>
 			</div>
         @endforeach
 		</div>	
