@@ -42,8 +42,7 @@
 				@foreach ($commandes as $commande)
 					@if($commande->todo == "À supprimer") 
 						<div class="panel" id="red"> 
-					@endif
-					@if($commande->todo == "À traiter") 
+					@elseif($commande->todo == "À traiter") 
 						<div class="panel" id="green"> 
 					@else
 						<div class="panel panel-primary">
