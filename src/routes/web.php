@@ -38,8 +38,8 @@ Route::get('saisie/gr/validation/{id}', 'ControllerCommande@formulaireValidation
 Route::post('saisie/gr/validation', 'ControllerCommande@validationGroupe')->middleware('commandes')->name('validationGr'); // Validation d'un groupe de commande
 Route::post('saisie/gr/commandes/validation/confirmation', 'ControllerCommande@confirmValidationGroupe')->middleware('commandes')->name('confirmerValidationGr'); // Confirmation de la validation groupée
 
-Route::patch('saisie/commandes/todo/asupprimer/{id}', 'ControllerCommande@setTodoASupprimer')->middleware('gerant')->name('todoSupprimer')->where('id', '[0-9]+'); // Ajout de l'information que la commande est à supprimer
-Route::patch('saisie/commandes/todo/atraiter/{id}', 'ControllerCommande@setTodoATraiter')->middleware('gerant')->name('todoTraiter')->where('id', '[0-9]+'); // jout de l'information que la commande est à traiter
+Route::get('saisie/commandes/todo/asupprimer/{id}', 'ControllerCommande@setTodoASupprimer')->middleware('gerant')->name('todoSupprimer')->where('id', '[0-9]+'); // Ajout de l'information que la commande est à supprimer
+Route::get('saisie/commandes/todo/atraiter/{id}', 'ControllerCommande@setTodoATraiter')->middleware('gerant')->name('todoTraiter')->where('id', '[0-9]+'); // jout de l'information que la commande est à traiter
 
 Route::get('saisie/commandes/create/benne', 'ControllerCommande@createBenne')->middleware('commandes')->name('benne'); // Création d'une nouvelle commande de benne
 Route::get('saisie/commandes/create/dds', 'ControllerCommande@createDDS')->middleware('commandes')->name('dds'); // Création d'une nouvelle commande de DDS
