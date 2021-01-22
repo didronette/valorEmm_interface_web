@@ -46,10 +46,10 @@ class HelperDate
         $retour = [];
         $paques = self::getPaques($day);
         array_push( $retour, $paques); // paques
-        array_push( $retour, $paques>copy()->subDays(2)); // vendredi saint : paques -2
-        array_push( $retour, $paques>copy()->addDay()); // Lundi de pâques : dimanche de pâques + 1
-        array_push( $retour, $paques>copy()->addDays(39)); // Ascension, élévation de Jésus : dimanche de pâques + 39
-        array_push( $retour, $paques>copy()->addDays(50)); // Pentecôte, venue du Saint Esprit : dimanche de pâques + 50
+        array_push( $retour, $paques->copy()->subDays(2)); // vendredi saint : paques -2
+        array_push( $retour, $paques->copy()->addDay()); // Lundi de pâques : dimanche de pâques + 1
+        array_push( $retour, $paques->copy()->addDays(39)); // Ascension, élévation de Jésus : dimanche de pâques + 39
+        array_push( $retour, $paques->copy()->addDays(50)); // Pentecôte, venue du Saint Esprit : dimanche de pâques + 50
   
         return $retour;
     }
