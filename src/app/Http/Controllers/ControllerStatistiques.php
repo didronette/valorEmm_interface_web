@@ -304,8 +304,7 @@ class ControllerStatistiques extends Controller
       \Carbon::setLocale('fr');
       $date = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->created_at);
       $date_debut = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->contact_at);
-      //$retour = $date_debut->longRelativeDiffForHumans($date, 3);
-      $retour = $date_debut->diffForHumans($date, 0, true, 2);
+      $retour = $date_debut->diffForHumans($date, 1, true, 2).' ';
       return $retour;
     }
 }
