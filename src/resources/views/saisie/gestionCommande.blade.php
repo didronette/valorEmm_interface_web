@@ -58,7 +58,7 @@
 									<td> Déchetterie : {!! $commande->getDechetterie()->nom !!} </td>
 								@endif
 								@if(!(session()->has('dechetterie'))) 
-									<td> {!! link_to_route('todoTransmise', 'Marquer "à traiter"', [$commande->numero], ['class' => 'btn btn-success btn-block']) !!} </td>
+									<td> {!! link_to_route('todoTransmise', 'Marquer "Transmise"', [$commande->numero], ['class' => 'btn btn-success btn-block']) !!} </td>
 								@endif
 							</tr>
 							<tr>
