@@ -227,7 +227,11 @@ class ControllerStatistiques extends Controller
       $tonnes = ControllerDonneesStatistiques::TonnageEstime(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$inputs['fluxx'],$inputs['dechetteries']);
       $pourcentage_nc = ControllerDonneesStatistiques::pourcentageNc(Config::get('stats.date_debut_analyse'),\Carbon::now()->format('Y-m-d'),$inputs['fluxx'],$inputs['dechetteries']);
 
-      $commandes = Commande::orderBy('numero')->get();
+      $commandes = Commande::orderBy('numero')
+          ->whereBetween('contact_at', [$date_debut, $date_fin])
+          ->whereRaw(self::whereFlux($fluxx))
+          ->whereRaw(self::whereDechetteries($dechetteries))
+          ->get();
 
       $enregistrements = [];
 
@@ -302,6 +306,7 @@ class ControllerStatistiques extends Controller
       \Carbon::setLocale('fr');
       $date = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->created_at);
       $date_debut = \Carbon::createFromFormat('Y-m-d H:i:s', $commande->contact_at);
-      return $date_debut->diffForHumans($date).' ';
+      $retour = $date_debut->longRelativeDiffForHumans($date, 3);
+      return $retour;
     }
 }
