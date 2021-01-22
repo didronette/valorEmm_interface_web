@@ -242,8 +242,8 @@ class ControllerStatistiques extends Controller
         
 
      
-
-		return $pdf->download('rapport.pdf');
+      $nom_rapport = 'rapport'.\Carbon::now()->format('d-m-Y').'.pdf';
+		return $pdf->download($nom_rapport);
 
     }
 
