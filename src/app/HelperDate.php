@@ -2,7 +2,7 @@
 
 namespace App;
 
-use Carbon;
+use Carbon\Carbon;
 
 class HelperDate
 {
