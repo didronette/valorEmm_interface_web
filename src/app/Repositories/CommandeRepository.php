@@ -369,7 +369,7 @@ class CommandeRepository
 
     public function setTodo($numero,$valToDo) // à stocker dans la table vu à quel point le truc est fat
     {
-		$commande = $this->getById($inputs['numero'])->replicate();
+		$commande = $this->getById($numero)->replicate();
 		$commande->todo = $valToDo;
 		$commande->compte = auth()->user()->id;
 		$commande->statut = 'Examinée';
