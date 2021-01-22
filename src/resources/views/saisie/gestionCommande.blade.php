@@ -30,22 +30,25 @@
 		</table>
 		
 		<div class="panel panel-primary">
+		
 		{!! link_to_route('indexGr', 'Affichage groupé') !!}
-		@if($commande->todo == "À supprimer") 
-			<div class="panel-body" id="red"> 
-		@endif
-		@if($commande->todo == "À traiter") 
-			<div class="panel-body" id="green"> 
-		@else
-			<div class="panel-body" id="yellow"> 
-		@endif
+		<div class="panel-body" id="yellow">
+		
 
 		
 		@if (!$commandes->isEmpty())
 			
 				
 				@foreach ($commandes as $commande)
-					<div class="panel panel-primary">
+					@if($commande->todo == "À supprimer") 
+						<div class="panel" id="red"> 
+					@endif
+					@if($commande->todo == "À traiter") 
+						<div class="panel" id="green"> 
+					@else
+						<div class="panel panel-primary">
+					@endif
+					
 					<table class="table">
 						<tbody>
 							<tr>
