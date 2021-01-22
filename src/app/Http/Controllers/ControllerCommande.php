@@ -533,9 +533,9 @@ class ControllerCommande extends Controller
         return redirect('login')->withError('Veuillez vous authentifier.');
     }    
    
-    public function setTodoATraiter($id)
+    public function setTodoTransmise($id)
     {
-        $this->commandeRepository->setTodo($id,"À traiter");
+        $this->commandeRepository->setTodo($id,"Transmise");
         return redirect('saisie/commandes');  
     }  
 

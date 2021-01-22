@@ -256,7 +256,7 @@ class ControllerStatistiques extends Controller
         return self::formulerDate($commande->created_at).' Commande modifiée '.$commande->numero.' (groupe : '.$commande->numero_groupe.') :' .$flux->type. '('.$flux->societe.') x'.$commande->multiplicite.' pour la déchetterie '.$commande->getDechetterie()->nom.' par '.$commande->getUser()->name.".\n";
       }
       else if (($commande->statut == 'NC (agglo)') && $ncagglo) {
-        return self::formulerDate($commande->created_at).' : L\'utilisateur '.$commande->getUser()->name.' a rentré la non-conformité suivante pour la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.' :' .$commande->ncagglo."\n";
+        return self::formulerDate($commande->created_at).' : L\'utilisateur '.$commande->getUser()->name.' a rentré la non-conformité suivante pour la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.' :' .$commande->ncagglo.".\n";
       }
       else if ((($commande->statut == 'Relancée')) && $commande) {
         return self::formulerDate($commande->created_at).' : la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.') a été relancée par '.$commande->getUser()->name.' '.self::calculeTempsDepuisCreation($commande)."après le passage de la commande. \n";
@@ -273,7 +273,9 @@ class ControllerStatistiques extends Controller
       else if (($commande->statut == 'Enlevée') && ($enlevement || $nc)) {
         return self::formulerDate($commande->created_at).' Validation de la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.') par '.$commande->getUser()->name.'. Enlèvement enregistré à la date : '.self::formulerDate($commande->date_enlevement).' en '.self::calculeTempsDepuisCreation($commande).$commande->nc."\n";
       } 
-
+      else if (($commande->statut == 'Examinée')) {
+        return self::formulerDate($commande->created_at).' : L\'utilisateur '.$commande->getUser()->name.' a modifié la commande '.$commande->numero.' (groupe : '.$commande->numero_groupe.' avec le statut '.$commande->todo.".\n";
+      }
       
       return '';
       

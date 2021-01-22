@@ -42,7 +42,7 @@
 				@foreach ($commandes as $commande)
 					@if($commande->todo == "À supprimer") 
 						<div class="panel" id="red"> 
-					@elseif($commande->todo == "À traiter") 
+					@elseif($commande->todo == "Transmise") 
 						<div class="panel" id="green"> 
 					@else
 						<div class="panel panel-primary">
@@ -58,7 +58,7 @@
 									<td> Déchetterie : {!! $commande->getDechetterie()->nom !!} </td>
 								@endif
 								@if(!(session()->has('dechetterie'))) 
-									<td> {!! link_to_route('todoTraiter', 'Marquer "à traiter"', [$commande->numero], ['class' => 'btn btn-success btn-block']) !!} </td>
+									<td> {!! link_to_route('todoTransmise', 'Marquer "à traiter"', [$commande->numero], ['class' => 'btn btn-success btn-block']) !!} </td>
 								@endif
 							</tr>
 							<tr>
