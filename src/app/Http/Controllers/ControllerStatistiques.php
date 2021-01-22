@@ -229,8 +229,6 @@ class ControllerStatistiques extends Controller
 
       $commandes = Commande::orderBy('numero')
           ->whereBetween('contact_at', [$inputs['date_debut'],$inputs['date_fin']])
-          ->whereRaw(self::whereFlux($fluxx))
-          ->whereRaw(self::whereDechetteries($dechetteries))
           ->get();
 
       $enregistrements = [];
