@@ -241,6 +241,7 @@ class ControllerDonneesStatistiques extends Controller
         $date = Carbon::createFromFormat('Y-m-d H:i:s', $commande->contact_at);                
         $date->addHours($commande->getFlux()->delai_enlevement);//Date du mail + delai enlevement
         $date = HelperDate::getDateOuvre($date);
+        var_dump($date->dayOfWeek);
         return $date->format('Y-m-d H:i:s');
     }
 }
