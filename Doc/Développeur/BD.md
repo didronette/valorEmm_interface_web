@@ -105,6 +105,12 @@ Non-conformité saisie par le gardien lors de la validation de l'enlèvement.
 ### ncagglo : Varchar[255] 
 Non-conformité saisie par l'agglomération.
 
+### todo : Varchar[255] 
+Intitulé de l'action effectué sur la commande parmis :
+* **À supprimer :** Indique que l'agent doit supprimer la commande.
+* **Transmise :** Indique que la commande à été transmise par l'agglomération.
+
+
 ### statut : Varchar[255] 
 Intitulé de l'action effectué sur la commande parmis :
 * **En attente d'envoie :** Création de la commande.
@@ -114,6 +120,7 @@ Intitulé de l'action effectué sur la commande parmis :
 * **NC (agglo) :** Ajout d'une non-conformité par l'agglomération.
 * **Supprimée :** Commande supprimée et société prévenu du changement.
 * **Annulée :** Anulation de la commande avant son envoi.
+* **Annulée :** Modification du paramètre todo.
 
 ### dechetterie : Int 
 Clé étrangère identifiant la déchetterie.

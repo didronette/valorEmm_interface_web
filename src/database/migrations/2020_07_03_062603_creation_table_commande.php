@@ -43,6 +43,8 @@ class CreationTableCommande extends Migration
                   
         $table->timestamps();
         $table->timestamp('contact_at', 0);
+
+        $table->string('todo');
  
     }
 

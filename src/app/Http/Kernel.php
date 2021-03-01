@@ -60,5 +60,6 @@ class Kernel extends HttpKernel
         'gestion' => \App\Http\Middleware\Admin::class,
         'commandes' => \App\Http\Middleware\Commandes::class,
         'statistiques' => \App\Http\Middleware\Statistiques::class,
+        'gerant' => \App\Http\Middleware\Gerant::class,
     ];
 }

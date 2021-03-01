@@ -137,6 +137,19 @@
                 border-color: #3097d1;
             }
 
+            #green {
+                background-color: #5af032;
+                border: 4px solid;
+                border-color: #3097d1;
+            }
+
+
+            #red {
+                background-color: #fd512c;
+                border: 4px solid;
+                border-color: #3097d1;
+            }
+
             #yellow-borderless {
                 background-color: #fffd9e;
             }

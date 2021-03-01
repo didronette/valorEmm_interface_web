@@ -71,6 +71,7 @@ class ControllerCommande extends Controller
      */
     public function createBenne()
     {
+        session()->put(['route' => 'benne']);
         $fluxx = ControllerDonneesSaisie::flux('Benne');
         $dechetteries = ControllerDonneesSaisie::dechetteries();
         return view('saisie/nouvelleCommande/nouvelleCommandeBenne', compact('dechetteries', 'fluxx'));
@@ -83,6 +84,7 @@ class ControllerCommande extends Controller
      */
     public function createDDS()
     {
+        session()->put(['route' => 'dds']);
         $fluxx = ControllerDonneesSaisie::flux('DDS');
         $dechetteries = ControllerDonneesSaisie::dechetteries();
         return view('saisie/nouvelleCommande/nouvelleCommandeDDS', compact('dechetteries', 'fluxx'));
@@ -95,6 +97,7 @@ class ControllerCommande extends Controller
      */
     public function createAutre()
     {
+        session()->put(['route' => 'autres']);
         $fluxx = ControllerDonneesSaisie::flux('Autres déchets');
         $dechetteries = ControllerDonneesSaisie::dechetteries();
         return view('saisie/nouvelleCommande/nouvelleCommandeAutres', compact('dechetteries', 'fluxx'));
@@ -146,6 +149,7 @@ class ControllerCommande extends Controller
      */
     public function store(RequeteNouvelleCommande $request)
     {
+        
         $inputs = $request->all();
         session()->put(['inputs' => $inputs]);
         $flux = Flux::find($inputs['flux']);
@@ -528,5 +532,16 @@ class ControllerCommande extends Controller
         }
         return redirect('login')->withError('Veuillez vous authentifier.');
     }    
-    
+   
+    public function setTodoTransmise($id)
+    {
+        $this->commandeRepository->setTodo($id,"Transmise");
+        return redirect('saisie/commandes');  
+    }  
+
+    public function setTodoASupprimer($id)
+    {
+        $this->commandeRepository->setTodo($id,"À supprimer");
+        return redirect('saisie/commandes');  
+    } 
 }

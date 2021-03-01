@@ -30,21 +30,35 @@
 		</table>
 		
 		<div class="panel panel-primary">
+		
 		{!! link_to_route('indexGr', 'Affichage groupé') !!}
-		<div class="panel-body" id="yellow"> 
+		<div class="panel-body" id="yellow">
+		
+
+		
 		@if (!$commandes->isEmpty())
 			
 				
 				@foreach ($commandes as $commande)
-					<div class="panel panel-primary">
+					@if($commande->todo == "À supprimer") 
+						<div class="panel" id="red"> 
+					@elseif($commande->todo == "Transmise") 
+						<div class="panel" id="green"> 
+					@else
+						<div class="panel panel-primary">
+					@endif
+					
 					<table class="table">
 						<tbody>
 							<tr>
 								<td> {!!  $commande->getFlux()->type !!} ({!! $commande->multiplicite !!}) </td>
 								<td>{!! $commande->created_at !!}</td>
-								<td></td>
+								<td>{!! $commande->todo !!}</td>
 								@if(!(session()->has('dechetterie'))) 
 									<td> Déchetterie : {!! $commande->getDechetterie()->nom !!} </td>
+								@endif
+								@if(!(session()->has('dechetterie'))) 
+									<td> {!! link_to_route('todoTransmise', 'Marquer "Transmise"', [$commande->numero], ['class' => 'btn btn-success btn-block']) !!} </td>
 								@endif
 							</tr>
 							<tr>
@@ -55,6 +69,9 @@
 								<td btn btn-success btn-block> {!! Form::open(['method' => 'GET', 'route' => ['formulaireValidation', $commande->numero]]) !!}
 									{!! Form::submit('Valider l\'enlèvement', ['class' => 'btn btn-success btn-block']) !!}
 								{!! Form::close() !!} </td>
+								@if(!(session()->has('dechetterie'))) 
+									<td> {!! link_to_route('todoSupprimer', 'Marquer "à supprimer"', [$commande->numero], ['class' => 'btn btn-success btn-block']) !!} </td>
+								@endif
 							</tr>
 						
 					</tbody>

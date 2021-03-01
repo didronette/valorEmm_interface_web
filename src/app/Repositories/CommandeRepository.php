@@ -59,6 +59,7 @@ class CommandeRepository
 		else {
 			$enregistrement->flux = $commande->flux;
 		}
+
 		
 			
 		$enregistrement->compte = $inputs['compte'];
@@ -93,6 +94,7 @@ class CommandeRepository
 					  ->orWhere('statut', '=', 'Modifiée')
 					  ->orWhere('statut', '=', 'En attente d\'envoie')
 					  ->orWhere('statut', '=', 'NC (agglo)')
+					  ->orWhere('statut', '=', 'Examinée')
 					  ->orWhere('statut', '=', 'Relancée');
 			})
 					->where('dechetterie', '=', Session::get('dechetterie'))
@@ -108,6 +110,7 @@ class CommandeRepository
 					  ->orWhere('statut', '=', 'Modifiée')
 					  ->orWhere('statut', '=', 'En attente d\'envoie')
 					  ->orWhere('statut', '=', 'NC (agglo)')
+					  ->orWhere('statut', '=', 'Examinée')
 					  ->orWhere('statut', '=', 'Relancée');
 			})
 			->paginate($n);
@@ -128,6 +131,7 @@ class CommandeRepository
 					  ->orWhere('statut', '=', 'Modifiée')
 					  ->orWhere('statut', '=', 'En attente d\'envoie')
 					  ->orWhere('statut', '=', 'NC (agglo)')
+					  ->orWhere('statut', '=', 'Examinée')
 					  ->orWhere('statut', '=', 'Relancée');
 			})
 					->where('dechetterie', '=', Session::get('dechetterie'))
@@ -142,6 +146,7 @@ class CommandeRepository
 					  ->orWhere('statut', '=', 'Modifiée')
 					  ->orWhere('statut', '=', 'En attente d\'envoie')
 					  ->orWhere('statut', '=', 'NC (agglo)')
+					  ->orWhere('statut', '=', 'Examinée')
 					  ->orWhere('statut', '=', 'Relancée');
 			})
 			->paginate($n);
@@ -171,7 +176,10 @@ class CommandeRepository
 	public function getById($id)
 	{
 		$commande = Commande::where('numero','=', $id)->orderByDesc('id')->first();
-		$respo = Commande::where('numero','=', $id)->where('statut','!=','NC (agglo)')
+		$respo = Commande::where('numero','=', $id)->where(function ($query) {
+			$query->where('statut','!=','NC (agglo)')
+				  ->orWhere('statut', '!=', 'Examinée');
+		})
 		->where('statut','!=','Passée')
 		->orderByDesc('id')->first()->compte;
 		$commande->compte = $respo;
@@ -189,6 +197,7 @@ class CommandeRepository
 					  ->orWhere('statut', '=', 'Modifiée')
 					  ->orWhere('statut', '=', 'En attente d\'envoie')
 					  ->orWhere('statut', '=', 'NC (agglo)')
+					  ->orWhere('statut', '=', 'Examinée')
 					  ->orWhere('statut', '=', 'Relancée');
 			})
 					->where('dechetterie', '=', Session::get('dechetterie'))
@@ -205,6 +214,7 @@ class CommandeRepository
 					  ->orWhere('statut', '=', 'Modifiée')
 					  ->orWhere('statut', '=', 'En attente d\'envoie')
 					  ->orWhere('statut', '=', 'NC (agglo)')
+					  ->orWhere('statut', '=', 'Examinée')
 					  ->orWhere('statut', '=', 'Relancée');
 			})
 			->where('numero_groupe','=',$idGr)
@@ -357,5 +367,13 @@ class CommandeRepository
 
     } 
 
+    public function setTodo($numero,$valToDo) // à stocker dans la table vu à quel point le truc est fat
+    {
+		$commande = $this->getById($numero)->replicate();
+		$commande->todo = $valToDo;
+		$commande->compte = auth()->user()->id;
+		$commande->statut = 'Examinée';
+		$commande->save();
 
+    } 
 }

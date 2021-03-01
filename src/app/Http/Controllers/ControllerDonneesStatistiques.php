@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
+use App\HelperDate;
+
 use Carbon;
 
 class ControllerDonneesStatistiques extends Controller
@@ -238,6 +240,8 @@ class ControllerDonneesStatistiques extends Controller
     {
         $date = Carbon::createFromFormat('Y-m-d H:i:s', $commande->contact_at);                
         $date->addHours($commande->getFlux()->delai_enlevement);//Date du mail + delai enlevement
+        $date = HelperDate::getDateOuvre($date);
+        
         return $date->format('Y-m-d H:i:s');
     }
 }

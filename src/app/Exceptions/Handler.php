@@ -48,6 +48,24 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if($exception instanceof MauvaisCodePin){
+            
+            session()->put('error', $exception->message());
+            if (session()->has('route')) {
+                $route = session()->get('route');
+                session()->forget('route');
+            }
+            else {
+                $route = 'commandes.index';
+            }
+            
+            return redirect()->route($route);
+            //return redirect(session()->get('urlbackTwice'));
+        }
+
         return parent::render($request, $exception);
     }
+
+
+ 
 }
