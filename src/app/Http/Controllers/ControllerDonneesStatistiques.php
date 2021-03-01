@@ -46,7 +46,7 @@ class ControllerDonneesStatistiques extends Controller
             return 0;
         }
 
-        return $defaults*100/$commandes->count();
+        return intval($defaults*100/$commandes->count());
     }
 
     public static function TonnageEstime($date_debut,$date_fin,$fluxx,$dechetteries) {
@@ -82,7 +82,7 @@ class ControllerDonneesStatistiques extends Controller
         }
 
 
-        return $tonnage;
+        return $tonnage/1000;
     }
 
     public static function pourcentageNc($date_debut,$date_fin,$fluxx,$dechetteries) {
@@ -117,7 +117,7 @@ class ControllerDonneesStatistiques extends Controller
         if($commandes->count() == 0) {
             return 0;
         }
-        return $defaults*100/$commandes->count();    
+        return intval($defaults*100/$commandes->count());    
     }
 
 
