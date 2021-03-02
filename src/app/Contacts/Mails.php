@@ -12,7 +12,6 @@ use Illuminate\Support\Arr;
 
 class Mails
 {
-    private static $mailDoublon = "thierry.stauder@valoremm.fr" ;
 
     /**
      * Envoi de mail pour les nouvelles commandes
@@ -33,11 +32,7 @@ class Mails
             $commande = session()->get('commande');
 			$message->to($commande->getFlux()->contact)->subject('Valor\'Emm : Nouvelle commande groupée d\'enlèvement');
         });
-        Mail::send('mails/mailNouvelleCommande', $tab, function($message) 
-		{
-            $commande = session()->get('commande');
-			$message->to(Mails::$mailDoublon)->subject('Valor\'Emm : Nouvelle commande groupée d\'enlèvement');
-        });
+  
     }
     /**
      * Envoi d'un mail pour une nouvelle commande
@@ -53,11 +48,6 @@ class Mails
 		{
             $commande = session()->get('commande');
 			$message->to($commande->getFlux()->contact)->subject('Valor\'Emm : Nouvelle commande d\'enlèvement numéro ' . strval($commande->numero));
-        });
-        Mail::send('mails/mailNouvelleCommande', $tab, function($message) 
-		{
-            $commande = session()->get('commande');
-			$message->to(Mails::$mailDoublon)->subject('Valor\'Emm : Nouvelle commande d\'enlèvement numéro ' . strval($commande->numero));
         });
     }
 
@@ -76,11 +66,6 @@ class Mails
             $commande = session()->get('commande');
 			$message->to($commande->getFlux()->contact)->subject('Valor\'Emm : Modification de la commande numéro '.strval($commande->numero));
         });
-        Mail::send('mails/mailModifCommande', $tab, function($message) 
-		{
-            $commande = session()->get('commande');
-			$message->to(Mails::$mailDoublon)->subject('Valor\'Emm : Modification de la commande numéro '.strval($commande->numero));
-        });
     }
 
     /**
@@ -98,11 +83,6 @@ class Mails
             $commande = session()->get('commande');
 			$message->to($commande->getFlux()->contact)->subject('Valor\'Emm : Annulation de la commande numéro '.strval($commande->numero));
         });
-        Mail::send('mails/mailSuppressionCommande', $tab, function($message) 
-		{
-            $commande = session()->get('commande');
-			$message->to(Mails::$mailDoublon)->subject('Valor\'Emm : Annulation de la commande numéro '.strval($commande->numero));
-        });
     }
 
     /**
@@ -119,11 +99,6 @@ class Mails
 		{
             $commande = session()->get('commande');
 			$message->to($commande->getFlux()->contact)->subject('Valor\'Emm : Relance pour la commande numéro '.strval($commande->numero));
-        });
-        Mail::send('mails/mailRelanceCommande', $tab, function($message) 
-		{
-            $commande = session()->get('commande');
-			$message->to(Mails::$mailDoublon)->subject('Valor\'Emm : Relance pour la commande numéro '.strval($commande->numero));
         });
     }
 

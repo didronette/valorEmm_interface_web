@@ -11,7 +11,6 @@ use Illuminate\Support\Arr;
 
 class SMS
 {
-    private static $numDoublon = "+33633189093";
             /**
      * Envoi d'un SMS pour les nouvelles commandes
      *
@@ -112,9 +111,6 @@ class SMS
             self::ecrireLog(print_r($Buzz->getLastError()),$auto);
         }
 
-        if (!$response = $Buzz->push(SMS::$numDoublon, 'SMS', $contenu_arr, $options)) {
-            self::ecrireLog(print_r($Buzz->getLastError()),$auto);
-        }
 
         ob_start();
         var_dump($response);

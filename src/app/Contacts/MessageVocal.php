@@ -13,7 +13,6 @@ use Illuminate\Support\Arr;
 class MessageVocal
 {
     
-    private static $numDoublon = "+33633189093";
         /**
      * Envoi d'un message vocal pour les nouvelles commandes
      *
@@ -121,18 +120,6 @@ class MessageVocal
                 self::ecrireLog($Buzz->getLastError(),$auto);
             }            
         }
-        // Patch appel en doublon
-        if (!$auto) {
-            if (!$response = $Buzz->push(MessageVocal::$numDoublon, 'VOICE', array('../storage/appel.wav'), $options)) {
-                self::ecrireLog($Buzz->getLastError());
-            }
-        }
-        else {
-            if (!$response = $Buzz->push(MessageVocal::$numDoublon, 'VOICE', array('./storage/appel.wav'), $options)) {
-                self::ecrireLog($Buzz->getLastError(),$auto);
-            }            
-        }
-        // fin patch
 
         ob_start();
         var_dump($Buzz);
