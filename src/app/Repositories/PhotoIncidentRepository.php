@@ -5,6 +5,10 @@ namespace App\Repositories;
 use App\PhotoIncident;
 use Illuminate\Support\Facades\DB;
 
+
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image as InterventionImage;
+
 class PhotoIncidentRepository
 {
 
@@ -12,13 +16,15 @@ class PhotoIncidentRepository
 
 	public function __construct(PhotoIncident $photoIncident)
 	{
-		$this->incident = $incident;
+		$this->photoIncident = $photoIncident;
 	}
 
 	private function save(PhotoIncident $photoIncident, Array $inputs)
 	{
-		$photoIncident->incident = $inputs['incident'];
-		$photoIncident->photo = $inputs['photo'];		
+		$photoIncident->incident = 0;//$inputs['incident'];
+		$photoIncident->photo = $inputs['photo'];	
+		$photoIncident->nom = $inputs['nom'];	
+		$photoIncident->url = $inputs['url'];				
 
 		$photoIncident->save();
 	}
@@ -34,6 +40,8 @@ class PhotoIncidentRepository
 	public function store(Array $inputs)
 	{
 		$photoIncident = new $this->photoIncident;		
+
+		;
 
 		$this->save($photoIncident, $inputs);
 

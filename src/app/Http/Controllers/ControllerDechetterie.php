@@ -52,11 +52,24 @@ class ControllerDechetterie extends Controller
      */
     public function store(RequeteNouvelleDechetterie $request)
     {
+      $inputs = $request->all();
+      session()->put(['inputs' => $inputs]);
+      $flux = Flux::find($inputs['flux']);
+      $dechet = Dechetterie::find($inputs['dechetterie']);
+      $multiplicite = $inputs['multiplicite'];
+      return view('saisie/nouvelleCommande/confirmationCommande')->with('flux', $flux)
+      ->with('dechetterie', $dechet)
+      ->with('multiplicite', $multiplicite);
+
+
         $dechetterie = $this->dechetterieRepository->store($request->all());
     
         return redirect('admin/dechetteries');
         
     }
+
+
+
 
     /**
      * Display the specified resource.

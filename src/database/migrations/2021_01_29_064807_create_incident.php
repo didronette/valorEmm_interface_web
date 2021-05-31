@@ -14,6 +14,7 @@ class CreateIncident extends Migration
     public function up()
     {
         $table->increments('id');
+        $table->string('categorie');
         $table->timestamp('date_heure');
         $table->string('immatriculation_vehicule');
         $table->string('type_vehicule');
@@ -21,6 +22,7 @@ class CreateIncident extends Migration
         $table->string('couleur_vehicule');
         $table->integer('numero_sidem_pass');
         $table->string('description');
+        $table->string('reponse_apportee');
         $table->integer('agent');
         $table->integer('dechetterie');
         $table->timestamps();

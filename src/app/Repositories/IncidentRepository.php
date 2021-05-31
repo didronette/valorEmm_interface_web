@@ -18,13 +18,17 @@ class IncidentRepository
 	private function save(Incident $incident, Array $inputs)
 	{
 		$incident->date_heure = $inputs['date_heure'];
+		$incident->categorie = $inputs['categorie'];
+		$incident->reponse_apportee = $inputs['reponse_apportee'];
+		$incident->numero_sidem_pass = $inputs['numero_sidem_pass'];
 		$incident->immatriculation_vehicule = $inputs['immatriculation_vehicule'];
 		$incident->type_vehicule = $inputs['type_vehicule'];
 		$incident->marque_vehicule = $inputs['marque_vehicule'];
 		$incident->couleur_vehicule = $inputs['couleur_vehicule'];
 		$incident->description = $inputs['description'];
-		$incident->agent = $inputs['agent'];
+		$incident->agent = $inputs['compte'];
 		$incident->dechetterie = $inputs['dechetterie'];
+		
 
 		$incident->save();
 	}

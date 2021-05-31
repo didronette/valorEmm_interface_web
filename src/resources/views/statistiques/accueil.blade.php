@@ -117,7 +117,7 @@
         @yield('caseRapport')
 	{!! Form::close() !!}
         {!! Form::open(['route' => 'generateReport', 'class' => 'form-horizontal panel','name' => 'formRapport','id' => "yellow-borderless",'onsubmit' => 'submitFormRapport(this)']) !!}
-                
+        {{ csrf_field() }} 
             
                 
 
@@ -129,10 +129,36 @@
         
         </div>
     </div>
+
+    
     </div>
 
-    <div  class=" col-sm-5" >
-    {!! link_to_route('ncAgglo', 'Signaler une non-conformité', [], ['class' => 'btn btn-danger pull-left']) !!}
+    <div  class=" col-sm-7" >
+    
+
+    <div class="panel panel-primary col-sm-5" id="yellow" >	
+
+<div class="panel-body" >
+    <div class="col-sm-12" >
+    <h3> Rapport d'incidents</h3>
+{!! Form::close() !!}
+    {!! Form::open(['route' => 'genererRapportIncidents', 'class' => 'form-horizontal panel','name' => 'formRapport','id' => "yellow-borderless",'onsubmit' => 'submitFormRapport(this)']) !!}
+    {{ csrf_field() }}
+ 
+        
+            {!! Form::submit('Génération du rapport des incidents', ['class' => 'btn btn-block btn-success']) !!}
+            {!! Form::close() !!}
+
+
+            
+    </div>
+</div>
+</div>
+
+<div class="col-sm-5" >
+{!! link_to_route('ncAgglo', 'Signaler une non-conformité', [], ['class' => 'btn btn-danger pull-left']) !!}
+</div>
+
     </div>
 </div>
 

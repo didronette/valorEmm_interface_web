@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PhotosIncident extends Model
+class PhotoIncident extends Model
 {
-    protected $table = 'PhotosIncident';
+    protected $table = 'PhotoIncident';
     
     public $timestamps = false;
 

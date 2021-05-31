@@ -20,9 +20,10 @@
 		</div>
 		<table class="table">
 						<tbody>
-							<tr>
+						<tr>
 								<td>{!! link_to_route('commandes.create', 'Passer une commande', [], ['class' => 'btn button-val pull-left']) !!}</td>
 								<td><a href="https://docagents.valoremm.fr" class="btn button-val center">Documentation</a></td>
+								<td>{!! link_to_route('inc.create', 'Nouvel incident', [], ['class' => 'btn button-val pull-right']) !!}</td>
 								<td>{!! link_to_route('listeContacts', 'Liste des contacts', [], ['class' => 'btn button-val pull-right']) !!}</td>
 		 					</tr>
 						</tbody>

@@ -78,3 +78,17 @@ Route::post('be/rep', 'ControllerBuzzExpert@storeReponse'); // Réponses
 Route::get('be/dlr', 'ControllerBuzzExpert@storeDLR'); // Route en théorie inutile mais nécéssaire au paramétrage
 Route::get('be/rep', 'ControllerBuzzExpert@storeReponse'); // Route en théorie inutile mais nécéssaire au paramétrage
 
+
+
+// ############################# test #############################
+
+Route::resource('incidents/inc', 'ControllerIncident')->middleware('commandes'); // Page de gestion des déchetteries
+Route::resource('incidents/photos', 'ControllerPhotoIncident')->middleware('commandes'); // Page de gestion des déchetteries
+Route::post('incident/inc/create/confirmation', 'ControllerIncident@confirmstore')->middleware('commandes')->name('confirmerCreationIncident'); // Envoi du rappel (groupé)
+
+
+Route::post('incidents/raport', 'ControllerStatistiquesIncidents@rapport')->middleware('statistiques')->name('genererRapportIncidents'); // Génération du rapport d'incidents
+
+Route::view('/file-upload', 'incidents.upload_form')->middleware('commandes');
+Route::post('/file-uploadpost', 'ControllerIncident@storebis')->middleware('commandes')->name("upload_img");
+Route::get('/view-uploads', 'ControllerIncident@viewUploads')->middleware('commandes');

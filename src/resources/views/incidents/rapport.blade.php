@@ -25,8 +25,8 @@
             }
 
             footer .pagenum:before {
-                content: counter(page);
-            }
+      content: counter(page);
+}
 
 @page { margin: 100px 25px; }
     footer { position: fixed; bottom: -60px; left: 0px; right: 0px; background-color: lightblue; height: 50px; padding:0 10px;}
@@ -46,9 +46,9 @@
 
             #title {
                 margin-top:0;
-                margin-left:200px;
+                margin-left:50px;
                 font-weight: bold;
-                font-size: 40px;
+                font-size: 60px;
                 }
 
             h1,h3 {
@@ -130,77 +130,58 @@
 
 
 <div  style="background-color: #ffffff; ">
-            
-            <aside id="aside">
-                <div >
-                    <div class="logo_val" style="float:right; position: absolute;">
-                        <img src="images/logoValorEmm.jpg" alt="Logo de Valor'Emm" width="120" height="120" style="padding:10px;">
-                    </div>
-                    <div class="logo_afnor" style=" position: absolute; bottom:0%; right:0">
-                        <img src="images/niv2.png" alt="Niveau deux de certification AFNOR" width="40" height="40">
-                    </div>
-                </div>
-            </aside>
 
             <div style=" position:relative;">
                 <div class="flex-center position-ref" >
-                <h1 id=title>Rapport d'exploitation</h1>
+                <div div style=" margin-top:300px;">
+                    <h1 id=title>Rapport des incidents</h1>
+                    <img src="images/logoValorEmm.jpg" alt="Logo de Valor'Emm" width="300" height="300" style="margin:30px; margin-left:200px;">
+                </div>
                     <div>
                     
-                    <div>
-                        <h3>Flux pris en compte</h3>
-                        @foreach($fluxx as $flux)
-                            {{ \App\Flux::find($flux)->first()->type.' ('.\App\Flux::find($flux)->first()->societe.') ' }};
-                        @endforeach
-                    </div>
-
-                    <div>
-                        <h3>Déchetterie prises en compte</h3>
-                        @foreach($dechetteries as $dechetterie)
-                            {{ \App\Dechetterie::find($dechetterie)->first()->nom }};
-                        @endforeach
-                    </div>
 
 
-                    @if($graphique)
-                    <h1> Statistiques</h1>
-                    <div ><img src="{{$graphe }}" width="600" height="300" style="background-color:white;" /></div>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
-                    </div>
-                    @endif
-
-                    @if($tonnage && $graphique)
-                        <div > <strong>Tonnage estimé : {{$tonnes}} tonnes</strong></div>
-                    @endif
-                    @if((($nc) || ($ncagglo)) && $graphique)
-                        <div > <strong>Commandes avec des non-conformités : {{$pourcentage_nc}} %</strong></div>
-                    @endif
-                    @if ($enlevement && $graphique)
-                        <div > <strong>Commandes enlevées en retard : {{ $pourcentage_enlevement_dans_les_delais }} %</strong></div>
-                    @endif
-
-
-                    @if($logs)
-<p>
 
                     <div >
-                        <h1> Logs</h1>
-                        <ul>
-                        @foreach($enregistrements as $enregistrement)
-                        @if($enregistrement != '') 
-                            <li style="margin-left:60px;margin-right:0;">{{$enregistrement}}</li>
-                        @endif
+                        
+                        @foreach($enregistrements as $incident)
+                        <p>
+
+                            <div style="padding:30px;">
+                                Incident reporté pour la déchetterie de {!! $incident->getDechetterie()->nom !!} par {!! $incident->getAgent()->name !!}. <br>
+                                Incident survenu le {!! $incident->date_heure !!}. <br>
+
+                                Détails :
+                                <ul>
+                                <li>Catégorie de l'incident : {!! $incident->categorie !!}</li>
+                                <li>Description de l'incident : {!! $incident->description !!}</li>
+                                <li>Réponse apportée : {!! $incident->reponse_apportee !!}</li>
+
+                                @if(isset($incident->type_vehicule)) 
+                                <li>Type du véhicule : {!! $incident->type_vehicule !!}</li>
+                                <li>Marque du véhicule : {!! $incident->marque_vehicule !!}</li>
+                                <li>Couleur du véhicule : {!! $incident->couleur_vehicule !!}</li>
+                                <li>Immatriculation du véhicule : {!! $incident->immatriculation !!}</li>
+                                <li>Numéro Sidem Pass : {!! $incident->numero_sidem_pass !!}</li>
+                                @endif
+
+                                </ul>
+                                <!--Photos de l'incident :-->
+                                
+                                <!-- insérer les photos -->
+
+                                
+                            </div>
+                            </p>
                         @endforeach
-                        </ul>
+                        
                     </div>
-                    </p>
-                    @endif
+                    
+               
 
                 </div>
             </div>
 </div>
-
-<div style="text-align : right; font-style: italic;"> <strong>Légende :</strong> Commande: numéro de commande (numéro de groupe).</div>
 
 <footer >
 <div style="position:relative;">

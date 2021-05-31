@@ -190,4 +190,15 @@ class Contacts
         }
     }
 
+    public static function mailIncident(Incident $incident) {
+        
+        $tab = ['incident' => $incident];
+        Mail::send('mails/mailIncident', $tab, function($message) 
+        {
+            $message->to("cafpf@valoremm.fr")->subject('Interface Déchetterie Valor\'Emm : Un nouvel incident vient d\'être créé');
+        });
+        
+    
+    }   
+
 }
