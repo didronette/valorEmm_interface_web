@@ -29,7 +29,7 @@
 		            @endif
 
 					<div class="form-group {!! $errors->has('date_incident') ? 'has-error' : '' !!}">
-                            {!! Form::label('date_incident', 'Date de l\'enlèvement :') !!}
+                            {!! Form::label('date_incident', 'Date de l\'incident :') !!}
                             {!! Form::date('date_incident', date('Y-m-d'), ['class' => 'form-control', 'placeholder' => 'Date de l\'incident']) !!}
                             {!! $errors->first('date_incident', '<small class="help-block">:message</small>') !!}
                         </div>

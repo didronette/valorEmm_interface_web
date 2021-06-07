@@ -12,6 +12,7 @@
     </div>
     <div class="row justify-content-center">
         <form class="m-2" method="post" action="/file-uploadpost" enctype="multipart/form-data">
+        {{ csrf_field() }}
             <div class="form-group">
 {{--                <label for="name">File Name</label>--}}
                 <input type="text" class="form-control" id="name" placeholder="Enter file Name" name="name">
