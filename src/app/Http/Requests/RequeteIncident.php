@@ -26,7 +26,6 @@ class RequeteIncident extends FormRequest
     public function rules()
     {
         return [
-            'numero_sidem_pass' => 'integer',
         ];
     }
 }
