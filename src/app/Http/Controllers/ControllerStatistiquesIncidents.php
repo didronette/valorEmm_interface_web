@@ -19,6 +19,7 @@ class ControllerStatistiquesIncidents extends Controller
     public function getDonneesIncident($date_debut,$date_fin) {
         $date_fin = \Carbon::createFromFormat('Y-m-d', $date_fin)->addDay()->format('Y-m-d');
         $incidents =  Incident::whereBetween('date_heure', [$date_debut, $date_fin])
+            ->orderBy('date_heure', 'ASC')
             ->get();
 
       
@@ -44,8 +45,7 @@ class ControllerStatistiquesIncidents extends Controller
     
 
       $pdf  = PDF::loadView('incidents/rapport', ['enregistrements' => $donnees]);
-        
-
+      
      
       $nom_rapport = 'rapport_incidents_'.\Carbon::now()->format('d-m-Y').'.pdf';
 		return $pdf->download($nom_rapport);

@@ -10,6 +10,8 @@ use App\Repositories\PhotoIncidentRepository;
 
 use App\Dechetterie;
 
+use App\PhotoIncident;
+
 use App\Contacts;
  
 
@@ -145,15 +147,15 @@ public function confirmStore(Confirmation $requestConfirm)
 
     public function storebis(Request $request) 
     {
-        return "I swear I tried";
+        
         if ($request->hasFile('photo')) {
             //  Let's do everything here
             if ($request->file('photo')->isValid()) {
-                //
-                /*$validated = $request->validate([
+                return "good";
+                $validated = $request->validate([
                     'nom' => 'string|max:40',
                     'photo' => 'mimes:jpeg,png|max:1014',
-                ]);*/
+                ]);
                 $extension = $request->image->extension();
                 $request->image->storeAs('/public', $validated['nom'].".".$extension);
                 $url = Storage::url($validated['nom'].".".$extension);
@@ -161,17 +163,17 @@ public function confirmStore(Confirmation $requestConfirm)
                    'nom' => $validated['nom'],
                     'url' => $url,
                 ]);
-                //Session::flash('success', "Success!");
-                //return \Redirect::back();
-                return "I swear I tried";
+                Session::flash('success', "Success!");
+                return \Redirect::back();
             }
         }
-        //abort(500, 'Could not upload image :(');
+        return "There, there";
+        abort(500, 'Could not upload image :(');
     }
 
     public function viewUploads () {
         $images = PhotoIncident::all();
-        return view('view_uploads')->with('images', $images);
+        return view('incidents/view_uploads')->with('images', $images);
     }
 
 
