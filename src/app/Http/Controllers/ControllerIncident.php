@@ -7,25 +7,28 @@ use App\Http\Requests\RequeteIncident;
 use App\Http\Requests\Confirmation;
 use App\Repositories\IncidentRepository;
 use App\Repositories\PhotoIncidentRepository;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 
 use App\Dechetterie;
 
 use App\PhotoIncident;
 
 use App\Contacts;
+
+use App\Incident;
  
+use App\Http\Controllers\ControllerPhotoIncident;
 
 class ControllerIncident extends Controller
 {
     protected $incidentRepository;
-    protected $photoIncidentRepository;
 
     protected $nbrPerPage = 300;
 
-    public function __construct(IncidentRepository $incidentRepository, PhotoIncidentRepository $photoIncidentRepository)
+    public function __construct(IncidentRepository $incidentRepository)
 	{
 		$this->incidentRepository = $incidentRepository;
-        $this->photoIncidentRepository = $photoIncidentRepository;
     }
 
     /**
@@ -45,6 +48,8 @@ class ControllerIncident extends Controller
      */
     public function create()
     {
+        ControllerPhotoIncident::clearUnrelatedPhoto();
+        session()->forget('idPhotoIncidentEnCours');
         $differentes_categories = ['Accident matériel' => 'Accident matériel',
         'Accident personne' => 'Accident personne',
         'Atteinte à l\'environnement' => 'Atteinte à l\'environnement',
@@ -73,7 +78,7 @@ class ControllerIncident extends Controller
         if (!(isset($inputs['dechetterie']))) {
             $inputs['dechetterie'] = session()->get('dechetterie');
         }
-        
+
         // Assigner toutes les trucs à afficher pour la confirmation
         return view('incidents/confirmation')->with('data', $inputs);//->with('flux', $flux)
         //->with('dechetterie', $dechet)
@@ -84,21 +89,27 @@ class ControllerIncident extends Controller
 
 
 
-/**
- * Store a newly created resource in storage.
- *
- * @param  \Illuminate\Http\Request  $request
- * @return \Illuminate\Http\Response
- */
-public function confirmStore(Confirmation $requestConfirm)
-{
-    $inputs = session()->get('inputs');
-    $inputs['compte'] = $requestConfirm->all()['compte'];    
-    $incident = $this->incidentRepository->store($inputs);
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function confirmStore(Confirmation $requestConfirm)
+    {
+        $inputs = session()->get('inputs');
+        $inputs['compte'] = $requestConfirm->all()['compte'];    
+        $incident = $this->incidentRepository->store($inputs);
+        ControllerPhotoIncident::updateIdIncident($incident->id);
+        ControllerPhotoIncident::clearUnrelatedPhoto();
+        Contacts::mailIncident($incident);
+        return redirect('saisie/commandes')->withOk('L\'incident a bien été enregistré.');
+    }
 
-    Contacts::mailIncident($incident);
-    return redirect('saisie/commandes')->withOk('La commande a bien été passée.');
-}
+
+
+
+    
     /**
      * Display the specified resource.
      *
@@ -144,32 +155,6 @@ public function confirmStore(Confirmation $requestConfirm)
         //
     }
 
-
-    public function storebis(Request $request) 
-    {
-        
-        if ($request->hasFile('photo')) {
-            //  Let's do everything here
-            if ($request->file('photo')->isValid()) {
-                return "good";
-                $validated = $request->validate([
-                    'nom' => 'string|max:40',
-                    'photo' => 'mimes:jpeg,png|max:1014',
-                ]);
-                $extension = $request->image->extension();
-                $request->image->storeAs('/public', $validated['nom'].".".$extension);
-                $url = Storage::url($validated['nom'].".".$extension);
-                $file = PhotoIncident::create([
-                   'nom' => $validated['nom'],
-                    'url' => $url,
-                ]);
-                Session::flash('success', "Success!");
-                return \Redirect::back();
-            }
-        }
-        return "There, there";
-        abort(500, 'Could not upload image :(');
-    }
 
     public function viewUploads () {
         $images = PhotoIncident::all();

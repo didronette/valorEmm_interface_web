@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\PhotoIncident;
 
 class Incident extends Model
 {
@@ -10,7 +11,7 @@ class Incident extends Model
 
     public function getPhotos() 
 	{	
-		return PhotosIncident::where('incident','=', $id)->get();
+		return PhotoIncident::where('incident','=', $this->id)->get();
     }
 
            /**

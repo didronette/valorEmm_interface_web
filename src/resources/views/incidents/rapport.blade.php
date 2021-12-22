@@ -167,9 +167,13 @@
                                 
 
                                 </ul>
-                                <!--Photos de l'incident :-->
-                                
-                                <!-- insérer les photos -->
+                                <div>Photos de l'incident :</div>
+                                @foreach($incident->getPhotos() as $photo)
+                                <div style="margin-top:20px;margin-left:30px;">
+                                    <div><img src="{!! substr($photo->url, 1) !!}" alt="{!! $photo->nom !!}" height="350" ></div>
+                                    <div>{!! $photo->nom !!}</div>
+                                </div>
+                                @endforeach
 
                                 
                             </div>

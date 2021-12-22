@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RequeteStats;
 use App\Http\Requests\RequeteRapport;
+use Illuminate\Http\Request;
 
 use App\Dechetterie;
 use App\Incident;
@@ -26,7 +27,6 @@ class ControllerStatistiquesIncidents extends Controller
             
         return Incident::hydrate($incidents->toArray());
     }
-
  
     public function rapport(RequeteRapport $requete) // Fonction pour l'affichage de l'accueil
 	  {
@@ -94,4 +94,57 @@ class ControllerStatistiquesIncidents extends Controller
       return $retour;
     }
 
+    public function exportCsv(Request $requete)
+    {
+      $inputs = $requete->all();
+      $donnees = self::getDonneesIncident($inputs['date_debut'],$inputs['date_fin']);
+       $fileName = 'incidents_'.$inputs['date_debut'].'_'.$inputs['date_fin'].'.csv';
+       
+    
+            $headers = array(
+                "Content-type"        => "text/csv",
+                "Content-Disposition" => "attachment; filename=$fileName",
+                "Pragma"              => "no-cache",
+                "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+                "Expires"             => "0"
+            );
+    
+            $columns = array('Numéro d\'incident', 'Catégorie', 'Agent', 'Déchetterie', 'Date et heure','Numéro SIDEM PASS','Immatriculation du véhicule','Type du véhicule','Marque du véhicule','Couleur du véhicule','Description','Réponse apportée','Photos associées');
+    
+            $callback = function() use($donnees, $columns) {
+                $file = fopen('php://output', 'w');
+                fputcsv($file, $columns);
+    
+                foreach ($donnees as $incident) {
+                    $row['Numéro d\'incident']  =  $incident->id;
+                    $row['Catégorie']  =  $incident->categorie;
+                    $row['Agent']  =  $incident->getAgent()->name;
+                    $row['Déchetterie']  =  $incident->getDechetterie()->nom;
+                    $row['Date et heure']  =  $incident->date_heure;
+                    $row['Numéro SIDEM PASS']  =  $incident->numero_sidem_pass;
+                    $row['Immatriculation du véhicule']  =  $incident->immatriculation_vehicule;
+                    $row['Type du véhicule']  =  $incident->type_vehicule;
+                    $row['Marque du véhicule']  =  $incident->marque_vehicule;
+                    $row['Couleur du véhicule']  =  $incident->couleur_vehicule;
+                    $row['Description']  =  $incident->description;
+                    $row['Réponse apportée']  =  $incident->reponse_apportee;
+                    
+                    $photos = $incident->getPhotos();
+                    $liste_photos = '|';
+                    foreach ($photos as $photo) {
+                      $liste_photos = $liste_photos.$photo->url.'|';
+                    }
+                    
+                    $row['Photos associées']  =  $liste_photos;
+                    
+
+                    fputcsv($file, array($row['Numéro d\'incident'], $row['Catégorie'], $row['Agent'], $row['Déchetterie'], $row['Date et heure'], $row['Numéro SIDEM PASS'], $row['Immatriculation du véhicule'], $row['Type du véhicule'], $row['Marque du véhicule'], $row['Couleur du véhicule'], $row['Description'], $row['Réponse apportée'], $row['Photos associées']));
+                }
+    
+                fclose($file);
+            };
+    
+            return response()->stream($callback, 200, $headers);
+    }
+    
 }

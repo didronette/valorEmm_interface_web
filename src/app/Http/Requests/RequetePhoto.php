@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RequeteIncident extends FormRequest
+class RequetePhoto extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,8 +13,9 @@ class RequeteIncident extends FormRequest
      */
     public function authorize()
     {
-        $this->request->add(['date_heure' =>   $this->all()['date_incident'] . " " . $this->all()['heure_incident'] ]);
-
+        if (!(isset(($this->request->all()['name'])))) {
+            $this->request->add(['name' => time()]);
+        }
         return true;
     }
 
@@ -26,9 +27,8 @@ class RequeteIncident extends FormRequest
     public function rules()
     {
         return [
-            'categorie' => 'required|string',
-            'dechetterie' => 'required', 
-            'description' => 'required', 
+            'name' => 'alpha_num|nullable|max:150',
+            'photo' => 'required|file|mimes:jpeg,png',     
         ];
     }
 }

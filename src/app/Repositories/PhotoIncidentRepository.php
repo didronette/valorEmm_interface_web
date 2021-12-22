@@ -20,9 +20,7 @@ class PhotoIncidentRepository
 	}
 
 	private function save(PhotoIncident $photoIncident, Array $inputs)
-	{
-		$photoIncident->incident = 0;//$inputs['incident'];
-		$photoIncident->photo = $inputs['photo'];	
+	{		
 		$photoIncident->nom = $inputs['nom'];	
 		$photoIncident->url = $inputs['url'];				
 

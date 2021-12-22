@@ -80,15 +80,17 @@ Route::get('be/rep', 'ControllerBuzzExpert@storeReponse'); // Route en théorie 
 
 
 
-// ############################# test #############################
+// ############################# Incidents #############################
 
-Route::resource('incidents/inc', 'ControllerIncident')->middleware('commandes'); // Page de gestion des déchetteries
-Route::resource('incidents/photos', 'ControllerPhotoIncident')->middleware('commandes'); // Page de gestion des déchetteries
+Route::resource('incidents/inc', 'ControllerIncident')->middleware('commandes'); // Page de gestion des incidents (individuelles)
 Route::post('incident/inc/create/confirmation', 'ControllerIncident@confirmstore')->middleware('commandes')->name('confirmerCreationIncident'); // Envoi du rappel (groupé)
+
+Route::view('incident/nouvelle_photo', 'incidents.nouvelle_photo')->middleware('commandes')->name('nouvellePhoto');
+Route::post('/incident/confirmation', 'ControllerPhotoIncident@storePhoto')->middleware('commandes')->name("confirmationPhoto");
 
 
 Route::post('incidents/raport', 'ControllerStatistiquesIncidents@rapport')->middleware('statistiques')->name('genererRapportIncidents'); // Génération du rapport d'incidents
+Route::post('incidents/raport_csv', 'ControllerStatistiquesIncidents@exportCsv')->middleware('statistiques')->name('genererRapportIncidentsCsv'); // Génération du rapport d'incidents
 
-Route::view('/file-upload', 'incidents.upload_form')->middleware('commandes');
-Route::post('/file-uploadpost', 'ControllerIncident@storebis')->middleware('commandes')->name("upload_img");
+
 Route::get('/view-uploads', 'ControllerIncident@viewUploads')->middleware('commandes');

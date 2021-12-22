@@ -29,6 +29,16 @@
 	@endif
       
     </ul>
+    @if(isset($data['noms_photos'])) 
+        Photo(s) uplodée(s) :
+        <ul>
+            @foreach ($data['noms_photos'] as $nom_photo)
+                <li>{!! $nom_photo['nom'] !!}</li>
+            @endforeach
+        </ul>
+	@endif
+
+    {!! link_to_route('nouvellePhoto', 'Ajouter une photo', [], ['class' => 'btn btn-block  button-val']) !!}
 
                     {!! Form::open(['route' => 'confirmerCreationIncident']) !!}
 
@@ -43,7 +53,9 @@
                    
 		            @endif
 
-                    {!! Form::submit('Confirmer', ['class' => 'btn btn-block btn-success']) !!}
+                    
+
+                    {!! Form::submit('Confirmer', ['class' => 'btn btn-block btn-success','style' => 'margin-top: 30px;']) !!}
 
 
 					{!! Form::close() !!}
